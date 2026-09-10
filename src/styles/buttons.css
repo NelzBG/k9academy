@@ -1,0 +1,24 @@
+/* One tactile button system for both new and existing PHP pages. */
+.k9-button,.button{display:inline-flex;align-items:center;justify-content:center;gap:.75rem;max-width:100%;min-height:3.2rem;border:1px solid transparent;border-radius:.65rem;padding:.8rem 1.15rem;font-family:var(--font-sans);font-size:.78rem;font-weight:800;line-height:1.35;letter-spacing:0;text-transform:none;text-align:center;white-space:normal;overflow-wrap:normal;text-decoration:none;touch-action:manipulation;transition:background var(--k9-speed),border-color var(--k9-speed),transform var(--k9-speed);box-shadow:none}
+.k9-button-acid,.button-acid{background:var(--acid);color:#10120b;border-color:var(--acid)}
+.k9-button-outline,.button-ghost{border-color:var(--line);background:transparent;color:var(--ink)}
+.k9-button .k9-icon,.button .k9-icon{width:1.4rem;height:1.4rem;object-fit:contain;flex:none}
+.k9-button-acid .k9-icon,.button-acid .k9-icon{filter:brightness(0)}
+.k9-button-outline .k9-icon,.button-ghost .k9-icon,.text-link .k9-icon{filter:brightness(0)}
+[data-theme="dark"] .k9-button-outline .k9-icon,[data-theme="dark"] .button-ghost .k9-icon,.text-link-light .k9-icon{filter:none}
+.k9-icon-button{display:inline-flex;align-items:center;justify-content:center;flex:none;width:3rem;height:3rem;min-width:3rem;min-height:3rem;padding:.65rem;border:1px solid #34372b;border-radius:.65rem;background:#171914;color:#f4f2e9;touch-action:manipulation;transition:background var(--k9-speed),transform var(--k9-speed)}
+.k9-icon-button .k9-icon{display:block;width:1.5rem;height:1.5rem;object-fit:contain}
+.k9-icon-button:disabled{opacity:.32;cursor:default}
+.k9-button:disabled,.button:disabled{opacity:.5;cursor:not-allowed}
+.k9-icon{object-fit:contain;display:inline-block;vertical-align:middle}
+.text-link .k9-icon{width:1.4rem;height:1.4rem}
+@media(hover:hover) and (pointer:fine){
+ .k9-button:hover,.button:hover{transform:translateY(-2px)}
+ .k9-button-acid:hover,.button-acid:hover{background:#e5ff58}
+ .k9-button-outline:hover,.button-ghost:hover{border-color:currentColor;background:color-mix(in srgb,var(--ink) 5%,transparent)}
+ .k9-icon-button:not(:disabled):hover{background:#30352a;transform:translateY(-1px)}
+}
+.k9-button:active,.button:active,.k9-icon-button:not(:disabled):active{transform:scale(.97)}
+@media(prefers-reduced-motion:reduce){.k9-button,.button,.k9-icon-button{transition:none;transform:none!important}}
+
+.k9-mobile-navigation .k9-mobile-menu-inner>.k9-button{display:flex;grid-template-columns:none;font-family:var(--font-sans);font-size:.82rem;line-height:1.4;font-weight:800;text-transform:none;letter-spacing:0;justify-content:center;padding:.8rem 1.15rem;min-height:3.2rem;border:1px solid var(--acid);border-radius:.65rem}

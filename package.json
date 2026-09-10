@@ -1,0 +1,15 @@
+{
+  "name": "k9academy",
+  "private": true,
+  "version": "3.0.0",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "preview:build": "node tools/build.mjs --preview",
+    "check": "node tools/check.mjs",
+    "build:css": "tailwindcss -i ./src/styles/interface.css -o ./assets/css/interface-20260906-glass.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/cli": "4.3.3"
+  }
+}

@@ -1,0 +1,10 @@
+# Existing main/root Pages source. HTML is rendered locally before publication.
+exclude:
+  - src
+  - tools
+  - tests
+  - README.md
+  - package.json
+  - pnpm-lock.yaml
+include:
+  - assets/js/vendor

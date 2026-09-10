@@ -1,0 +1,34 @@
+name: Validate static site
+on:
+  pull_request:
+  push:
+    branches: [main, "migration/**"]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Check runtime and PHP syntax
+        run: |
+          php --version
+          node --version
+          find src tools/backend -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Render and validate both languages
+        run: |
+          node tools/build.mjs --preview
+          node tools/check.mjs
+          node tools/check-enquiry.mjs
+      - name: Build with the existing Pages pipeline
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Check the final Pages output
+        run: |
+          K9_OUTPUT=_site node tools/check.mjs
+          test -f _site/assets/js/vendor/three/build/three.module.min.js
+          test -f _site/assets/model/german-shepherd-polished-20260906.glb
+          test ! -e _site/src/site.php
+          test ! -e _site/tools/backend/enquiry.php
