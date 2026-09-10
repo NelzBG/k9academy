@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.webp binary
+*.png binary
+*.jpg binary
+*.glb binary
+*.webm binary
+*.ttf binary
+*.woff2 binary
+assets/fonts/**/*.txt -text -whitespace

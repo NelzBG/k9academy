@@ -1,0 +1,10 @@
+{
+  "index.php": "",
+  "aboutus.php": "about/",
+  "services.php": "services/",
+  "webshop.php": "shop/",
+  "training.php": "training/",
+  "contact.php": "contact/",
+  "privacy.php": "privacy/",
+  "terms.php": "terms/"
+}
