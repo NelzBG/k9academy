@@ -20,6 +20,17 @@ $sections = $lang === 'bg' ? [
     ['Hosting and external services', 'GitHub Pages hosts this website. Hosting and contact-service providers may process technical data to serve requests and prevent abuse. This site does not load advertising or analytics scripts.'],
     ['External links', 'When you open Facebook, WhatsApp, Viber, K9 Shop or the 3D model page, the respective service policies apply.']
 ];
+if (($production['contactMode'] ?? 'online') === 'direct') {
+    $sections[1] = $lang === 'bg'
+        ? ['Контакт', 'Онлайн формата не е активна и сайтът не събира данни чрез нея. Можете да се свържете с K9 Academy по телефон или чрез Facebook.']
+        : ['Contact', 'The online form is inactive and this website does not collect information through it. You can contact K9 Academy by phone or through Facebook.'];
+    $sections[2] = $lang === 'bg'
+        ? ['Обработка на запитвания', 'Информацията, която споделяте директно с нас, се използва за отговор на запитването. За корекция или изтриване се свържете с K9 Academy. За съобщения във Facebook се прилага и политиката на Facebook.']
+        : ['Handling enquiries', 'Information you share directly with us is used to respond to your enquiry. Contact K9 Academy to request correction or deletion. Facebook messages are also subject to Facebook’s privacy policy.'];
+    $sections[4] = $lang === 'bg'
+        ? ['Хостинг', 'GitHub Pages хоства този сайт и може да обработва технически данни за обслужване на заявките. Сайтът не зарежда рекламни или аналитични скриптове.']
+        : ['Hosting', 'GitHub Pages hosts this website and may process technical data to serve requests. This site does not load advertising or analytics scripts.'];
+}
 $title = $lang === 'bg' ? 'Поверителност' : 'Privacy';
 $intro = $lang === 'bg' ? 'Как обработваме запитванията и предпочитанията ви в сайта.' : 'How we handle your enquiries and website preferences.';
 ?>

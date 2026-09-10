@@ -10,10 +10,13 @@ const preview = process.argv.includes('--preview');
 const output = resolve(root, process.env.K9_OUTPUT || '.');
 const php = process.env.PHP_BINARY || (process.platform === 'win32' ? 'C:/xampp/php/php.exe' : 'php');
 if (!preview) {
+  if (!['direct', 'online'].includes(config.contactMode)) throw new Error('Choose contact mode.');
+  if (config.contactMode === 'online') {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(config.email)) throw new Error('Production enquiry email is required.');
   if (!/^https:\/\//.test(config.enquiryEndpoint)) throw new Error('A tested HTTPS enquiry endpoint is required.');
+  }
   for (const channel of ['whatsapp', 'viber']) {
-    if (!/^\+?[1-9]\d{7,14}$/.test(config[channel])) throw new Error('Confirm the ' + channel + ' number before release.');
+    if (config[channel] && !/^\+?[1-9]\d{7,14}$/.test(config[channel])) throw new Error('Confirm the ' + channel + ' number before release.');
   }
 }
 const write = async (path, content) => {

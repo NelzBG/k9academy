@@ -17,8 +17,8 @@ jobs:
           find src tools/backend -name '*.php' -print0 | xargs -0 -n1 php -l
       - name: Render and validate both languages
         run: |
-          node tools/build.mjs --preview
-          node tools/check.mjs
+          node tools/build.mjs
+          node tools/check.mjs --production
           node tools/check-enquiry.mjs
       - name: Build with the existing Pages pipeline
         uses: actions/jekyll-build-pages@v1
@@ -27,7 +27,7 @@ jobs:
           destination: ./_site
       - name: Check the final Pages output
         run: |
-          K9_OUTPUT=_site node tools/check.mjs
+          K9_OUTPUT=_site node tools/check.mjs --production
           test -f _site/assets/js/vendor/three/build/three.module.min.js
           test -f _site/assets/model/german-shepherd-polished-20260906.glb
           test ! -e _site/src/site.php

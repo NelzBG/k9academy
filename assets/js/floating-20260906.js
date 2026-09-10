@@ -13,8 +13,8 @@
     };
 
     const pendingMessage = document.documentElement.lang === 'bg'
-        ? 'Този канал ще бъде активиран, когато бъде добавен номер.'
-        : 'This channel will be activated when a number is added.';
+        ? 'Този канал не е наличен. Обадете се на +359 892 360 550 или използвайте Facebook.'
+        : 'This channel is unavailable. Call +359 892 360 550 or use Facebook.';
 
     const openChannel = (button) => {
         const url = button.dataset.channelUrl;

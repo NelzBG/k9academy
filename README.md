@@ -19,9 +19,9 @@ The existing compiled styles are included. They are not rebuilt during the HTML 
 
 ## Production contacts
 
-Fill src/production.json with the confirmed recipient address, tested HTTPS enquiry endpoint and confirmed international WhatsApp/Viber numbers. Public configuration contains no credentials.
+The release uses contactMode: direct in src/production.json. Phone and Facebook are active. Online enquiries and unconfirmed WhatsApp/Viber channels are unavailable. To enable online mode, configure the confirmed recipient and tested HTTPS endpoint and verify mailbox delivery. Public configuration contains no credentials.
 
-tools/backend/enquiry.php is an independent PHP relay for the existing NextGen host. It must not be deployed to GitHub Pages. Its recipient and sender configuration belongs outside public_html in /home/customer/k9academy-private/enquiry-config.php, or at the private path configured by K9_ENQUIRY_CONFIG. Use tools/backend/enquiry-config.example.php as a template and restrict it to 0600. The relay accepts requests only from https://www.k9academy.bg, validates the fields, includes a honeypot and limits requests by address. No enquiry bodies are stored on disk. Verify real mailbox delivery before launch.
+tools/backend/enquiry.php is an independent PHP relay for the existing NextGen host. It must not be deployed to GitHub Pages. Its recipient and sender configuration belongs outside public_html in /home/customer/k9academy-private/enquiry-config.php, or at the private path configured by K9_ENQUIRY_CONFIG. Use tools/backend/enquiry-config.example.php as a template and restrict it to 0600. The relay accepts requests only from https://www.k9academy.bg, validates the fields, includes a honeypot and limits requests by address. No enquiry bodies are stored on disk. Verify real mailbox delivery before enabling online mode.
 
 The production build refuses incomplete contact configuration:
 
@@ -38,7 +38,7 @@ Migration branch: migration/static-pages-20260910.
 Rollback branch: rollback/pre-migration-20260910.
 Original production commit: 6709fbb81b869e5e0b53b65f0a8a9576aacf0b06.
 
-Merge only the completed, tested production build. A push to main triggers the existing Pages publication. After deployment, check both languages, video/model loading, navigation and real form delivery on the public domain.
+Merge only the completed, tested production build. A push to main triggers the existing Pages publication. After deployment, check both languages, video/model loading, navigation and active contact options on the public domain.
 
 To roll back, revert the migration merge commit on main and push the revert. Do not force-push main. The rollback branch preserves the complete original tree.
 
