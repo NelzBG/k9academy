@@ -25,6 +25,11 @@ for(const lang of ['bg','en']) for(const [source,slug] of Object.entries(routes)
   const route='/'+(lang==='en'?'en/':'')+slug;
   const path=join(root,route.slice(1),'index.html');
   const html=await readFile(path,'utf8');
+  for (const match of html.matchAll(/<meta property="og:image" content="([^"]+)"/g)) {
+    const image = new URL(match[1]);
+    check(image.origin === config.origin, route+': wrong social image origin');
+    await exactFile(image.pathname);
+  }
   check(html.includes('<html lang="'+lang+'"'),route+': wrong language');
   check((html.match(/<h1(?:\s|>)/g)||[]).length===1,route+': expected one h1');
   check(html.includes('rel="canonical" href="'+config.origin+route+'"'),route+': wrong canonical');

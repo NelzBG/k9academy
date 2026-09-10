@@ -22,7 +22,7 @@ require_once __DIR__ . '/ui.php';
     <meta property="og:description" content="<?= k9e($pageDescription) ?>">
     <meta property="og:site_name" content="K9 Academy">
     <meta property="og:url" content="<?= k9e($production['origin'] . k9_url($currentFile)) ?>">
-    <meta property="og:image" content="<?= k9e($production['origin']) ?>/assets/images/k9-terrain-bg.png">
+    <meta property="og:image" content="<?= k9e($production['origin']) ?>/assets/video/k9-hero-poster-20260905.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:locale" content="<?= $lang === 'bg' ? 'bg_BG' : 'en_GB' ?>">
     <title><?= k9e($pageTitle) ?></title>
