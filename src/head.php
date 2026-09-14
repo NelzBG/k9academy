@@ -38,6 +38,7 @@ require_once __DIR__ . '/ui.php';
     <link rel="preload" href="assets/css/site.css?v=<?= k9e($assetVersion) ?>" as="style">
     <link rel="stylesheet" href="assets/css/site.css?v=<?= k9e($assetVersion) ?>">
     <link rel="stylesheet" href="assets/css/interface-20260906-glass.css">
+    <link rel="stylesheet" href="assets/css/training-library-20260914.css">
     <link rel="icon" type="image/webp" href="assets/images/brand-20260905/logo.webp">
     <script type="importmap">
     {

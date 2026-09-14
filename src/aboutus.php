@@ -57,7 +57,7 @@ $values = $lang === 'bg' ? [
                 <h1><?= $copy['title'] ?></h1>
                 <p><?= k9e($copy['lead']) ?></p>
             </div>
-            <div class="page-hero-media reveal is-visible"><img src="assets/images/training-field.webp" srcset="<?= k9e(k9_image_srcset('training-field.webp')) ?>" sizes="(min-width: 56rem) 42vw, calc(100vw - 2rem)" width="1600" height="1068" alt="<?= k9e($copy['image_alt']) ?>" fetchpriority="high" decoding="async"><span>ABOUT / 01</span></div>
+            <div class="page-hero-media reveal is-visible"><?= k9_training_image(16, $lang === 'bg' ? 'Куче и водач по време на обща тренировка' : 'Dog and handler during a group training session', '', true) ?><span>ABOUT / 01</span></div>
         </div>
     </section>
 
@@ -86,6 +86,7 @@ $values = $lang === 'bg' ? [
         </div>
     </section>
 
-    <section class="statement-band"><div class="site-container reveal"><span aria-hidden="true">“</span><p><?= k9e($copy['closing']) ?></p></div></section>
+    <section class="statement-band k9-field-background"><?= k9_training_image(1, '', 'k9-field-backdrop') ?><div class="site-container reveal"><span aria-hidden="true">“</span><p><?= k9e($copy['closing']) ?></p></div></section>
+    <?php $galleryKey='about'; require __DIR__ . '/training-gallery.php'; ?>
 </main>
 <?php require __DIR__ . '/footer.php'; ?>

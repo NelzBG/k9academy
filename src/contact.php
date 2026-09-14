@@ -29,7 +29,7 @@ $copy = $lang === 'bg' ? [
     <section class="contact-hero">
         <div class="site-container contact-hero-grid">
             <div class="contact-page-copy reveal is-visible"><p class="eyebrow eyebrow-acid"><?= k9e($copy['kicker']) ?></p><h1><?= $copy['title'] ?></h1><p><?= k9e($copy['lead']) ?></p></div>
-            <div class="contact-photo reveal is-visible"><img src="assets/images/training-field.webp" srcset="<?= k9e(k9_image_srcset('training-field.webp')) ?>" sizes="(min-width: 56rem) 42vw, calc(100vw - 2rem)" width="1600" height="1068" alt="<?= $lang === 'bg' ? 'Треньор и куче по време на K9 полева работа' : 'Trainer and dog during K9 fieldwork' ?>" fetchpriority="high" decoding="async"></div>
+            <div class="contact-photo reveal is-visible"><?= k9_training_image(7, $lang === 'bg' ? 'Водач с черен лабрадор на терена' : 'Handler with a black Labrador on the field', '', true) ?></div>
         </div>
     </section>
 
@@ -41,5 +41,6 @@ $copy = $lang === 'bg' ? [
         </div>
         <div class="site-container location-note reveal"><span aria-hidden="true">◎</span><p><?= k9e($copy['no_address']) ?></p></div>
     </section>
+    <?php $galleryKey='contact'; require __DIR__ . '/training-gallery.php'; ?>
 </main>
 <?php require __DIR__ . '/footer.php'; ?>

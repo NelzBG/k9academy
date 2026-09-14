@@ -59,7 +59,7 @@ $extra = $lang === 'bg' ? [
         <div class="page-hero-bg" aria-hidden="true"></div>
         <div class="site-container page-hero-grid">
             <div class="page-hero-copy reveal is-visible"><p class="eyebrow eyebrow-acid"><?= k9e($copy['kicker']) ?></p><h1><?= $copy['title'] ?></h1><p><?= k9e($copy['lead']) ?></p></div>
-            <div class="page-hero-media reveal is-visible"><img src="assets/images/training-focus.webp" srcset="<?= k9e(k9_image_srcset('training-focus.webp')) ?>" sizes="(min-width: 56rem) 42vw, calc(100vw - 2rem)" width="1600" height="1068" alt="<?= $lang === 'bg' ? 'Куче демонстрира фокус по време на K9 тренировка' : 'Dog demonstrating focus during a K9 training session' ?>" fetchpriority="high" decoding="async"><span>SERVICES / 02</span></div>
+            <div class="page-hero-media reveal is-visible"><?= k9_training_image(13, $lang === 'bg' ? 'Куче гледа внимателно към водача си' : 'Dog looking attentively at its handler', '', true) ?><span>SERVICES / 02</span></div>
         </div>
     </section>
 
@@ -83,6 +83,7 @@ $extra = $lang === 'bg' ? [
         </div>
     </section>
 
-    <section class="inline-cta"><div class="site-container inline-cta-grid reveal"><div><p class="eyebrow eyebrow-dark">K9 / Start</p><h2><?= k9e($copy['cta_title']) ?></h2><p><?= k9e($copy['cta_copy']) ?></p></div><a class="button button-ink" href="<?= k9e(k9_url('contact.php')) ?>"><?= k9e($copy['cta_button']) ?><span aria-hidden="true"><?= k9_icon('arrow','k9-icon-up') ?></span></a></div></section>
+    <section class="inline-cta k9-field-background"><?= k9_training_image(25, '', 'k9-field-backdrop') ?><div class="site-container inline-cta-grid reveal"><div><p class="eyebrow eyebrow-dark">K9 / Start</p><h2><?= k9e($copy['cta_title']) ?></h2><p><?= k9e($copy['cta_copy']) ?></p></div><a class="button button-ink" href="<?= k9e(k9_url('contact.php')) ?>"><?= k9e($copy['cta_button']) ?><span aria-hidden="true"><?= k9_icon('arrow','k9-icon-up') ?></span></a></div></section>
+    <?php $galleryKey='services'; require __DIR__ . '/training-gallery.php'; ?>
 </main>
 <?php require __DIR__ . '/footer.php'; ?>

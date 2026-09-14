@@ -9,3 +9,7 @@
 - Tailwind CSS 4.3.3: MIT license. The approved compiled styles are preserved.
 - Existing WhatsApp, Viber and Facebook glyphs: simple-icons 16.28.0, CC0-1.0. Respective trademarks belong to their owners.
 - Existing Bulgarian and UK flag artwork: flag-icons 7.5.0, MIT license.
+
+## Real training library — September 2026
+
+Twenty photographs selected from the Lubo-Dogs training album supplied by the site owner for this release. Original photographic content remains the property of its respective rights holders; no third-party stock or generated replacement photography was used. Responsive derivatives omit camera metadata.
