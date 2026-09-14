@@ -150,6 +150,11 @@
             if (!button) return;
             item.dataset.dragged = 'false';
 
+            // Links/images must not start native HTML dragging or cancel touch gestures.
+            button.draggable = false;
+            button.style.touchAction = 'none';
+            item.addEventListener('dragstart', (event) => event.preventDefault());
+
             button.addEventListener('click', (event) => {
                 if (item.dataset.dragged === 'true') {
                     event.preventDefault();
@@ -184,6 +189,7 @@
             if (!('PointerEvent' in window)) return;
             item.addEventListener('pointerdown', (event) => {
                 if (event.button !== 0 || activeDrag) return;
+                button.setPointerCapture(event.pointerId);
                 item.classList.add('is-dragging');
                 const box = item.getBoundingClientRect();
                 activeDrag = {
@@ -223,6 +229,8 @@
         const finishFloatingDrag = (event) => {
             if (!activeDrag || event.pointerId !== activeDrag.pointerId) return;
             const { item, moved, armed } = activeDrag;
+            const button = getButton(item);
+            if (button?.hasPointerCapture(event.pointerId)) button.releasePointerCapture(event.pointerId);
             const releaseBox = item.getBoundingClientRect();
             item.classList.remove('is-dragging');
             setRemoveTarget(false);
