@@ -158,7 +158,7 @@
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
 <script src="assets/js/site-20260905.js" defer></script>
-<script src="assets/js/floating-20260906.js" defer></script>
+<script src="assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
 <script src="assets/js/interface-20260906-glass.js" defer></script>
 <?php if (!empty($hasBreedCarousel)): ?><script src="assets/js/breed-carousel-20260906.js" defer></script><?php endif; ?>
 <?php if (!empty($hasDogViewer)): ?><script type="module" src="assets/js/dog-viewer-20260906.js"></script><?php endif; ?>
