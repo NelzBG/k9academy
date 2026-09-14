@@ -12,8 +12,9 @@
             <h2 id="quick-contact-title"><?= k9e(k9t('quick_contact_title')) ?></h2>
             <p><?= k9e(k9t('quick_contact_copy')) ?></p>
             <div class="contact-direct">
+                <a href="mailto:mail.k9shop@gmail.com"><small><?= $lang === 'bg' ? 'Имейл' : 'Email' ?></small><strong>mail.k9shop@gmail.com</strong></a>
                 <a href="tel:+359892360550"><small><?= k9e(k9t('phone_label')) ?></small><strong>+359 892 360 550</strong></a>
-                <a href="https://www.facebook.com/k9academybg/" target="_blank" rel="noopener"><small>Facebook</small><strong>K9AcademyBG <?= k9_icon('arrow','k9-icon-up') ?></strong></a>
+                <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener"><small>Messenger</small><strong><?= $lang === 'bg' ? 'Пишете ни' : 'Message us' ?> <?= k9_icon('arrow','k9-icon-up') ?></strong></a>
             </div>
         </div>
         <?php if (($production['contactMode'] ?? 'online') === 'direct'): ?>
@@ -23,7 +24,7 @@
             <p><?= $lang === 'bg' ? 'Обадете ни се или изпратете съобщение във Facebook, за да обсъдим подходящото обучение.' : 'Call us or send a Facebook message to discuss the right training.' ?></p>
             <div class="form-submit-row">
                 <a class="button button-acid" href="tel:+359892360550"><?= $lang === 'bg' ? 'Обадете се' : 'Call K9 Academy' ?> <?= k9_icon('arrow','k9-icon-up') ?></a>
-                <a class="button button-ink" href="https://www.facebook.com/k9academybg/" target="_blank" rel="noopener">Facebook <?= k9_icon('arrow','k9-icon-up') ?></a>
+                <a class="button button-ink" href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener"><?= $lang === 'bg' ? 'Пишете в Messenger' : 'Message on Messenger' ?> <?= k9_icon('arrow','k9-icon-up') ?></a>
             </div>
             <p class="form-note"><?= $lang === 'bg' ? 'Изпращането чрез онлайн форма в момента не е налично.' : 'Online form delivery is currently unavailable.' ?></p>
         </div>
@@ -36,7 +37,7 @@
                 <label><span><?= k9e(k9t('form_phone')) ?></span><input type="tel" name="phone" autocomplete="tel" maxlength="40" required></label>
             </div>
             <div class="form-row">
-                <label><span><?= k9e(k9t('form_email')) ?></span><input type="email" name="email" autocomplete="email" maxlength="254"></label>
+                <label><span><?= k9e(k9t('form_email')) ?></span><input type="email" name="email" autocomplete="email" maxlength="254" required></label>
                 <label><span><?= k9e(k9t('form_dog')) ?></span><input type="text" name="dog" autocomplete="off" maxlength="180"></label>
             </div>
             <label>
@@ -55,7 +56,8 @@
             <div class="form-submit-row">
                 <button class="button button-acid" type="submit"><?= k9e(k9t('form_submit')) ?><span aria-hidden="true"><?= k9_icon('arrow','k9-icon-up') ?></span></button>
                 <p class="form-note"><?= k9e(k9t('form_note')) ?></p>
-                <noscript><p><?= $lang === 'bg' ? 'За онлайн изпращане включете JavaScript или се обадете на' : 'Enable JavaScript to send online, or call' ?> <a href="tel:+359892360550">+359 892 360 550</a>.</p></noscript>
+                <noscript><p><?= $lang === 'bg' ? 'За онлайн изпращане включете JavaScript или се обадете на' : 'Enable JavaScript to send online, or call' ?> <a href="tel:+359892360550">+359 892 360 550</a>
+                <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>.</p></noscript>
             </div>
             <p class="form-status" role="status" aria-live="polite" data-form-status><?= k9e($serverFormStatus ?? '') ?></p>
         </form>
@@ -83,7 +85,8 @@
             <h2><?= k9e(k9t('footer_contact')) ?></h2>
             <div class="footer-links">
                 <a href="tel:+359892360550">+359 892 360 550</a>
-                <a href="https://www.facebook.com/k9academybg/" target="_blank" rel="noopener">Facebook <?= k9_icon('arrow','k9-icon-up') ?></a>
+                <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>
+                <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener"><?= $lang === 'bg' ? 'Пишете в Messenger' : 'Message on Messenger' ?> <?= k9_icon('arrow','k9-icon-up') ?></a>
                 <a href="<?= k9e(k9_url('contact.php')) ?>"><?= k9e(k9t('nav_contact')) ?> <?= k9_icon('arrow','k9-icon-up') ?></a>
             </div>
         </div>
@@ -109,20 +112,19 @@
 <div class="floating-cta-layer" data-floating-layer role="group" aria-label="<?= k9e(k9t('drag_hint')) ?>">
     <p class="sr-only" id="floating-cta-help"><?= k9e(k9t('drag_instructions')) ?></p>
 
-    <div class="floating-cta floating-cta-whatsapp" data-floating-cta="whatsapp" data-side="right">
-        <button type="button" class="floating-channel whatsapp" data-channel="whatsapp" data-channel-url="<?= k9e(k9_channel_url('whatsapp')) ?>" aria-label="WhatsApp — <?= k9_channel_url('whatsapp') ? 'K9 Academy' : ($lang === 'bg' ? 'не е наличен' : 'currently unavailable') ?>" aria-describedby="floating-cta-help">
-            <span class="floating-dog-portrait" aria-hidden="true"><img src="assets/images/k9-cta-shepherd.webp" width="256" height="256" alt=""></span>
-            <span class="floating-brand-badge" aria-hidden="true"><img src="assets/icons/whatsapp.svg" width="24" height="24" alt=""></span>
-            <span class="floating-channel-label" aria-hidden="true">WhatsApp</span>
-        </button>
+    <div class="floating-cta floating-cta-whatsapp floating-cta-call" data-floating-cta="call" data-side="right">
+        <a class="floating-channel whatsapp call" data-channel="call" data-channel-url="<?= k9e(k9_channel_url('call')) ?>" href="<?= k9e(k9_channel_url('call')) ?>" aria-label="<?= $lang === 'bg' ? 'Обадете се на K9 Academy: +359 892 360 550' : 'Call K9 Academy: +359 892 360 550' ?>" aria-describedby="floating-cta-help">
+            <span class="floating-dog-portrait" aria-hidden="true"><img src="assets/images/brand-20260905/call-20260914.webp" width="256" height="256" alt=""></span>
+            <span class="floating-channel-label" aria-hidden="true"><?= $lang === 'bg' ? 'Обадете се' : 'Call us' ?></span>
+        </a>
     </div>
 
     <div class="floating-cta floating-cta-viber" data-floating-cta="viber" data-side="right">
-        <button type="button" class="floating-channel viber" data-channel="viber" data-channel-url="<?= k9e(k9_channel_url('viber')) ?>" aria-label="Viber — <?= k9_channel_url('viber') ? 'K9 Academy' : ($lang === 'bg' ? 'не е наличен' : 'currently unavailable') ?>" aria-describedby="floating-cta-help">
+        <a href="<?= k9e(k9_channel_url('viber')) ?>" class="floating-channel viber" data-channel="viber" data-channel-url="<?= k9e(k9_channel_url('viber')) ?>" aria-label="Viber — <?= k9_channel_url('viber') ? 'K9 Academy' : ($lang === 'bg' ? 'не е наличен' : 'currently unavailable') ?>" aria-describedby="floating-cta-help">
             <span class="floating-dog-portrait" aria-hidden="true"><img src="assets/images/k9-cta-shepherd.webp" width="256" height="256" alt=""></span>
             <span class="floating-brand-badge" aria-hidden="true"><img src="assets/icons/viber.svg" width="24" height="24" alt=""></span>
             <span class="floating-channel-label" aria-hidden="true">Viber</span>
-        </button>
+        </a>
     </div>
 
     <div class="floating-remove-target" data-floating-remove aria-hidden="true">

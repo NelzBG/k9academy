@@ -20,6 +20,8 @@ jobs:
           node tools/build.mjs
           node tools/check.mjs --production
           node tools/check-enquiry.mjs
+          php tools/check-enquiry-mailer.php
+          node tools/check-contact-handlers.mjs
           node tools/check-training-library.mjs
       - name: Build with the existing Pages pipeline
         uses: actions/jekyll-build-pages@v1

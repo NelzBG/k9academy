@@ -16,7 +16,7 @@ http.createServer(async (req,res) => {
       const valid = ['name','phone','service','message','consent'].every(key => fields.get(key));
       const fail = fields.get('message')?.includes('[fail]');
       res.writeHead(valid && !fail ? 200 : 503, {'Content-Type':'application/json'});
-      res.end(JSON.stringify({ok: Boolean(valid && !fail)})); return;
+      res.end(JSON.stringify({ok: Boolean(valid && !fail), customerCopy: !fields.get('message')?.includes('[copy-fail]')})); return;
     }
     if (!['GET','HEAD'].includes(req.method)) { res.writeHead(405); res.end(); return; }
     let target = resolve(root, '.' + decodeURIComponent(url.pathname));
@@ -25,7 +25,7 @@ http.createServer(async (req,res) => {
     let info = await stat(target);
     if (info.isDirectory()) { target=join(target,'index.html'); info=await stat(target); }
     let data = await readFile(target);
-    if (qaForm && extname(target) === '.html') data=Buffer.from(data.toString().replaceAll('data-endpoint=""','data-endpoint="/__qa/enquiry"'));
+    if (qaForm && extname(target) === '.html') data=Buffer.from(data.toString().replace(/data-endpoint="[^"]*"/g,'data-endpoint="/__qa/enquiry"'));
     const headers = { 'Content-Type': types[extname(target)] || 'application/octet-stream', 'Cache-Control':'no-store' };
     const range = req.headers.range?.match(/^bytes=(\d+)-(\d*)$/);
     if (range && extname(target) === '.webm') {

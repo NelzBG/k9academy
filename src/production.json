@@ -1,8 +1,8 @@
 {
   "origin": "https://www.k9academy.bg",
   "contactMode": "direct",
-  "email": "",
-  "enquiryEndpoint": "",
-  "whatsapp": "",
-  "viber": ""
+  "email": "mail.k9shop@gmail.com",
+  "enquiryEndpoint": "https://www.nextgen.run/demo/k9/api/enquiry.php",
+  "viber": "+359892360550",
+  "call": "+359892360550"
 }

@@ -191,7 +191,7 @@ function k9_channel_url(string $channel): string
     global $production;
     $number = preg_replace('/\\D/', '', $production[$channel] ?? '');
     if ($number === '') return '';
-    return $channel === 'whatsapp' ? 'https://wa.me/' . $number : 'viber://chat?number=%2B' . $number;
+    return $channel === 'call' ? 'tel:+' . $number : ($channel === 'viber' ? 'viber://chat?number=%2B' . $number : '');
 }
 
 function k9_active(string $key): string

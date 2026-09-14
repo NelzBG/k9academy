@@ -92,9 +92,9 @@
                 const result = await response.json();
                 if (!response.ok || result.ok !== true) throw new Error('Delivery was not accepted');
                 form.reset();
-                if (status) status.textContent = bg
-                    ? 'Благодарим! Запитването е изпратено до K9 Academy. Ще се свържем с вас.'
-                    : 'Thank you! Your enquiry has been sent to K9 Academy. We will contact you.';
+                if (status) status.textContent = result.customerCopy === false
+                    ? (bg ? 'Запитването е изпратено до екипа. Копието по имейл не беше изпратено; не е нужно да подавате запитването отново.' : 'Your enquiry was sent to our team. The email copy could not be sent; you do not need to submit again.')
+                    : (bg ? 'Благодарим! Запитването е изпратено. Проверете имейла си за потвърждение. Ще се свържем с вас.' : 'Thank you! Your enquiry has been sent. Check your email for confirmation. We will contact you.');
             } catch {
                 if (status) status.textContent = bg
                     ? 'Не успяхме да потвърдим изпращането. Данните ви са запазени във формата. Опитайте отново или се обадете на +359 892 360 550.'

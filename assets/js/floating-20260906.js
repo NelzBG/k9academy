@@ -17,9 +17,10 @@
         : 'This channel is unavailable. Call +359 892 360 550 or use Facebook.';
 
     const openChannel = (button) => {
+        if (button.tagName === 'A') return; // Native links work with or without JavaScript.
         const url = button.dataset.channelUrl;
         if (!url) { showToast(pendingMessage); return; }
-        if (url.startsWith('https://wa.me/')) window.open(url, '_blank', 'noopener,noreferrer');
+        if (url.startsWith('tel:')) window.location.assign(url);
         else if (url.startsWith('viber://chat?number=')) window.location.assign(url);
     };
 
@@ -33,7 +34,7 @@
         const storageKey = 'k9-floating-ctas-v3';
         const edgeMargin = 12;
         const defaults = {
-            whatsapp: { side: 'right', yRatio: .91, hidden: false },
+            call: { side: 'right', yRatio: .91, hidden: false },
             viber: { side: 'right', yRatio: 1, hidden: false },
         };
         const clamp = (value, minimum, maximum) => Math.min(Math.max(value, minimum), maximum);
@@ -50,7 +51,8 @@
             }
 
             return Object.fromEntries(Object.entries(defaults).map(([name, fallback]) => {
-                const candidate = saved[name] && typeof saved[name] === 'object' ? saved[name] : {};
+                const previous = saved[name] || (name === 'call' ? saved.whatsapp : null);
+                const candidate = previous && typeof previous === 'object' ? previous : {};
                 return [name, {
                     side: candidate.side === 'left' ? 'left' : fallback.side,
                     yRatio: Number.isFinite(candidate.yRatio) ? clamp(candidate.yRatio, 0, 1) : fallback.yRatio,
