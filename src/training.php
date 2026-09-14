@@ -62,7 +62,7 @@ $faqs = $lang === 'bg' ? [
         <div class="page-hero-bg" aria-hidden="true"></div>
         <div class="site-container page-hero-grid">
             <div class="page-hero-copy reveal is-visible"><p class="eyebrow eyebrow-acid"><?= k9e($copy['kicker']) ?></p><h1><?= $copy['title'] ?></h1><p><?= k9e($copy['lead']) ?></p></div>
-            <div class="page-hero-media reveal is-visible"><img src="assets/images/training-team.webp" srcset="<?= k9e(k9_image_srcset('training-team.webp')) ?>" sizes="(min-width: 56rem) 42vw, calc(100vw - 2rem)" width="1600" height="1068" alt="<?= $lang === 'bg' ? 'Треньор и куче работят върху K9 препятствие' : 'Trainer and dog working over a K9 obstacle' ?>" fetchpriority="high" decoding="async"><span>TRAINING / 03</span></div>
+            <div class="page-hero-media reveal is-visible"><?= k9_training_image(17, $lang === 'bg' ? 'Куче и водач в движение на тренировъчното поле' : 'Dog and handler moving across the training field', '', true) ?><span>TRAINING / 03</span></div>
         </div>
     </section>
 
@@ -90,5 +90,6 @@ $faqs = $lang === 'bg' ? [
             </div>
         </div>
     </section>
+    <?php $galleryKey='training'; require __DIR__ . '/training-gallery.php'; ?>
 </main>
 <?php require __DIR__ . '/footer.php'; ?>

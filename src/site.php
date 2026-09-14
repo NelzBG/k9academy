@@ -214,3 +214,9 @@ $pageTitle = $meta[0];
 $pageDescription = $meta[1];
 $showFooterContact = $showFooterContact ?? true;
 $serverFormStatus = $serverFormStatus ?? '';
+
+function k9_training_image(int $id, string $alt = '', string $class = '', bool $priority = false): string
+{
+    $base = 'assets/images/training-library/training-' . str_pad((string)$id,3,'0',STR_PAD_LEFT);
+    return '<img class="' . k9e($class) . '" src="' . $base . '-1280.webp" srcset="' . $base . '-640.webp 640w, ' . $base . '-1280.webp 1280w, ' . $base . '-1920.webp 1920w" sizes="(min-width: 900px) 50vw, 100vw" width="8256" height="5504" alt="' . k9e($alt) . '" decoding="async" ' . ($priority ? 'fetchpriority="high"' : 'loading="lazy"') . '>';
+}

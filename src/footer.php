@@ -160,5 +160,6 @@
 <script src="assets/js/interface-20260906-glass.js" defer></script>
 <?php if (!empty($hasBreedCarousel)): ?><script src="assets/js/breed-carousel-20260906.js" defer></script><?php endif; ?>
 <?php if (!empty($hasDogViewer)): ?><script type="module" src="assets/js/dog-viewer-20260906.js"></script><?php endif; ?>
+<?php if (!empty($hasTrainingGallery)): ?><script src="assets/js/training-library-20260914.js" defer></script><?php endif; ?>
 </body>
 </html>

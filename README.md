@@ -43,3 +43,9 @@ Merge only the completed, tested production build. A push to main triggers the e
 To roll back, revert the migration merge commit on main and push the revert. Do not force-push main. The rollback branch preserves the complete original tree.
 
 The separate missing DNS address records for k9academy.bg must be corrected at its Azure DNS provider. The existing www address already points to GitHub Pages.
+
+## Training photo library
+
+`src/training-gallery.php` is the shared PHP include used by Home, About, Services, Training and Contact in both languages. Training contains the complete curated selection of 20 real photographs; other pages use themed subsets. Page heroes and three background panels also use the library. The existing abstract homepage hero and animated models are preserved.
+
+`src/training-photos.json` records dimensions. Each selected original has self-hosted 640, 1280 and 1920 pixel WebP derivatives; originals and EXIF metadata are not published. Native scroll snapping supports touch and keyboard navigation, and the modal viewer supports arrow keys, swipe and Escape. The gallery remains usable as ordinary image links without JavaScript.

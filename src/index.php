@@ -112,21 +112,7 @@ $gallery = $lang === 'bg' ? [
         </div>
     </section>
 
-    <section class="gallery-section" aria-labelledby="gallery-title">
-        <div class="site-container gallery-heading reveal">
-            <div><p class="eyebrow eyebrow-acid"><?= k9e($home['gallery_kicker']) ?></p><h2 id="gallery-title"><?= k9e($home['gallery_title']) ?></h2></div>
-            <div class="gallery-intro"><p><?= k9e($home['gallery_copy']) ?></p><div class="gallery-controls"><button type="button" data-gallery-prev aria-label="<?= k9e($home['gallery_prev']) ?>"><?= k9_icon('arrow','k9-icon-back') ?></button><button type="button" data-gallery-next aria-label="<?= k9e($home['gallery_next']) ?>"><?= k9_icon('arrow') ?></button></div></div>
-        </div>
-        <div class="gallery-rail" data-gallery>
-            <?php foreach ($gallery as $index => [$image, $title, $copy, $alt]): ?>
-                <figure class="gallery-card" data-gallery-card>
-                    <img src="assets/images/<?= k9e($image) ?>" srcset="<?= k9e(k9_image_srcset($image)) ?>" sizes="(min-width: 40rem) min(67vw, 42rem), 86vw" width="1600" height="1068" alt="<?= k9e($alt) ?>" loading="lazy" decoding="async">
-                    <figcaption><span>0<?= $index + 1 ?></span><div><h3><?= k9e($title) ?></h3><p><?= k9e($copy) ?></p></div></figcaption>
-                </figure>
-            <?php endforeach; ?>
-        </div>
-        <div class="site-container gallery-progress" aria-hidden="true"><span data-gallery-progress></span></div>
-    </section>
+    <?php $galleryKey='home'; require __DIR__ . '/training-gallery.php'; ?>
 
     <section class="dog-lab" id="dog-lab" aria-labelledby="dog-lab-title">
         <div class="site-container dog-lab-grid">
@@ -151,9 +137,17 @@ $gallery = $lang === 'bg' ? [
         </div>
     </section>
 
+
+    <section class="k9-field-banner k9-field-background">
+        <?= k9_training_image(16, '', 'k9-field-backdrop') ?>
+        <div class="site-container"><p class="eyebrow">K9 / <?= $lang === 'bg' ? 'ЗАЕДНО НА ТЕРЕНА' : 'TOGETHER ON THE FIELD' ?></p>
+        <h2><?= $lang === 'bg' ? 'Един терен.<br>Много характери.' : 'One field.<br>Many characters.' ?></h2>
+        <p><?= $lang === 'bg' ? 'Вижте как кучета и хора намират общ ритъм в реална тренировъчна среда.' : 'See dogs and people finding a shared rhythm in a real training environment.' ?></p>
+        <a class="button button-acid" href="<?= k9e(k9_url('training.php', $lang, '#training-gallery-training')) ?>"><?= $lang === 'bg' ? 'Разгледайте тренировката' : 'Explore the training session' ?> <?= k9_icon('arrow') ?></a></div>
+    </section>
     <section class="philosophy-section">
         <div class="site-container philosophy-grid">
-            <div class="philosophy-image reveal"><img src="assets/images/training-focus.webp" srcset="<?= k9e(k9_image_srcset('training-focus.webp')) ?>" sizes="(min-width: 64rem) 52vw, calc(100vw - 2rem)" width="1600" height="1068" alt="<?= $lang === 'bg' ? 'Фокусирано куче по време на контролирана тренировка' : 'Focused dog during a controlled training session' ?>" loading="lazy" decoding="async"><span aria-hidden="true">K9 / 04</span></div>
+            <div class="philosophy-image reveal"><?= k9_training_image(21, $lang === 'bg' ? 'Овчарка с внимание към водача си' : 'Shepherd looking toward its handler') ?><span aria-hidden="true">K9 / 04</span></div>
             <div class="philosophy-copy reveal">
                 <p class="eyebrow"><?= k9e($home['philosophy_kicker']) ?></p>
                 <h2><?= k9e($home['philosophy_title']) ?></h2>
