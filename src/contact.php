@@ -10,7 +10,7 @@ $copy = $lang === 'bg' ? [
     'title' => 'Разкажете ни<br><em>как живее кучето ви.</em>',
     'lead' => 'Проблемът не започва и не свършва с една команда. Опишете ежедневието, реакциите и целите, за да насочим разговора правилно.',
     'phone' => 'Директен телефон',
-    'facebook' => 'Последвайте работата ни',
+    'facebook' => 'Пишете ни в Messenger',
     'response' => 'Какво следва',
     'response_copy' => 'След запитването обсъждаме случая, преценяваме дали е нужна първоначална оценка и предлагаме подходящ формат.',
     'no_address' => 'Локацията и часът за тренировка се уточняват директно според избраната програма.',
@@ -19,7 +19,7 @@ $copy = $lang === 'bg' ? [
     'title' => 'Tell us<br><em>how your dog lives.</em>',
     'lead' => 'A behaviour problem does not begin or end with one command. Describe the daily routine, reactions and goals so we can guide the conversation properly.',
     'phone' => 'Direct phone',
-    'facebook' => 'Follow our work',
+    'facebook' => 'Message us on Messenger',
     'response' => 'What happens next',
     'response_copy' => 'After the enquiry we discuss the case, decide whether an initial assessment is needed and suggest a suitable format.',
     'no_address' => 'Training location and time are agreed directly according to the selected programme.',
@@ -36,7 +36,7 @@ $copy = $lang === 'bg' ? [
     <section class="contact-info-section">
         <div class="site-container contact-info-grid">
             <a class="contact-info-card reveal" href="tel:+359892360550"><span>01</span><small><?= k9e($copy['phone']) ?></small><strong>+359 892 360 550</strong><b aria-hidden="true"><?= k9_icon('arrow','k9-icon-up') ?></b></a>
-            <a class="contact-info-card reveal" href="https://www.facebook.com/k9academybg/" target="_blank" rel="noopener"><span>02</span><small><?= k9e($copy['facebook']) ?></small><strong>K9AcademyBG</strong><b aria-hidden="true"><?= k9_icon('arrow','k9-icon-up') ?></b></a>
+            <a class="contact-info-card reveal" href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener"><span>02</span><small><?= k9e($copy['facebook']) ?></small><strong>K9AcademyBG</strong><b aria-hidden="true"><?= k9_icon('arrow','k9-icon-up') ?></b></a>
             <article class="contact-info-card reveal"><span>03</span><small><?= k9e($copy['response']) ?></small><p><?= k9e($copy['response_copy']) ?></p></article>
         </div>
         <div class="site-container location-note reveal"><span aria-hidden="true">◎</span><p><?= k9e($copy['no_address']) ?></p></div>

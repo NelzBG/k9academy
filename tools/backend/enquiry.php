@@ -35,13 +35,13 @@ foreach ($limits as $field=>$limit) {
 if ($values['website'] !== '') reply(422, 'validation');
 if (!in_array($values['language'], ['bg','en'], true) || $values['name'] === '' || $values['message'] === '' || $values['consent'] !== 'yes') reply(422, 'validation');
 if (!preg_match('/^[0-9+(). \\-]{6,40}$/D', $values['phone'])) reply(422, 'validation');
-if ($values['email'] !== '' && (!filter_var($values['email'], FILTER_VALIDATE_EMAIL) || preg_match('/[\r\n]/', $values['email']))) reply(422, 'validation');
+if ($values['email'] === '' || (!filter_var($values['email'], FILTER_VALIDATE_EMAIL) || preg_match('/[\r\n]/', $values['email']))) reply(422, 'validation');
 if (!in_array($values['service'], ['obedience','socialisation','correction','protection','consultation'], true)) reply(422, 'validation');
 
 $configFile = getenv('K9_ENQUIRY_CONFIG') ?: '/home/customer/k9academy-private/enquiry-config.php';
 if (!is_file($configFile)) reply(503, 'not_configured');
 $config = require $configFile;
-if (!is_array($config) || !filter_var($config['recipient'] ?? '', FILTER_VALIDATE_EMAIL) || !filter_var($config['from'] ?? '', FILTER_VALIDATE_EMAIL)) reply(503, 'not_configured');
+if (!is_array($config) || !filter_var($config['recipient'] ?? '', FILTER_VALIDATE_EMAIL) || !preg_match('/^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+$/D', $config['from'] ?? '')) reply(503, 'not_configured');
 
 $rateDir = dirname($configFile) . '/enquiry-rates';
 if (!is_dir($rateDir) && !mkdir($rateDir, 0700, true) && !is_dir($rateDir)) reply(503, 'unavailable');
@@ -64,12 +64,8 @@ fclose($handle);
 foreach (glob($rateDir . '/*.json') ?: [] as $expired) {
     if (preg_match('/^[a-f0-9]{64}\\.json$/D', basename($expired)) && filemtime($expired) < $now - 86400) unlink($expired);
 }
-$body = "K9 Academy website enquiry\n\n";
-foreach (['name'=>'Name','phone'=>'Phone','email'=>'Email','dog'=>'Dog','service'=>'Programme','message'=>'Message','language'=>'Language'] as $field=>$label) {
-    $body .= $label . ": " . $values[$field] . "\n\n";
-}
-$body .= "Permission to respond: yes\nSubmitted: " . gmdate('c') . "\n";
-$headers = ['From: K9 Academy <' . $config['from'] . '>', 'MIME-Version: 1.0', 'Content-Type: text/plain; charset=UTF-8'];
-if ($values['email'] !== '') $headers[] = 'Reply-To: ' . $values['email'];
-if (!mail($config['recipient'], 'K9 Academy website enquiry', $body, implode("\r\n", $headers))) reply(503, 'delivery_failed');
-reply(200, 'accepted', true);
+require __DIR__ . '/enquiry-mailer.php';
+$result = k9_deliver_enquiry($values, $config);
+if (!$result['ok']) reply(503, 'delivery_failed');
+http_response_code(200);
+echo json_encode($result + ['code'=>$result['customerCopy'] ? 'accepted' : 'accepted_copy_failed'], JSON_UNESCAPED_SLASHES);
