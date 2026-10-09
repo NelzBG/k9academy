@@ -25,7 +25,8 @@ $k9Breeds = [
             <?php foreach ($k9Breeds as $i => [$file, $en, $bg]): ?>
             <figure class="k9-breed-card">
                 <span class="k9-breed-number" aria-hidden="true">0<?= $i + 1 ?></span>
-                <img src="assets/images/breeds-20260905/<?= k9e($file) ?>.webp" width="720" height="390" alt="<?= k9e($lang === 'bg' ? $bg : $en) ?>" loading="lazy" decoding="async" draggable="false">
+                <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-lazy-src="assets/images/breeds-20260905/<?= k9e($file) ?>.webp" width="720" height="390" alt="<?= k9e($lang === 'bg' ? $bg : $en) ?>" decoding="async" draggable="false">
+                <noscript><img src="assets/images/breeds-20260905/<?= k9e($file) ?>.webp" width="720" height="390" alt="<?= k9e($lang === 'bg' ? $bg : $en) ?>" loading="lazy" decoding="async" draggable="false"></noscript>
                 <figcaption><?= k9e($lang === 'bg' ? $bg : $en) ?></figcaption>
             </figure>
             <?php endforeach; ?>

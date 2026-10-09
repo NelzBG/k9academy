@@ -118,26 +118,26 @@
 
     <div class="floating-cta floating-cta-whatsapp floating-cta-call" data-floating-cta="call" data-side="right">
         <a class="floating-channel whatsapp call" data-channel="call" data-channel-url="<?= k9e(k9_channel_url('call')) ?>" href="<?= k9e(k9_channel_url('call')) ?>" aria-label="<?= $lang === 'bg' ? 'Обадете се на K9 Academy: +359 892 360 550' : 'Call K9 Academy: +359 892 360 550' ?>" aria-describedby="floating-cta-help">
-            <span class="floating-dog-portrait" aria-hidden="true"><img src="assets/images/brand-20260905/call-20260914.webp" width="256" height="256" alt=""></span>
+            <span class="floating-dog-portrait" aria-hidden="true"><img src="assets/images/brand-20260905/call-20260914.webp" srcset="assets/images/brand-20260905/call-20260914-64.webp 64w, assets/images/brand-20260905/call-20260914-128.webp 128w, assets/images/brand-20260905/call-20260914-192.webp 192w, assets/images/brand-20260905/call-20260914.webp 256w" sizes="3.65rem" width="256" height="256" alt=""></span>
             <span class="floating-channel-label" aria-hidden="true"><?= $lang === 'bg' ? 'Обадете се' : 'Call us' ?></span>
         </a>
     </div>
 
     <div class="floating-cta floating-cta-viber" data-floating-cta="viber" data-side="right">
         <a href="<?= k9e(k9_channel_url('viber')) ?>" class="floating-channel viber" data-channel="viber" data-channel-url="<?= k9e(k9_channel_url('viber')) ?>" aria-label="Viber — <?= k9_channel_url('viber') ? 'K9 Academy' : ($lang === 'bg' ? 'не е наличен' : 'currently unavailable') ?>" aria-describedby="floating-cta-help">
-            <span class="floating-dog-portrait" aria-hidden="true"><img src="assets/images/k9-cta-shepherd.webp" width="256" height="256" alt=""></span>
+            <span class="floating-dog-portrait" aria-hidden="true"><img src="assets/images/k9-cta-shepherd.webp" srcset="assets/images/k9-cta-shepherd-64.webp 64w, assets/images/k9-cta-shepherd-128.webp 128w, assets/images/k9-cta-shepherd-192.webp 192w, assets/images/k9-cta-shepherd.webp 256w" sizes="3.65rem" width="256" height="256" alt=""></span>
             <span class="floating-brand-badge" aria-hidden="true"><img src="assets/icons/viber.svg" width="24" height="24" alt=""></span>
             <span class="floating-channel-label" aria-hidden="true">Viber</span>
         </a>
     </div>
 
     <div class="floating-remove-target" data-floating-remove aria-hidden="true">
-        <span class="floating-remove-mark" aria-hidden="true"><img src="assets/images/k9-cta-shepherd.webp" width="256" height="256" alt=""></span>
+        <span class="floating-remove-mark" aria-hidden="true"><img src="assets/images/k9-cta-shepherd.webp" srcset="assets/images/k9-cta-shepherd-64.webp 64w, assets/images/k9-cta-shepherd-128.webp 128w, assets/images/k9-cta-shepherd-192.webp 192w, assets/images/k9-cta-shepherd.webp 256w" sizes="3.65rem" width="256" height="256" alt=""></span>
         <span><strong><?= k9e(k9t('drop_hide')) ?></strong><small><?= k9e(k9t('drop_hide_note')) ?></small></span>
     </div>
 
     <button class="floating-restore-tab" type="button" data-floating-restore hidden aria-label="<?= k9e(k9t('restore_channels')) ?>">
-        <img src="assets/images/k9-cta-shepherd.webp" width="256" height="256" alt="" aria-hidden="true">
+        <img src="assets/images/k9-cta-shepherd.webp" srcset="assets/images/k9-cta-shepherd-64.webp 64w, assets/images/k9-cta-shepherd-128.webp 128w, assets/images/k9-cta-shepherd-192.webp 192w, assets/images/k9-cta-shepherd.webp 256w" sizes="3.65rem" width="256" height="256" alt="" aria-hidden="true">
         <span aria-hidden="true">‹</span>
     </button>
 
@@ -153,7 +153,7 @@
 <script src="assets/js/callback-20261009.js?v=20261010-speed1" defer></script>
 <script src="assets/js/editorial-20261009.js?v=20261010-speed1" defer></script>
 <script src="assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
-<script src="assets/js/interface-20260906-glass.js?v=20261010-speed1" defer></script>
+<script src="assets/js/interface-20260906-glass.js?v=20261010-lazy1" defer></script>
 <?php if (!empty($hasBreedCarousel)): ?><script src="assets/js/breed-carousel-20260906.js" defer></script><?php endif; ?>
 <?php if (!empty($hasDogViewer)): ?><script src="assets/js/model-loader-20261009.js" defer></script><?php endif; ?>
 <?php if (!empty($hasTrainingGallery)): ?><script src="assets/js/training-library-20260914.js" defer></script><?php endif; ?>

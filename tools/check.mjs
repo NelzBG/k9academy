@@ -41,7 +41,7 @@ for(const lang of ['bg','en']) for(const [source,slug] of Object.entries(routes)
     check(!/noindex|design demo|дизайн демо|before official launch/i.test(html),route+': preview content remains');
     if(html.includes('data-contact-form')) check(html.includes('data-endpoint="https://'),route+': form endpoint missing');
   }
-  for(const match of html.matchAll(/(?:href|src|poster|data-src|data-model)="([^"]+)"/g)) {
+  for(const match of html.matchAll(/(?:href|src|poster|data-src|data-model|data-lazy-src)="([^"]+)"/g)) {
     const ref=match[1].replaceAll('&amp;','&');
     if(/^(?:https?:|mailto:|tel:|viber:|data:)/.test(ref)) continue;
     const url=new URL(ref,'https://www.k9academy.bg'+route);
@@ -52,7 +52,7 @@ for(const lang of ['bg','en']) for(const [source,slug] of Object.entries(routes)
       check(body.includes('id="'+decodeURIComponent(url.hash.slice(1))+'"'),route+': broken anchor '+ref);
     }
   }
-  for(const match of html.matchAll(/srcset="([^"]+)"/g)) for(const item of match[1].split(',')) {
+  for(const match of html.matchAll(/(?:data-lazy-srcset|srcset)="([^"]+)"/g)) for(const item of match[1].split(',')) {
     const ref=item.trim().split(/\s+/)[0];
     await exactFile(new URL(ref,'https://www.k9academy.bg'+route).pathname);
   }

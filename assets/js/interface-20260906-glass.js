@@ -111,6 +111,32 @@
     reduced.addEventListener('change',effects);
     effects();
 
+    const deferredImages = [...document.querySelectorAll('img[data-lazy-src]')];
+    const loadDeferredImage = image => {
+        const srcset = image.dataset.lazySrcset;
+        if (srcset) image.srcset = srcset;
+        image.src = image.dataset.lazySrc;
+        image.loading = 'eager';
+        image.removeAttribute('data-lazy-src');
+        image.removeAttribute('data-lazy-srcset');
+    };
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    loadDeferredImage(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '500px 0px' });
+        deferredImages.forEach(image => imageObserver.observe(image));
+    } else {
+        deferredImages.forEach(image => {
+            image.loading = 'lazy';
+            loadDeferredImage(image);
+        });
+    }
+
     const feature = document.getElementById('k9-motion-feature');
     if(!feature)return;
     const video = feature.querySelector('video');

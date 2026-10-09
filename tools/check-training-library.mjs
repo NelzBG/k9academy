@@ -9,6 +9,11 @@ for(const lang of ['','en/'])for(const route of ['','about/','services/','traini
  assert(!html.includes('googleusercontent.com')&&!html.includes('photos.google.com'),'Photo library must be self-hosted');
  const count=[...html.matchAll(/data-training-photo /g)].length;
  assert(count>=6,route+' insufficient photos');
+ const photoLinks=[...html.matchAll(/<a\b[^>]*data-training-photo[\s\S]*?<\/a>/g)].map(match=>match[0]);
+ assert.equal(photoLinks.length,count,route+' photo links should match the gallery count');
+ assert(photoLinks.every(link=>link.includes('data-lazy-src=')&&link.includes('<noscript><img')),route+' photos should defer image requests with a no-script fallback');
+ const breedCards=[...html.matchAll(/<figure class="k9-breed-card">[\s\S]*?<\/figure>/g)].map(match=>match[0]);
+ assert(breedCards.every(card=>card.includes('data-lazy-src=')&&card.includes('<noscript><img')),route+' breed photos should defer requests with a no-script fallback');
  if(route==='training/')assert.equal(count,20);
  assert(html.includes('training-library-20260914.js'));
 }
