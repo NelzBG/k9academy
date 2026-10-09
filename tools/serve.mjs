@@ -1,4 +1,5 @@
 import http from 'node:http';
+import { gzipSync } from 'node:zlib';
 import { readFile, stat } from 'node:fs/promises';
 import { dirname, extname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -33,6 +34,14 @@ http.createServer(async (req,res) => {
       if(start>end) { res.writeHead(416);res.end();return; }
       res.writeHead(206,{...headers,'Accept-Ranges':'bytes','Content-Range':'bytes '+start+'-'+end+'/'+data.length,'Content-Length':end-start+1});
       res.end(req.method==='HEAD'?undefined:data.subarray(start,end+1)); return;
+    }
+    // Match public Pages text compression while retaining video range handling.
+    const gzipAccepted = (req.headers['accept-encoding'] || '').split(',').some(entry => {
+      const [name, ...options] = entry.trim().split(';');
+      return name === 'gzip' && !options.some(option => /^q=0(?:\.0*)?$/.test(option.trim()));
+    });
+    if (gzipAccepted && /\.(html|css|js|json|svg|xml|txt)$/.test(target)) {
+      data = gzipSync(data); headers['Content-Encoding'] = 'gzip'; headers.Vary = 'Accept-Encoding';
     }
     res.writeHead(200,{...headers,'Content-Length':data.length});
     res.end(req.method === 'HEAD' ? undefined : data);
