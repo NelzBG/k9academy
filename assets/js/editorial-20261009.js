@@ -47,5 +47,4 @@
  })));
  reduced.addEventListener('change',()=>{if(reduced.matches)stopAll();});
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAll();else videos.forEach(v=>{if(v._player&&v._inView&&!v._paused&&!reduced.matches)command(v,'playVideo');});});
- document.querySelectorAll('main>section,.contact-deck').forEach(section=>{if(getComputedStyle(section).backgroundImage==='none')section.classList.add('k9-textured');});
 })();
