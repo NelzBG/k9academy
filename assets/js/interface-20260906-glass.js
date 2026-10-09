@@ -60,9 +60,7 @@
         if(event.shiftKey && document.activeElement === first){event.preventDefault();last?.focus();}
         else if(!event.shiftKey && document.activeElement === last){event.preventDefault();first?.focus();}
     });
-    const measureHeader = () => {if(header)root.style.setProperty('--k9-header',header.getBoundingClientRect().bottom+'px');};
-    if (header && 'ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);
-    measureHeader();
+    // Header geometry is reserved in CSS before the first paint.
 
     const themeButtons = [...document.querySelectorAll('[data-theme-toggle]')];
     const systemTheme = matchMedia('(prefers-color-scheme: dark)');

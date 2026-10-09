@@ -35,10 +35,17 @@ require_once __DIR__ . '/ui.php';
             try { stored = localStorage.getItem('k9-theme'); } catch {}
             const dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
             document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+            try {
+                const choice = localStorage.getItem('k9-cookie-choice');
+                if (choice === 'accepted' || choice === 'essential') document.documentElement.dataset.cookieChoiceSet = 'true';
+            } catch {}
         })();
     </script>
     <link rel="preload" href="assets/fonts/k9-hero/font-0.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/k9-hero/font-6.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/k9-hero/font-4.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/k9-hero/font-2.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/k9-hero/font-7.woff2" as="font" type="font/woff2" crossorigin>
     <?php if ($currentFile === 'index.php'): ?><link rel="preload" as="image" href="assets/video/k9-hero-poster-20260905.webp" fetchpriority="high"><?php endif; ?>
     <style data-k9-styles><?= file_get_contents(__DIR__ . '/../assets/css/k9-site-20261009.css') ?></style>
     <link rel="icon" type="image/webp" href="assets/images/brand-20260905/logo.webp">
@@ -53,3 +60,5 @@ require_once __DIR__ . '/ui.php';
 <?php if (!empty($extraSchema)): ?><script type="application/ld+json"><?= json_encode($extraSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) ?></script><?php endif; ?>
 </head>
 <body class="bg-stone-50 text-k9-ink antialiased dark:bg-k9-ink dark:text-stone-100">
+
+<?php require __DIR__ . '/cookie-panel.php'; ?>

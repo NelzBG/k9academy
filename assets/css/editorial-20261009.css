@@ -31,3 +31,12 @@
 
 /* Informational content remains visible immediately, including without JavaScript. */
 .reveal{opacity:1;transform:none}
+
+/* Reserve the fixed header and effect control before JavaScript or fonts arrive. */
+:root{--k9-header:calc(var(--k9-header-top) + 4.3rem + 2px)}
+@media(min-width:64rem){:root{--k9-header:calc(var(--k9-header-top) + 4.65rem + 2px)}}
+.k9-effects-toggle[hidden]{display:block;visibility:hidden}
+/* Privacy controls use the platform font and appear in the initial document. */
+.cookie-panel,.cookie-panel h2,.cookie-panel .button{font-family:Arial,sans-serif}
+.cookie-panel h2{font-weight:800;font-style:normal;letter-spacing:-.025em;font-size:clamp(1.8rem,5vw,2.7rem);line-height:1.08}
+.cookie-wall[hidden],:root[data-cookie-choice-set] .cookie-wall:not([data-cookie-reopened]){display:none}
