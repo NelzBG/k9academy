@@ -6,8 +6,8 @@ foreach (['bg', 'en'] as $locale) {
     $strings[$locale]['nav_breeds'] = $locale === 'bg' ? 'Избор на порода' : 'Choose a breed';
     $strings[$locale]['nav_blog'] = $locale === 'bg' ? 'Блог' : 'Blog';
     $strings[$locale]['cookie_copy'] = $locale === 'bg'
-        ? 'Запазваме настройките за тема, език и контактни бутони на устройството ви. Видеата от YouTube се зареждат само след вашия избор. „Само необходимите“ запазва статичните изображения; можете да разрешите отделно видео чрез бутона за гледане.'
-        : 'Theme, language and contact preferences stay on your device. YouTube videos load only after your choice. Essential only keeps static posters; you can separately allow a video with its play button.';
+        ? 'Изборът ви се запазва на това устройство. Видеата от YouTube се зареждат само с ваше разрешение.'
+        : 'Your choice is saved on this device. YouTube videos load only after you allow them.';
 }
 $navItems = ['home'=>['index.php','nav_home'], 'services'=>['services.php','nav_services'], 'puppy'=>['puppy.php','nav_puppy'], 'breeds'=>['breeds.php','nav_breeds'], 'training'=>['training.php','nav_training'], 'blog'=>['blog.php','nav_blog'], 'shop'=>['webshop.php','nav_shop'], 'about'=>['aboutus.php','nav_about'], 'contact'=>['contact.php','nav_contact']];
 foreach (['puppy','breeds','blog','ebooks'] as $key) foreach (['bg','en'] as $locale) {

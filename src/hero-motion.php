@@ -10,7 +10,6 @@
         <div class="k9-motion-stage">
             <div class="k9-motion-word" aria-hidden="true">K9</div>
             <div class="k9h-athlete" aria-hidden="true">
-                <img src="assets/video/k9-shepherd-loop-poster-20260906.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
                 <video loop muted playsinline preload="none" tabindex="-1" data-src="assets/video/k9-shepherd-loop-20260906.webm"></video>
             </div>
             <span class="k9-motion-label" aria-hidden="true"><?= $lang === 'bg' ? 'ИНСТИНКТ / ФОКУС' : 'INSTINCT / FOCUS' ?></span>

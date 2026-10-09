@@ -9,7 +9,7 @@ const source = await readFile(join(root, 'assets/js/editorial-20261009.js'), 'ut
 const flush = async () => { await new Promise(setImmediate); };
 let checks = 0;
 function harness(choice = 'accepted', {reduced = false, saveData = false, apiAvailable = true, observer = true, lang = 'en', context = 'home'} = {}) {
- const calls = [], frames = [], players = [], timers = [], listeners = new Map();
+ const calls = [], frames = [], players = [], timers = [], listeners = new Map(), idleTasks = new Map(); let idleSerial = 0;
  class Element {
   constructor(tag = 'div') { this.tagName = tag; this.children = []; this.attrs = {}; this.events = new Map(); this.dataset = {}; this.hidden = false; this.textContent = ''; this.disabled = false; this.classes = new Set(); this.classList = {add: name => this.classes.add(name), remove: name => this.classes.delete(name), contains: name => this.classes.has(name)}; }
   addEventListener(type, fn) { if (!this.events.has(type)) this.events.set(type, []); this.events.get(type).push(fn); }
@@ -55,12 +55,15 @@ function harness(choice = 'accepted', {reduced = false, saveData = false, apiAva
  const sandbox = {document, navigator: {connection}, location: {origin: 'https://www.k9academy.bg'}, URLSearchParams,
   localStorage: {getItem: () => choice}, matchMedia: () => media, queueMicrotask,
   setTimeout: (fn, delay) => {const timer = {fn, delay}; timers.push(timer); return timer;}, clearTimeout: () => {},
+  requestIdleCallback: fn => {const id = ++idleSerial; idleTasks.set(id, fn); return id;}, cancelIdleCallback: id => idleTasks.delete(id),
   MutationObserver: class {constructor(fn) {mutation = fn;} observe() {}},
   ...(observer ? {IntersectionObserver: class {constructor(fn) {intersection = fn;} observe() {}}} : {})};
  sandbox.window = sandbox;
  if (apiAvailable) sandbox.YT = {Player};
  vm.runInNewContext(source, sandbox, {timeout: 1000});
  return {calls, frames, players, timers, container, frame, poster, play, watch, status, external, head, body, document, media, connection,
+  pendingIdle: () => idleTasks.size,
+  runIdle: () => {const pending = [...idleTasks.values()]; idleTasks.clear(); pending.forEach(fn => fn());},
   visible: value => intersection?.([{target: container, isIntersecting: value}]),
   visibility: value => {document.hidden = value; listeners.get('visibilitychange')();},
   overlay: value => {body.covered = value; mutation();},
@@ -72,11 +75,13 @@ function harness(choice = 'accepted', {reduced = false, saveData = false, apiAva
 let h = harness('essential'); h.visible(true); await flush();
 assert.equal(h.frames.length, 0); assert.equal(h.head.children.length, 0); checks++;
 h = harness(); await flush(); assert.equal(h.frames.length, 0); h.visible(true); await flush();
-assert.equal(h.frames.length, 1); assert.equal(h.players.length, 1);
+assert.equal(h.frames.length, 0, 'The background player waits until the main thread is idle'); assert.equal(h.pendingIdle(), 1);
+h.runIdle(); await flush(); assert.equal(h.frames.length, 1); assert.equal(h.players.length, 1);
+assert.equal(h.frames[0].loading, 'lazy', 'Background iframe uses native lazy loading');
 const url = new URL(h.frames[0].src);
 assert.equal(url.origin, 'https://www.youtube-nocookie.com');
 for (const [key, value] of Object.entries({mute: '1', autoplay: '1', start: '69', playsinline: '1', controls: '0', enablejsapi: '1'})) assert.equal(url.searchParams.get(key), value);
-assert.equal(h.timers.length, 0, 'No artificial post-load start timer'); checks++;
+assert.equal(h.timers.length, 0, 'No fallback timer is used when idle callbacks are available'); checks++;
 
 // A ready player is not a playing player: keep the poster until PLAYING arrives.
 assert.equal(h.container.classList.contains('is-video-ready'), false);
@@ -112,7 +117,7 @@ assert.equal(h.external.hidden, false); assert.match(h.status.textContent, /unav
 // Training fallback must disappear completely after playback and stay hidden on pause.
 for (const reset of ['error', 'consent']) {
  h = harness('accepted', {context: 'training'});
- assert.equal(h.poster.hidden, false); h.visible(true); await flush();
+ assert.equal(h.poster.hidden, false); h.visible(true); await flush(); h.runIdle(); await flush();
  assert.equal(new URL(h.frames[0].src).pathname, '/embed/hao1HjaUIic');
  h.players[0].ready(); assert.equal(h.poster.hidden, false);
  h.players[0].emit(1); assert.equal(h.poster.hidden, true);
@@ -125,7 +130,8 @@ for (const reset of ['error', 'consent']) {
 
 // Withdrawal invalidates an in-flight API load, so late readiness cannot embed it.
 h = harness('accepted', {apiAvailable: false}); h.visible(true); await flush();
-assert.equal(h.head.children[0].src, 'https://www.youtube.com/iframe_api');
+assert.equal(h.head.children.length, 0, 'The YouTube API is deferred with the player');
+h.runIdle(); await flush(); assert.equal(h.head.children[0].src, 'https://www.youtube.com/iframe_api');
 h.consent('essential'); await flush(); assert.equal(h.frame.children.length, 0);
 h.apiReady(); await flush(); assert.equal(h.players.length, 0); assert.equal(h.container.classList.contains('is-video-ready'), false); checks++;
 
@@ -150,6 +156,9 @@ for (const prefix of ['', 'en/']) for (const slug of ['', 'training/']) {
  assert.equal((html.match(new RegExp('id="' + id + '"', 'g')) || []).length, 1);
  assert.equal((html.match(new RegExp('data-video-controls="' + id + '"', 'g')) || []).length, 1);
  assert(!html.includes('data-pause-video hidden'));
+  if (!slug) assert(!html.includes('rel="preload" as="image" href="assets/video/k9-hero-poster-20260905.webp"'), 'The homepage does not preload the cutout poster');
+  if (!slug) { const fontPreloads = [...html.matchAll(/<link rel="preload" as="font"[^>]*font-(\d)-website\.woff2[^>]*>/g)].map(match => match[1]); assert.deepEqual(fontPreloads, ['0','2','6','7'], 'The homepage preloads the font subsets used above the fold'); }
+  if (!slug) assert(!html.includes('k9-shepherd-loop-poster-20260906.webp'), 'The home page does not load a decorative dog cutout');
  if (!slug) assert.match(html, /k9-hero-tools[\s\S]*data-effects-toggle[\s\S]*data-video-controls/);
  else {
   const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
