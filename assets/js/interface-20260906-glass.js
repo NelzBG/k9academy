@@ -93,24 +93,6 @@
     document.addEventListener('focusin',checkKeyboard);
     document.addEventListener('focusout',() => requestAnimationFrame(checkKeyboard));
 
-    const signal = document.querySelector('.k9-signal');
-    const effectsButton = document.querySelector('[data-effects-toggle]');
-    let effectsPaused = false;
-    let signalVisible = true;
-    const effects = () => {
-        signal?.querySelectorAll('.k9-signal-band').forEach(el => {el.style.animationPlayState=effectsPaused||!signalVisible||document.hidden||body.matches('.cookie-open,.menu-open')?'paused':'running';});
-        if(effectsButton){
-            effectsButton.classList.toggle('is-unavailable',reduced.matches);
-            effectsButton.textContent = bg ? (effectsPaused?'Пусни ефектите':'Спри ефектите') : (effectsPaused?'Play effects':'Pause effects');
-            effectsButton.setAttribute('aria-pressed',String(effectsPaused));
-        }
-    };
-    effectsButton?.addEventListener('click',() => {effectsPaused=!effectsPaused;effects();});
-    if(signal && 'IntersectionObserver' in window)new IntersectionObserver(entries=>{signalVisible=entries[0].isIntersecting;effects();}).observe(signal);
-    document.addEventListener('visibilitychange',effects);
-    reduced.addEventListener('change',effects);
-    effects();
-
     const deferredImages = [...document.querySelectorAll('img[data-lazy-src]')];
     const loadDeferredImage = image => {
         const srcset = image.dataset.lazySrcset;

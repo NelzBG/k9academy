@@ -164,7 +164,11 @@ for (const prefix of ['', 'en/']) for (const slug of ['', 'training/']) {
   if (!slug) assert(!html.includes('rel="preload" as="image" href="assets/video/k9-hero-poster-20260905.webp"'), 'The homepage does not preload the cutout poster');
   if (!slug) { const fontPreloads = [...html.matchAll(/<link rel="preload" as="font"[^>]*font-(\d)-website\.woff2[^>]*>/g)].map(match => match[1]); assert.deepEqual(fontPreloads, ['0','2','6','7'], 'The homepage preloads the font subsets used above the fold'); }
   if (!slug) assert(!html.includes('k9-shepherd-loop-poster-20260906.webp'), 'The home page does not load a decorative dog cutout');
- if (!slug) assert.match(html, /k9-hero-tools[\s\S]*data-effects-toggle[\s\S]*data-video-controls/);
+ if (!slug) {
+  assert.match(html, /k9-hero-tools[\s\S]*data-video-controls/);
+  assert(!html.includes('k9-signal'), 'The homepage hero has no decorative signal overlay');
+  assert(!html.includes('data-effects-toggle'), 'The homepage has no control for the removed overlay');
+ }
  else {
   const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
   const hero = main.slice(0, main.indexOf('</section>') + '</section>'.length);
