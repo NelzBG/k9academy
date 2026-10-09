@@ -39,7 +39,8 @@ $labels = [
  <?php foreach ($galleryIds as $i => $id): $p=$photoMap[$id]; $base='assets/images/training-library/training-'.str_pad((string)$id,3,'0',STR_PAD_LEFT); $caption=$labels[$id][$lang === 'bg' ? 0 : 1]; ?>
   <figure class="training-photo-card <?= $p['height'] > $p['width'] ? 'is-portrait' : '' ?>">
    <a href="<?= k9e($base) ?>-1920.webp" data-training-photo data-caption="<?= k9e($caption) ?>" aria-label="<?= k9e(($lang === 'bg' ? 'Отворете снимката: ' : 'Open photograph: ').$caption) ?>">
-    <img src="<?= k9e($base) ?>-1280.webp" srcset="<?= k9e($base) ?>-640.webp 640w, <?= k9e($base) ?>-1280.webp 1280w, <?= k9e($base) ?>-1920.webp 1920w" sizes="(min-width: 900px) 580px, 82vw" width="<?= $p['width'] ?>" height="<?= $p['height'] ?>" loading="lazy" decoding="async" alt="<?= k9e($caption) ?>">
+    <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-lazy-src="<?= k9e($base) ?>-1280.webp" data-lazy-srcset="<?= k9e($base) ?>-640.webp 640w, <?= k9e($base) ?>-1280.webp 1280w, <?= k9e($base) ?>-1920.webp 1920w" sizes="(min-width: 900px) 580px, 82vw" width="<?= $p['width'] ?>" height="<?= $p['height'] ?>" decoding="async" alt="<?= k9e($caption) ?>">
+    <noscript><img src="<?= k9e($base) ?>-1280.webp" srcset="<?= k9e($base) ?>-640.webp 640w, <?= k9e($base) ?>-1280.webp 1280w, <?= k9e($base) ?>-1920.webp 1920w" sizes="(min-width: 900px) 580px, 82vw" width="<?= $p['width'] ?>" height="<?= $p['height'] ?>" loading="lazy" decoding="async" alt="<?= k9e($caption) ?>"></noscript>
     <span class="training-photo-open" aria-hidden="true"><?= k9_icon('arrow','k9-icon-up') ?></span>
    </a>
    <figcaption><span><?= str_pad((string)($i+1),2,'0',STR_PAD_LEFT) ?></span><strong><?= k9e($caption) ?></strong></figcaption>
