@@ -20,6 +20,7 @@ jobs:
           node tools/build.mjs
           node tools/check.mjs --production
           node tools/check-enquiry.mjs
+          node tools/check-youtube.mjs
           php tools/check-enquiry-mailer.php
           php tools/backend/check-ebooks.php
           node tools/audit-links.mjs
