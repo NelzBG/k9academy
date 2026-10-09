@@ -1,0 +1,90 @@
+{
+  "enabled": true,
+  "endpoint": "https://www.nextgen.run/demo/k9/api/ebooks/checkout.php",
+  "products": [
+    {
+      "slug": "start",
+      "cents": 499,
+      "stripeProduct": "prod_VPVLSDW2PapYpC",
+      "stripePrice": "price_1UOgKiB57hMeY0DPNToRPsjS",
+      "bg": {
+        "title": "Добро начало",
+        "subtitle": "Първите стъпки с вашето куче",
+        "description": "Кратко практическо ръководство за безопасен дом, рутина, награди и първи сигнали.",
+        "features": [
+          "Подготовка и първа седмица",
+          "Внимание, тоалетна и спокойствие",
+          "Контролни списъци и дневник",
+          "15 страници във всяко езиково издание"
+        ]
+      },
+      "en": {
+        "title": "A Better Start",
+        "subtitle": "First steps with your dog",
+        "description": "A concise practical guide to a safe home, routines, rewards and first cues.",
+        "features": [
+          "Preparation and your first week",
+          "Attention, toilet habits and calm",
+          "Checklists and a practice journal",
+          "15 pages in each language edition"
+        ]
+      }
+    },
+    {
+      "slug": "puppy",
+      "cents": 999,
+      "stripeProduct": "prod_VPVYCstDlyQDoS",
+      "stripePrice": "price_1UOgX8B57hMeY0DPFuoQVYrh",
+      "bg": {
+        "title": "Кученце: 30 дни",
+        "subtitle": "От първия ден до общ ритъм",
+        "description": "Поетапен план с ежедневни задачи за адаптация, социализация, повод и добри навици.",
+        "features": [
+          "30 конкретни ежедневни задачи",
+          "Кратки упражнения и адаптации",
+          "Седмични прегледи на напредъка",
+          "27 страници във всяко езиково издание"
+        ]
+      },
+      "en": {
+        "title": "Puppy: 30 Days",
+        "subtitle": "From day one to a shared rhythm",
+        "description": "A gradual plan with daily tasks for settling in, socialisation, lead walking and everyday habits.",
+        "features": [
+          "30 specific daily tasks",
+          "Short exercises and adaptations",
+          "Weekly progress reviews",
+          "27 pages in each language edition"
+        ]
+      }
+    },
+    {
+      "slug": "complete",
+      "cents": 4999,
+      "stripeProduct": "prod_VPVk9X9ljs1iql",
+      "stripePrice": "price_1UOgjQB57hMeY0DPGeR1vOUA",
+      "bg": {
+        "title": "Заедно в реалния живот",
+        "subtitle": "Пълен наръчник и работна тетрадка",
+        "description": "Систематичен комплект за внимание, идване, повод, спокойствие и пренасяне на уменията в различни ситуации.",
+        "features": [
+          "Подробни протоколи за упражнения",
+          "План за 12 седмици",
+          "Работни листове и разбор на трудности",
+          "48 страници във всяко езиково издание"
+        ]
+      },
+      "en": {
+        "title": "Together in Real Life",
+        "subtitle": "Complete handbook and workbook",
+        "description": "A systematic toolkit for attention, recall, lead walking, calm and transferring skills to everyday situations.",
+        "features": [
+          "Detailed exercise protocols",
+          "A 12-week progression plan",
+          "Worksheets and troubleshooting",
+          "48 pages in each language edition"
+        ]
+      }
+    }
+  ]
+}

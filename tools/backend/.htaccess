@@ -1,0 +1,4 @@
+Options -Indexes
+<FilesMatch "^(ebooks-lib|configure-ebooks|check-ebooks|k9-stripe-probe)\.php$">
+  Require all denied
+</FilesMatch>

@@ -4,7 +4,13 @@ exclude:
   - tools
   - tests
   - README.md
+  - reports
+  - output
+  - private
+  - .gitignore
   - package.json
   - pnpm-lock.yaml
 include:
   - assets/js/vendor
+
+# Release reports and authoring material are never published.

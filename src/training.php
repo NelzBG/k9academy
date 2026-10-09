@@ -58,6 +58,7 @@ $faqs = $lang === 'bg' ? [
 ];
 ?>
 <main id="main-content">
+<?php $youtubeId = 'hao1HjaUIic'; $youtubeStart = 0; $youtubeHero = false; require __DIR__ . '/youtube.php'; ?>
     <section class="page-hero page-hero-training">
         <div class="page-hero-bg" aria-hidden="true"></div>
         <div class="site-container page-hero-grid">

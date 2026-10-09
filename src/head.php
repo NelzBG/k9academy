@@ -11,18 +11,20 @@ require_once __DIR__ . '/ui.php';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#11120f">
-    <meta name="robots" content="<?= $isPreview ? 'noindex, nofollow' : 'index, follow, max-image-preview:large' ?>">
+    <meta name="robots" content="<?= ($isPreview || !empty($pageNoIndex)) ? 'noindex, nofollow' : 'index, follow, max-image-preview:large' ?>">
+    <?php if (empty($pageNoIndex)): ?>
     <link rel="canonical" href="<?= k9e($production['origin'] . k9_url($currentFile)) ?>">
     <link rel="alternate" hreflang="bg" href="<?= k9e($production['origin'] . k9_url($currentFile, 'bg')) ?>">
     <link rel="alternate" hreflang="en" href="<?= k9e($production['origin'] . k9_url($currentFile, 'en')) ?>">
     <link rel="alternate" hreflang="x-default" href="<?= k9e($production['origin'] . k9_url($currentFile, 'bg')) ?>">
+    <?php endif; ?>
     <meta name="description" content="<?= k9e($pageDescription) ?>">
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?= k9e($pageTitle) ?>">
     <meta property="og:description" content="<?= k9e($pageDescription) ?>">
     <meta property="og:site_name" content="K9 Academy">
     <meta property="og:url" content="<?= k9e($production['origin'] . k9_url($currentFile)) ?>">
-    <meta property="og:image" content="<?= k9e($production['origin']) ?>/assets/video/k9-hero-poster-20260905.png">
+    <meta property="og:image" content="<?= k9e($production['origin']) ?>/assets/video/k9-hero-poster-20260905.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:locale" content="<?= $lang === 'bg' ? 'bg_BG' : 'en_GB' ?>">
     <title><?= k9e($pageTitle) ?></title>
@@ -39,6 +41,7 @@ require_once __DIR__ . '/ui.php';
     <link rel="stylesheet" href="assets/css/site.css?v=<?= k9e($assetVersion) ?>">
     <link rel="stylesheet" href="assets/css/interface-20260906-glass.css">
     <link rel="stylesheet" href="assets/css/training-library-20260914.css">
+    <link rel="stylesheet" href="assets/css/editorial-20261009.css">
     <link rel="icon" type="image/webp" href="assets/images/brand-20260905/logo.webp">
     <script type="importmap">
     {
@@ -48,5 +51,6 @@ require_once __DIR__ . '/ui.php';
         }
     }
     </script>
+<?php if (!empty($extraSchema)): ?><script type="application/ld+json"><?= json_encode($extraSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG) ?></script><?php endif; ?>
 </head>
 <body class="bg-stone-50 text-k9-ink antialiased dark:bg-k9-ink dark:text-stone-100">

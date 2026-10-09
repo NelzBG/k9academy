@@ -5,7 +5,7 @@ $pageKey = $pageKey ?? 'home';
 $requestedLanguage = strtolower((string) ($_GET['lang'] ?? 'bg'));
 $lang = in_array($requestedLanguage, ['bg', 'en'], true) ? $requestedLanguage : 'bg';
 $currentFile = basename((string) ($_SERVER['SCRIPT_NAME'] ?? 'index.php'));
-$assetVersion = '1.3.0';
+$assetVersion = '20261009';
 $production = json_decode(file_get_contents(__DIR__ . '/production.json'), true, 512, JSON_THROW_ON_ERROR);
 $pageRoutes = json_decode(file_get_contents(__DIR__ . '/routes.json'), true, 512, JSON_THROW_ON_ERROR);
 $isPreview = getenv('K9_PREVIEW') === '1';
@@ -209,6 +209,7 @@ function k9_image_srcset(string $filename): string
     ));
 }
 
+require __DIR__ . '/editorial-config.php';
 $meta = $pageMeta[$pageKey][$lang] ?? $pageMeta['home'][$lang];
 $pageTitle = $meta[0];
 $pageDescription = $meta[1];
