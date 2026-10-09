@@ -58,12 +58,16 @@ $faqs = $lang === 'bg' ? [
 ];
 ?>
 <main id="main-content">
-<?php $youtubeId = 'hao1HjaUIic'; $youtubeStart = 0; $youtubeHero = false; require __DIR__ . '/youtube.php'; ?>
-    <section class="page-hero page-hero-training">
-        <div class="page-hero-bg" aria-hidden="true"></div>
+    <section class="page-hero page-hero-training k9-video-hero k9-training-video-hero" aria-labelledby="training-hero-title">
+        <?php $youtubeId = 'hao1HjaUIic'; $youtubeStart = 0; $youtubeContext = 'training'; require __DIR__ . '/youtube.php'; ?>
         <div class="site-container page-hero-grid">
-            <div class="page-hero-copy reveal is-visible"><p class="eyebrow eyebrow-acid"><?= k9e($copy['kicker']) ?></p><h1><?= $copy['title'] ?></h1><p><?= k9e($copy['lead']) ?></p></div>
-            <div class="page-hero-media reveal is-visible"><?= k9_training_image(17, $lang === 'bg' ? 'Куче и водач в движение на тренировъчното поле' : 'Dog and handler moving across the training field', '', true) ?><span>TRAINING / 03</span></div>
+            <div class="page-hero-copy k9-training-hero-copy reveal is-visible">
+                <p class="eyebrow eyebrow-acid"><?= k9e($copy['kicker']) ?></p>
+                <h1 id="training-hero-title"><?= $copy['title'] ?></h1>
+                <p class="k9-training-hero-lead"><?= k9e($copy['lead']) ?></p>
+                <a class="button button-acid" href="<?= k9e(k9_url('contact.php',null,'#contact-form')) ?>"><?= $lang==='bg'?'Обсъдете план за обучение':'Discuss a training plan' ?><?= k9_icon('arrow') ?></a>
+            </div>
+            <?php require __DIR__ . '/youtube-controls.php'; ?>
         </div>
     </section>
 
