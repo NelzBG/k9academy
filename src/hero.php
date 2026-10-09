@@ -20,7 +20,7 @@ $intro = $lang === 'bg' ? [
 ];
 ?>
 <section class="k9-hero k9-video-hero" aria-labelledby="k9-hero-title">
-    <?php $youtubeId = '7LM1RGSomPU'; $youtubeStart = 69; $youtubeHero = true; require __DIR__ . '/youtube.php'; ?>
+    <?php $youtubeId = '7LM1RGSomPU'; $youtubeStart = 69; $youtubeContext = 'home'; require __DIR__ . '/youtube.php'; ?>
     <div class="k9-hero-grid" aria-hidden="true"></div>
     <div class="site-container k9-hero-layout">
         <div class="k9-hero-copy">

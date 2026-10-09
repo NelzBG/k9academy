@@ -13,13 +13,13 @@
   play: bg ? 'Пусни фона' : 'Play background',
   allowPlay: bg ? 'Разреши YouTube и пусни фона' : 'Allow YouTube & play background',
   pause: bg ? 'Спри фона' : 'Pause background',
-  starting: bg ? 'Зареждане на видеото…' : 'Starting background…',
+  starting: bg ? 'Зареждане…' : 'Starting…',
   blocked: bg ? 'Натиснете „Пусни фона“, за да стартирате видеото.' : 'Press Play background to start the video.',
   failed: bg ? 'Видеото не е достъпно в момента. Опитайте отново или го отворете в YouTube.' : 'Video is unavailable right now. Try again or open it in YouTube.'
  };
  const states = containers.map(container => {
   const controls = document.querySelector('[data-video-controls="' + container.id + '"]');
-  return {container, controls, frame: container.querySelector('.k9-youtube-frame'),
+  return {container, controls, frame: container.querySelector('.k9-youtube-frame'), poster: container.querySelector('.k9-video-poster'),
    play: controls.querySelector('[data-pause-video]'), watch: controls.querySelector('[data-watch-video]'),
    status: controls.querySelector('[data-video-status]'), external: controls.querySelector('[data-youtube-link]'),
    api: null, ready: false, loading: false, generation: 0, inView: false, paused: false,
@@ -71,6 +71,7 @@
   state.generation++;
   state.api?.destroy(); state.api = null; state.ready = false; state.loading = false; state.playback = -1;
   state.frame.replaceChildren(); state.container.classList.remove('is-video-ready'); state.container.classList.remove('is-video-requested');
+  if (state.poster) state.poster.hidden = false;
   delete state.container.dataset.videoState;
  }
  function failed(state) {
@@ -97,6 +98,7 @@
      if (event.data === 1) {
       state.blocked = false;
       if (!canPlay(state)) { event.target.pauseVideo(); return; }
+      if (state.poster) state.poster.hidden = true;
       state.container.classList.add('is-video-ready'); state.container.dataset.videoState = 'playing';
       state.status.textContent = ''; state.external.hidden = true;
      } else if (event.data === 2) state.container.dataset.videoState = 'paused';

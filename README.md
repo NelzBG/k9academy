@@ -65,3 +65,5 @@ The video-layout refinement uses the official YouTube IFrame API with privacy-en
 The final font-cache refinement preloads all five small website subsets as separately cacheable WOFF2 assets. It keeps the combined styles in the initial document, avoids repeating binary font data in every HTML route, and retains the original typefaces and reserved layout dimensions. This reduces the critical document payload and allows font requests to run in parallel.
 
 The loopback preview applies ordinary gzip to text responses when requested, matching the public Pages text-delivery method for local performance comparisons. Image/font files and video range responses retain their original delivery. Local results remain distinct from public Lighthouse measurements.
+
+The training-page correction mounts its YouTube background inside the existing full-width hero, behind the original training heading and controls. Its duplicate video block, terrain overlay and floating hero photo were removed. A shared poster reference is hidden when PLAYING is confirmed and restored only after an error or consent/motion reset; pausing retains the video frame. Both languages use the same template.

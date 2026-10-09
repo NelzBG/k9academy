@@ -8,7 +8,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const source = await readFile(join(root, 'assets/js/editorial-20261009.js'), 'utf8');
 const flush = async () => { await new Promise(setImmediate); };
 let checks = 0;
-function harness(choice = 'accepted', {reduced = false, saveData = false, apiAvailable = true, observer = true, lang = 'en'} = {}) {
+function harness(choice = 'accepted', {reduced = false, saveData = false, apiAvailable = true, observer = true, lang = 'en', context = 'home'} = {}) {
  const calls = [], frames = [], players = [], timers = [], listeners = new Map();
  class Element {
   constructor(tag = 'div') { this.tagName = tag; this.children = []; this.attrs = {}; this.events = new Map(); this.dataset = {}; this.hidden = false; this.textContent = ''; this.disabled = false; this.classes = new Set(); this.classList = {add: name => this.classes.add(name), remove: name => this.classes.delete(name), contains: name => this.classes.has(name)}; }
@@ -25,11 +25,12 @@ function harness(choice = 'accepted', {reduced = false, saveData = false, apiAva
   showModal() { this.open = true; }
   close() { this.open = false; this.emit('close'); }
  }
- const container = new Element(); container.id = 'k9-youtube-home'; container.dataset = {youtube: '7LM1RGSomPU', start: '69'};
+ const container = new Element(); container.id = 'k9-youtube-' + context; container.dataset = context === 'training' ? {youtube: 'hao1HjaUIic', start: '0'} : {youtube: '7LM1RGSomPU', start: '69'};
+ const poster = context === 'training' ? new Element('img') : null;
  const frame = new Element(), controls = new Element(), play = new Element('button'), watch = new Element('button'), status = new Element('p'), external = new Element('a');
  const cookieEssential = new Element('button'), cookieAccepted = new Element('button');
  const buttons = {'[data-pause-video]': play, '[data-watch-video]': watch, '[data-video-status]': status, '[data-youtube-link]': external};
- controls.querySelector = key => buttons[key]; container.querySelector = key => key === '.k9-youtube-frame' ? frame : null;
+ controls.querySelector = key => buttons[key]; container.querySelector = key => key === '.k9-youtube-frame' ? frame : key === '.k9-video-poster' ? poster : null;
  const head = new Element('head'), body = new Element('body');
  const document = {head, body, hidden: false, documentElement: {lang},
   querySelectorAll: key => key === '[data-youtube]' ? [container] : key === '[data-cookie-choice]' ? [cookieEssential, cookieAccepted] : [],
@@ -59,7 +60,7 @@ function harness(choice = 'accepted', {reduced = false, saveData = false, apiAva
  sandbox.window = sandbox;
  if (apiAvailable) sandbox.YT = {Player};
  vm.runInNewContext(source, sandbox, {timeout: 1000});
- return {calls, frames, players, timers, container, frame, play, watch, status, external, head, body, document, media, connection,
+ return {calls, frames, players, timers, container, frame, poster, play, watch, status, external, head, body, document, media, connection,
   visible: value => intersection?.([{target: container, isIntersecting: value}]),
   visibility: value => {document.hidden = value; listeners.get('visibilitychange')();},
   overlay: value => {body.covered = value; mutation();},
@@ -108,6 +109,20 @@ checks++;
 h.players[0].error(); assert.equal(h.frame.children.length, 0); assert.equal(h.container.classList.contains('is-video-ready'), false);
 assert.equal(h.external.hidden, false); assert.match(h.status.textContent, /unavailable/); checks++;
 
+// Training fallback must disappear completely after playback and stay hidden on pause.
+for (const reset of ['error', 'consent']) {
+ h = harness('accepted', {context: 'training'});
+ assert.equal(h.poster.hidden, false); h.visible(true); await flush();
+ assert.equal(new URL(h.frames[0].src).pathname, '/embed/hao1HjaUIic');
+ h.players[0].ready(); assert.equal(h.poster.hidden, false);
+ h.players[0].emit(1); assert.equal(h.poster.hidden, true);
+ h.play.emit('click'); assert.equal(h.poster.hidden, true, 'Pause must retain the current video frame');
+ if (reset === 'error') h.players[0].error();
+ else { h.consent('essential'); await flush(); }
+ assert.equal(h.poster.hidden, false, 'Error or withdrawal must restore a usable fallback');
+ assert.equal(h.frame.children.length, 0); checks++;
+}
+
 // Withdrawal invalidates an in-flight API load, so late readiness cannot embed it.
 h = harness('accepted', {apiAvailable: false}); h.visible(true); await flush();
 assert.equal(h.head.children[0].src, 'https://www.youtube.com/iframe_api');
@@ -136,6 +151,19 @@ for (const prefix of ['', 'en/']) for (const slug of ['', 'training/']) {
  assert.equal((html.match(new RegExp('data-video-controls="' + id + '"', 'g')) || []).length, 1);
  assert(!html.includes('data-pause-video hidden'));
  if (!slug) assert.match(html, /k9-hero-tools[\s\S]*data-effects-toggle[\s\S]*data-video-controls/);
+ else {
+  const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)[1];
+  const hero = main.slice(0, main.indexOf('</section>') + '</section>'.length);
+  assert.match(hero, /^\s*<section\b[^>]*class="[^"]*k9-training-video-hero/);
+  assert.match(hero, /id="k9-youtube-training"[^>]*data-youtube="hao1HjaUIic"[^>]*data-start="0"/);
+  assert.match(hero, /data-video-controls="k9-youtube-training"/);
+  assert.equal((hero.match(/<h1\b/g) || []).length, 1);
+  assert.match(hero, /<h1 id="training-hero-title">/);
+  assert.equal((hero.match(/<img\b[^>]*class="k9-video-poster"/g) || []).length, 1, 'The training hero has one removable fallback photo');
+  assert(!/class="[^"]*(?:page-hero-bg|page-hero-media|k9-youtube-feature)/.test(hero));
+  assert(!/class="[^"]*k9-youtube-feature/.test(main), 'No separate video block above the training hero');
+ }
+
 }
 checks++;
 console.log('YouTube lifecycle checks passed: ' + checks + ' scenarios (consent, readiness, playback, pause, retry, errors, withdrawal, motion/data preferences, dialog and bilingual controls).');
