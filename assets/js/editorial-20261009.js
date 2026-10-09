@@ -42,7 +42,7 @@
   frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
   frame.referrerPolicy = 'strict-origin-when-cross-origin';
   frame.allowFullscreen = true;
-  frame.loading = foreground ? 'eager' : 'lazy';
+  frame.loading = 'eager';
   if (!foreground) { frame.id = state.container.id + '-player'; frame.tabIndex = -1; frame.setAttribute('aria-hidden', 'true'); }
   return frame;
  }
@@ -135,10 +135,10 @@
   };
   if (!immediate && !state.explicit) {
    if (typeof window.requestIdleCallback === 'function') {
-    const id = window.requestIdleCallback(() => { void mount(); }, {timeout: 1200});
+    const id = window.requestIdleCallback(() => { void mount(); }, {timeout: 250});
     state.deferred = {kind: 'idle', id};
    } else {
-    const id = window.setTimeout(() => { void mount(); }, 350);
+    const id = window.setTimeout(() => { void mount(); }, 250);
     state.deferred = {kind: 'timeout', id};
    }
    label(state);

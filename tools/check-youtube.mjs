@@ -8,8 +8,8 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const source = await readFile(join(root, 'assets/js/editorial-20261009.js'), 'utf8');
 const flush = async () => { await new Promise(setImmediate); };
 let checks = 0;
-function harness(choice = 'accepted', {reduced = false, saveData = false, apiAvailable = true, observer = true, lang = 'en', context = 'home'} = {}) {
- const calls = [], frames = [], players = [], timers = [], listeners = new Map(), idleTasks = new Map(); let idleSerial = 0;
+function harness(choice = 'accepted', {reduced = false, saveData = false, apiAvailable = true, observer = true, idleCallback = true, lang = 'en', context = 'home'} = {}) {
+ const calls = [], frames = [], players = [], timers = [], idleTimeouts = [], listeners = new Map(), idleTasks = new Map(); let idleSerial = 0;
  class Element {
   constructor(tag = 'div') { this.tagName = tag; this.children = []; this.attrs = {}; this.events = new Map(); this.dataset = {}; this.hidden = false; this.textContent = ''; this.disabled = false; this.classes = new Set(); this.classList = {add: name => this.classes.add(name), remove: name => this.classes.delete(name), contains: name => this.classes.has(name)}; }
   addEventListener(type, fn) { if (!this.events.has(type)) this.events.set(type, []); this.events.get(type).push(fn); }
@@ -55,13 +55,13 @@ function harness(choice = 'accepted', {reduced = false, saveData = false, apiAva
  const sandbox = {document, navigator: {connection}, location: {origin: 'https://www.k9academy.bg'}, URLSearchParams,
   localStorage: {getItem: () => choice}, matchMedia: () => media, queueMicrotask,
   setTimeout: (fn, delay) => {const timer = {fn, delay}; timers.push(timer); return timer;}, clearTimeout: () => {},
-  requestIdleCallback: fn => {const id = ++idleSerial; idleTasks.set(id, fn); return id;}, cancelIdleCallback: id => idleTasks.delete(id),
+  ...(idleCallback ? {requestIdleCallback: (fn, options) => {const id = ++idleSerial; idleTimeouts.push(options?.timeout); idleTasks.set(id, fn); return id;}, cancelIdleCallback: id => idleTasks.delete(id)} : {}),
   MutationObserver: class {constructor(fn) {mutation = fn;} observe() {}},
   ...(observer ? {IntersectionObserver: class {constructor(fn) {intersection = fn;} observe() {}}} : {})};
  sandbox.window = sandbox;
  if (apiAvailable) sandbox.YT = {Player};
  vm.runInNewContext(source, sandbox, {timeout: 1000});
- return {calls, frames, players, timers, container, frame, poster, play, watch, status, external, head, body, document, media, connection,
+ return {calls, frames, players, timers, idleTimeouts, container, frame, poster, play, watch, status, external, head, body, document, media, connection,
   pendingIdle: () => idleTasks.size,
   runIdle: () => {const pending = [...idleTasks.values()]; idleTasks.clear(); pending.forEach(fn => fn());},
   visible: value => intersection?.([{target: container, isIntersecting: value}]),
@@ -75,13 +75,18 @@ function harness(choice = 'accepted', {reduced = false, saveData = false, apiAva
 let h = harness('essential'); h.visible(true); await flush();
 assert.equal(h.frames.length, 0); assert.equal(h.head.children.length, 0); checks++;
 h = harness(); await flush(); assert.equal(h.frames.length, 0); h.visible(true); await flush();
-assert.equal(h.frames.length, 0, 'The background player waits until the main thread is idle'); assert.equal(h.pendingIdle(), 1);
+assert.equal(h.frames.length, 0, 'The background player waits for a brief idle window'); assert.equal(h.pendingIdle(), 1); assert.deepEqual(h.idleTimeouts, [250]);
 h.runIdle(); await flush(); assert.equal(h.frames.length, 1); assert.equal(h.players.length, 1);
-assert.equal(h.frames[0].loading, 'lazy', 'Background iframe uses native lazy loading');
+assert.equal(h.frames[0].loading, 'eager', 'Once the visible, consented hero mounts, the iframe starts without a second native lazy delay');
 const url = new URL(h.frames[0].src);
 assert.equal(url.origin, 'https://www.youtube-nocookie.com');
 for (const [key, value] of Object.entries({mute: '1', autoplay: '1', start: '69', playsinline: '1', controls: '0', enablejsapi: '1'})) assert.equal(url.searchParams.get(key), value);
 assert.equal(h.timers.length, 0, 'No fallback timer is used when idle callbacks are available'); checks++;
+
+// Browsers without requestIdleCallback still start the visible player promptly.
+const hNoIdle = harness('accepted', {idleCallback: false}); hNoIdle.visible(true); await flush();
+assert.equal(hNoIdle.frames.length, 0); assert.equal(hNoIdle.timers[0].delay, 250);
+hNoIdle.timers[0].fn(); await flush(); assert.equal(hNoIdle.frames.length, 1); checks++;
 
 // A ready player is not a playing player: keep the poster until PLAYING arrives.
 assert.equal(h.container.classList.contains('is-video-ready'), false);
