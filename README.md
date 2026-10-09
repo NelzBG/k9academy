@@ -67,3 +67,5 @@ The final font-cache refinement preloads all five small website subsets as separ
 The loopback preview applies ordinary gzip to text responses when requested, matching the public Pages text-delivery method for local performance comparisons. Image/font files and video range responses retain their original delivery. Local results remain distinct from public Lighthouse measurements.
 
 The training-page correction mounts its YouTube background inside the existing full-width hero, behind the original training heading and controls. Its duplicate video block, terrain overlay and floating hero photo were removed. A shared poster reference is hidden when PLAYING is confirmed and restored only after an error or consent/motion reset; pausing retains the video frame. Both languages use the same template.
+
+The training fallback also has 640/1280/1920 AVIF delivery variants from the same existing real photograph, with the original WebP fallback and gallery unchanged. The 1280 variant transfers 85,801 bytes instead of 235,086; the image remains hidden during confirmed video playback.
