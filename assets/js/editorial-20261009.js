@@ -2,49 +2,155 @@
  'use strict';
  const bg = document.documentElement.lang === 'bg';
  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
- const videos = [...document.querySelectorAll('[data-youtube]')];
- const permitted = () => { try { return localStorage.getItem('k9-cookie-choice')==='accepted'; } catch { return false; } };
- function player(container, foreground) {
-  const iframe = document.createElement('iframe');
-  const args = new URLSearchParams({autoplay:'1',mute:foreground?'0':'1',playsinline:'1',controls:foreground?'1':'0',rel:'0',loop:foreground?'0':'1',playlist:container.dataset.youtube,start:container.dataset.start,enablejsapi:'1',origin:location.origin});
-  iframe.src='https://www.youtube-nocookie.com/embed/'+container.dataset.youtube+'?'+args;
-  iframe.title=bg?'K9 Academy тренировка':'K9 Academy training';
-  iframe.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
-  iframe.referrerPolicy='strict-origin-when-cross-origin';
-  iframe.allowFullscreen=true;
-  if (!foreground) {iframe.tabIndex=-1;iframe.setAttribute('aria-hidden','true');}
-  return iframe;
+ const containers = [...document.querySelectorAll('[data-youtube]')];
+ if (!containers.length) return;
+ const accepted = () => { try { return localStorage.getItem('k9-cookie-choice') === 'accepted'; } catch { return false; } };
+ let mediaConsent = false, apiPromise = null, activeDialog = null;
+ const allowed = () => accepted() || mediaConsent;
+ const text = {
+  watch: bg ? 'Гледайте видеото' : 'Watch video',
+  allowWatch: bg ? 'Разреши YouTube и гледай' : 'Allow YouTube & watch',
+  play: bg ? 'Пусни фона' : 'Play background',
+  allowPlay: bg ? 'Разреши YouTube и пусни фона' : 'Allow YouTube & play background',
+  pause: bg ? 'Спри фона' : 'Pause background',
+  starting: bg ? 'Зареждане на видеото…' : 'Starting background…',
+  blocked: bg ? 'Натиснете „Пусни фона“, за да стартирате видеото.' : 'Press Play background to start the video.',
+  failed: bg ? 'Видеото не е достъпно в момента. Опитайте отново или го отворете в YouTube.' : 'Video is unavailable right now. Try again or open it in YouTube.'
+ };
+ const states = containers.map(container => {
+  const controls = document.querySelector('[data-video-controls="' + container.id + '"]');
+  return {container, controls, frame: container.querySelector('.k9-youtube-frame'),
+   play: controls.querySelector('[data-pause-video]'), watch: controls.querySelector('[data-watch-video]'),
+   status: controls.querySelector('[data-video-status]'), external: controls.querySelector('[data-youtube-link]'),
+   api: null, ready: false, loading: false, generation: 0, inView: false, paused: false,
+   blocked: false, explicit: false, playback: -1};
+ });
+ function label(state) {
+  state.watch.textContent = allowed() ? text.watch : text.allowWatch;
+  state.play.textContent = state.loading ? text.starting : state.playback === 1 ? text.pause : allowed() ? text.play : text.allowPlay;
+  state.play.disabled = state.loading;
+  state.play.setAttribute('aria-pressed', String(state.playback === 1));
  }
- function background(container) {
-  if(container._player || !permitted() || reduced.matches || navigator.connection?.saveData || document.hidden || container._inView===false)return;
-  container._player=player(container,false);
-  container.querySelector('.k9-youtube-frame').append(container._player);
-  container.classList.add('has-youtube');
-  container.querySelector('[data-pause-video]').hidden=false;
+ function iframe(state, foreground) {
+  const frame = document.createElement('iframe');
+  const args = new URLSearchParams({autoplay: '1', mute: foreground ? '0' : '1', playsinline: '1',
+   controls: foreground ? '1' : '0', rel: '0', loop: foreground ? '0' : '1',
+   playlist: state.container.dataset.youtube, start: state.container.dataset.start,
+   enablejsapi: '1', origin: location.origin});
+  frame.src = 'https://www.youtube-nocookie.com/embed/' + state.container.dataset.youtube + '?' + args;
+  frame.title = bg ? 'K9 Academy тренировка' : 'K9 Academy training';
+  frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  frame.referrerPolicy = 'strict-origin-when-cross-origin';
+  frame.allowFullscreen = true;
+  if (!foreground) { frame.id = state.container.id + '-player'; frame.tabIndex = -1; frame.setAttribute('aria-hidden', 'true'); }
+  return frame;
  }
- const command=(container,func)=>container._player?.contentWindow?.postMessage(JSON.stringify({event:'command',func,args:[]}), 'https://www.youtube-nocookie.com');
- function stopAll(){videos.forEach(v=>command(v,'pauseVideo'));}
- const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries=>entries.forEach(e=>{e.target._inView=e.isIntersecting;if(!e.isIntersecting)command(e.target,'pauseVideo');else if(e.target._player&&!e.target._paused&&!document.hidden)command(e.target,'playVideo');else if(e.target._idle)background(e.target);}),{threshold:.15}) : null;
- videos.forEach(container=>{
-  observer?.observe(container);
-  container.querySelector('[data-pause-video]').addEventListener('click',event=>{container._paused=!container._paused;command(container,container._paused?'pauseVideo':'playVideo');event.currentTarget.textContent=container._paused?(bg?'Пусни фона':'Play background'):(bg?'Спри фона':'Pause background');});
-  container.querySelector('[data-watch-video]').addEventListener('click',()=>{
-   stopAll();
-   const dialog=document.createElement('dialog');dialog.className='k9-video-dialog';
-   const close=document.createElement('button');close.type='button';close.className='button button-acid';close.textContent=bg?'Затвори видеото':'Close video';
-   dialog.setAttribute('aria-label',bg?'Гледайте K9 Academy':'Watch K9 Academy');
-   dialog.append(close,player(container,true));document.body.append(dialog);dialog.showModal();
-   close.addEventListener('click',()=>dialog.close());
-   dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
-   dialog.addEventListener('close',()=>{dialog.remove();container.querySelector('[data-watch-video]').focus();});
+ function loadApi() {
+  if (window.YT?.Player) return Promise.resolve(window.YT);
+  if (apiPromise) return apiPromise;
+  apiPromise = new Promise((resolve, reject) => {
+   const script = document.createElement('script');
+   const previous = window.onYouTubeIframeAPIReady;
+   const timeout = setTimeout(() => { script.remove(); apiPromise = null; reject(Error('YouTube did not become ready')); }, 20000);
+   window.onYouTubeIframeAPIReady = () => {
+    clearTimeout(timeout);
+    if (typeof previous === 'function') previous();
+    resolve(window.YT);
+   };
+   script.src = 'https://www.youtube.com/iframe_api'; script.async = true;
+   script.addEventListener('error', () => { clearTimeout(timeout); script.remove(); apiPromise = null; reject(Error('YouTube is unavailable')); }, {once: true});
+   document.head.append(script);
+  });
+  return apiPromise;
+ }
+ function canPlay(state) {
+  return allowed() && state.inView && !state.paused && !state.blocked && !document.hidden && !activeDialog &&
+   !document.body.matches('.cookie-open,.menu-open') && (state.explicit || (!reduced.matches && !navigator.connection?.saveData));
+ }
+ function destroy(state) {
+  state.generation++;
+  state.api?.destroy(); state.api = null; state.ready = false; state.loading = false; state.playback = -1;
+  state.frame.replaceChildren(); state.container.classList.remove('is-video-ready'); state.container.classList.remove('is-video-requested');
+  delete state.container.dataset.videoState;
+ }
+ function failed(state) {
+  destroy(state); state.blocked = true; state.status.textContent = text.failed; state.external.hidden = false; label(state);
+ }
+ async function start(state) {
+  if (state.api || state.loading || !canPlay(state)) return;
+  const generation = ++state.generation;
+  state.loading = true; state.status.textContent = ''; state.external.hidden = true; label(state);
+  const frame = iframe(state, false);
+  state.frame.append(frame);
+  try {
+   const yt = await loadApi();
+   if (generation !== state.generation || !allowed()) return;
+   state.api = new yt.Player(frame.id, {events: {
+    onReady: event => {
+     if (generation !== state.generation) return;
+     state.api = event.target; state.ready = true; state.loading = false;
+     event.target.mute(); label(state); sync(state);
+    },
+    onStateChange: event => {
+     if (generation !== state.generation) return;
+     state.playback = event.data;
+     if (event.data === 1) {
+      state.blocked = false;
+      if (!canPlay(state)) { event.target.pauseVideo(); return; }
+      state.container.classList.add('is-video-ready'); state.container.dataset.videoState = 'playing';
+      state.status.textContent = ''; state.external.hidden = true;
+     } else if (event.data === 2) state.container.dataset.videoState = 'paused';
+     else if (event.data === 0 && canPlay(state)) { event.target.seekTo(Number(state.container.dataset.start) || 0, true); event.target.playVideo(); }
+     label(state);
+    },
+    onAutoplayBlocked: () => {
+     if (generation !== state.generation) return;
+     state.blocked = true; state.playback = -1; state.status.textContent = text.blocked; label(state);
+    },
+    onError: () => { if (generation === state.generation) failed(state); }
+   }});
+  } catch { if (generation === state.generation) failed(state); }
+ }
+ function sync(state) {
+  if (!canPlay(state)) { if (state.ready) state.api.pauseVideo(); return; }
+  if (state.ready) { state.api.mute(); state.api.playVideo(); }
+  else start(state);
+ }
+ const syncAll = () => states.forEach(sync);
+ function stopAll() { states.forEach(state => { if (state.ready) state.api.pauseVideo(); }); }
+ const observer = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+  entries.forEach(entry => { const state = states.find(item => item.container === entry.target); state.inView = entry.isIntersecting; sync(state); });
+ }, {threshold: .1}) : null;
+ states.forEach(state => {
+  label(state);
+  if (observer) observer.observe(state.container); else { state.inView = true; sync(state); }
+  state.play.addEventListener('click', () => {
+   mediaConsent = true; state.explicit = true; state.blocked = false; state.container.classList.add('is-video-requested');
+   state.paused = state.playback === 1;
+   state.status.textContent = ''; states.forEach(label); sync(state);
+  });
+  state.watch.addEventListener('click', () => {
+   mediaConsent = true; states.forEach(label);
+   const dialog = document.createElement('dialog'); dialog.className = 'k9-video-dialog'; activeDialog = dialog; stopAll();
+   dialog.setAttribute('aria-label', bg ? 'Гледайте K9 Academy' : 'Watch K9 Academy');
+   const close = document.createElement('button'); close.type = 'button'; close.className = 'button button-acid';
+   close.textContent = bg ? 'Затвори видеото' : 'Close video';
+   const link = state.external.cloneNode(true); link.hidden = false; link.removeAttribute('data-youtube-link');
+   dialog.append(close, iframe(state, true), link); document.body.append(dialog); dialog.showModal();
+   close.addEventListener('click', () => dialog.close());
+   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+   dialog.addEventListener('close', () => { dialog.remove(); activeDialog = null; state.watch.focus({preventScroll: true}); syncAll(); });
   });
  });
- const schedule=()=>setTimeout(()=>videos.forEach(v=>{v._idle=true;background(v);}),12000);
- if(document.readyState==='complete')schedule();else addEventListener('load',schedule,{once:true});
- document.querySelectorAll('[data-cookie-choice]').forEach(button=>button.addEventListener('click',()=>queueMicrotask(()=>{
-  if(permitted())videos.forEach(v=>{if(v._idle)background(v);});
-  else videos.forEach(v=>{v._player?.remove();v._player=null;v.classList.remove('has-youtube');v.querySelector('[data-pause-video]').hidden=true;});
+ document.querySelectorAll('[data-cookie-choice]').forEach(button => button.addEventListener('click', () => queueMicrotask(() => {
+  if (!accepted()) {
+   mediaConsent = false; activeDialog?.close();
+   states.forEach(state => { destroy(state); state.explicit = false; state.paused = false; state.blocked = false; state.status.textContent = ''; state.external.hidden = true; });
+  }
+  states.forEach(label); syncAll();
  })));
- reduced.addEventListener('change',()=>{if(reduced.matches)stopAll();});
- document.addEventListener('visibilitychange',()=>{if(document.hidden)stopAll();else videos.forEach(v=>{if(v._player&&v._inView&&!v._paused&&!reduced.matches)command(v,'playVideo');});});
+ reduced.addEventListener('change', () => { states.forEach(state => { state.explicit = false; if (reduced.matches) destroy(state); label(state); }); syncAll(); });
+ navigator.connection?.addEventListener?.('change', syncAll);
+ document.addEventListener('visibilitychange', syncAll);
+ new MutationObserver(syncAll).observe(document.body, {attributes: true, attributeFilter: ['class']});
 })();
