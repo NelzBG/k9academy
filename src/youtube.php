@@ -1,0 +1,7 @@
+<?php $videoLabel = $lang==='bg'?'K9 Academy тренировка':'K9 Academy training'; ?>
+<div class="k9-youtube <?= !empty($youtubeHero)?'k9-youtube-background':'k9-youtube-feature' ?>" data-youtube="<?= k9e($youtubeId) ?>" data-start="<?= (int)$youtubeStart ?>">
+ <?php if (empty($youtubeHero)): ?><img class="k9-video-poster" src="/assets/images/training-library/training-001-1280.webp" srcset="/assets/images/training-library/training-001-640.webp 640w, /assets/images/training-library/training-001-1280.webp 1280w" sizes="100vw" width="1280" height="720" alt="" fetchpriority="high" decoding="async"><div class="k9-video-caption"><p class="eyebrow">K9 / <?= $lang==='bg'?'НА ТЕРЕНА':'ON THE FIELD' ?></p><h2><?= $lang==='bg'?'Вижте как тренираме.':'See how we train.' ?></h2></div><?php endif; ?>
+ <div class="k9-youtube-frame" aria-hidden="true"></div>
+ <div class="k9-video-actions"><button type="button" class="button button-acid" data-watch-video><?= $lang==='bg'?'Разреши YouTube и гледай':'Allow YouTube & watch' ?></button><button type="button" class="button button-ink" data-pause-video hidden><?= $lang==='bg'?'Спри фона':'Pause background' ?></button></div>
+ <noscript><a class="button button-acid" href="https://www.youtube.com/watch?v=<?= k9e($youtubeId) ?>&amp;t=<?= (int)$youtubeStart ?>s" target="_blank" rel="noopener"><?= $lang==='bg'?'Гледайте тренировката в YouTube':'Watch the training on YouTube' ?></a></noscript>
+</div>

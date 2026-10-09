@@ -4,6 +4,8 @@
 /** @var string $assetVersion */
 /** @var bool $showFooterContact */
 ?>
+<?php if (in_array($pageKey, ['home','about','services','training','shop','contact','privacy','terms'], true) && empty($pageNoIndex)): require __DIR__ . '/learning-links.php'; endif; ?>
+<?php if (empty($hideEbooks)): require __DIR__ . '/ebook-section.php'; endif; ?>
 <?php if ($showFooterContact): ?>
 <section class="contact-deck" id="quick-contact" aria-labelledby="quick-contact-title">
     <div class="site-container contact-deck-grid">
@@ -158,10 +160,11 @@
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
 <script src="assets/js/site-20260905.js" defer></script>
+<script src="assets/js/editorial-20261009.js" defer></script>
 <script src="assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
 <script src="assets/js/interface-20260906-glass.js" defer></script>
 <?php if (!empty($hasBreedCarousel)): ?><script src="assets/js/breed-carousel-20260906.js" defer></script><?php endif; ?>
-<?php if (!empty($hasDogViewer)): ?><script type="module" src="assets/js/dog-viewer-20260906.js"></script><?php endif; ?>
+<?php if (!empty($hasDogViewer)): ?><script src="assets/js/model-loader-20261009.js" defer></script><?php endif; ?>
 <?php if (!empty($hasTrainingGallery)): ?><script src="assets/js/training-library-20260914.js" defer></script><?php endif; ?>
 </body>
 </html>

@@ -1,0 +1,569 @@
+{
+  "pages": {
+    "puppy": {
+      "bg": {
+        "title": "Обучение на кученце. Добри навици от първия ден.",
+        "intro": "То опознава света. Вие му показвате посоката. Изградете спокойна рутина, доверие и ясни сигнали с кратки упражнения, съобразени с вашето кученце.",
+        "cta": "Споделете възрастта на кученцето, как протича денят ви и кое ви затруднява. Заедно ще подредим първите стъпки.",
+        "sections": [
+          {
+            "title": "Започнете с безопасност и спокойствие",
+            "body": "<p>Подгответе тихо място за сън, вода, безопасни играчки за дъвчене и зона без кабели или дребни предмети. Първите дни не са изпит по послушание. Дайте време на кученцето да се ориентира и наблюдавайте кога има нужда от почивка.</p><p>Съгласувайте ваксинациите, обезпаразитяването и подходящите места за излизане с ветеринарния лекар. Изберете няколко постоянни думи и ги използвайте еднакво в семейството. Ако още обмисляте бъдещото си куче, започнете с <a href=\"{{breeds}}\">избор на порода според начина ви на живот</a>.</p>"
+          },
+          {
+            "title": "Рутина за тоалетна, храна и почивка",
+            "body": "<p>Предлагайте възможност за тоалетна след събуждане, хранене и игра. Изчакайте спокойно и наградете веднага след правилното действие. При инцидент у дома почистете с подходящ препарат и преценете дали следващото излизане трябва да е по-рано.</p><p>Не наказвайте кученцето след случилото се. Записвайте приблизително часовете за сън, хранене и тоалетна: така ще разпознаете неговия ритъм. Честото уриниране, болката или внезапната промяна изискват ветеринарна консултация.</p>"
+          },
+          {
+            "title": "Име, внимание и първи сигнали",
+            "body": "<p>Кажете името веднъж в тиха среда. Когато кученцето се обърне към вас, отбележете момента с кратко „да“ и дайте награда. Работете в няколко кратки серии и приключвайте, докато интересът е още налице.</p><p>След това упражнявайте идване от близко разстояние, спокойно сядане и оставане върху постелка. Добавяйте трудност постепенно: първо разстояние, после продължителност или разсейване. Разгледайте <a href=\"{{training}}\">нашия процес на обучение</a>, за да видите как малките стъпки се превръщат в устойчив навик.</p>"
+          },
+          {
+            "title": "Социализация без претоварване",
+            "body": "<p>Социализацията означава положителни и управляеми преживявания. Не е нужно кученцето да поздравява всяко куче или човек. Наблюдение от спокойна дистанция, кратка среща с подходящ партньор и възможност да се отдалечи са добри начала.</p><p>При свиване, застиване, опити за бягство или продължително напрежение намалете трудността. Не го дърпайте към страшния обект. За индивидуален план разгледайте <a href=\"{{services}}\">програмите за социализация</a>.</p>"
+          },
+          {
+            "title": "Хапане, дъвчене и първи разходки",
+            "body": "<p>Пазете ръцете от бурна игра и предложете подходяща играчка. Ако възбудата расте, прекъснете спокойно и осигурете почивка. Не стискайте муцуната и не превръщайте всяка грешка в конфликт.</p><p>Запознайте кученцето с нагръдника и повода у дома. Награждавайте доброволното приближаване и няколко крачки с отпуснат повод. Използвайте удобна екипировка и безопасна среда. В <a href=\"{{blog}}\">блога за обучение на кучета</a> ще намерите отделни ръководства за хапане, повод и социализация.</p>"
+          },
+          {
+            "title": "Кога е полезна индивидуална помощ?",
+            "body": "<p>Потърсете помощ, когато страхът нараства, ежедневието е трудно за подреждане или не сте сигурни как да реагирате. Ранната консултация може да изясни средата, сигналите и реалистичните следващи стъпки.</p><p>При риск от ухапване осигурете безопасна дистанция и физическо разделяне; не правете провокации, за да „проверите“ поведението. Болка, внезапна промяна, отказ от храна или здравословни симптоми са повод първо да се свържете с ветеринарен лекар.</p>"
+          }
+        ]
+      },
+      "en": {
+        "title": "Puppy training. Better habits from day one.",
+        "intro": "Your puppy is discovering the world. You provide direction. Build a calm routine, trust and clear signals through short exercises that suit your puppy.",
+        "cta": "Share your puppy’s age, daily routine and the part you find difficult. We can put the first steps in order together.",
+        "sections": [
+          {
+            "title": "Start with safety and calm",
+            "body": "<p>Prepare a quiet sleeping space, fresh water, safe chewing toys and an area free of cables and small objects. The first few days are not an obedience test. Give your puppy time to settle and notice when rest is needed.</p><p>Discuss vaccination, parasite prevention and suitable places to visit with your veterinarian. Agree a few consistent cue words as a household. If you are still considering a dog, begin with <a href=\"{{breeds}}\">choosing a breed for your lifestyle</a>.</p>"
+          },
+          {
+            "title": "A routine for toilet breaks, meals and rest",
+            "body": "<p>Offer a toilet opportunity after waking, meals and play. Wait quietly and reward immediately after your puppy finishes in the right place. Clean indoor accidents with an appropriate cleaner and consider whether the next break needs to come sooner.</p><p>Do not punish after an accident. Note approximate sleep, meal and toilet times to learn your puppy’s rhythm. Pain, unusually frequent urination or sudden changes require veterinary advice.</p>"
+          },
+          {
+            "title": "Name, attention and first cues",
+            "body": "<p>Say your puppy’s name once in a quiet space. Mark the moment they turn towards you with a short “yes”, then give a reward. Use a few brief sets and finish while interest remains.</p><p>Progress to coming from a short distance, a comfortable sit and settling on a mat. Change one challenge at a time: distance, duration or distraction. Explore <a href=\"{{training}}\">our training process</a> to see how small steps develop into reliable habits.</p>"
+          },
+          {
+            "title": "Socialisation without overload",
+            "body": "<p>Socialisation means positive, manageable experiences. Your puppy does not need to greet every person or dog. Calm observation from a distance, a short meeting with an appropriate partner and the freedom to move away are useful beginnings.</p><p>If your puppy crouches, freezes, tries to escape or stays tense, make the situation easier. Do not pull them towards something frightening. Explore our <a href=\"{{services}}\">socialisation programmes</a> for individual guidance.</p>"
+          },
+          {
+            "title": "Mouthing, chewing and first walks",
+            "body": "<p>Keep hands out of rough play and offer a suitable toy. If excitement escalates, pause calmly and provide rest. Avoid grabbing the muzzle or turning every mistake into a confrontation.</p><p>Introduce the harness and lead at home. Reward voluntary approaches and a few steps with a loose lead. Use comfortable equipment in a safe environment. Our <a href=\"{{blog}}\">dog training blog</a> has dedicated guides to mouthing, lead walking and socialisation.</p>"
+          },
+          {
+            "title": "When does individual support help?",
+            "body": "<p>Ask for help if fear is increasing, routines are hard to manage or you are unsure how to respond. An early consultation can clarify the environment, cues and realistic next steps.</p><p>For bite risk, create distance and physical separation rather than provoking behaviour to test it. Pain, sudden changes, loss of appetite or other health symptoms call for a veterinarian first.</p>"
+          }
+        ]
+      }
+    },
+    "breeds": {
+      "bg": {
+        "title": "Коя порода куче е подходяща за вас?",
+        "intro": "Красивото куче привлича погледа. Подходящото куче се вписва в живота ви. Изберете с ясна представа за време, характер, грижи и дългосрочен ангажимент.",
+        "cta": "Разкажете ни за дома, работния си ден, опита и очакванията си. Можем да обсъдим подходящ профил на куче преди покупка или осиновяване.",
+        "sections": [
+          {
+            "title": "Започнете от ежедневието си",
+            "body": "<p>Опишете обикновения си вторник, а не идеалния уикенд. Колко време имате за разходки, обучение, почивка и грижа за козината? Кой ще поеме кучето при болест, пътуване или промяна в работата?</p><p>Площта на дома е само един фактор. По-важни са предвидимите излизания, възможността за спокойствие и помощта, на която реално можете да разчитате. Ако избирате кученце, планирайте и първите седмици с <a href=\"{{puppy}}\">обучение и адаптация на кученцето</a>.</p>"
+          },
+          {
+            "title": "Сравнявайте потребности, не етикети",
+            "body": "<p>Размерът не определя сам по себе си енергията. Малко куче може да има силен ловен интерес и висока нужда от занимания. Голямо куче може да се отпуска добре у дома, но да изисква повече пространство за безопасно водене и по-висок бюджет.</p><table><caption>Въпроси за реалистичен избор</caption><thead><tr><th>Потребност</th><th>Какво да проверите</th></tr></thead><tbody><tr><td>Активност</td><td>Разходки, умствена работа и способност за почивка</td></tr><tr><td>Козина</td><td>Честота, време и разходи за поддръжка</td></tr><tr><td>Общуване</td><td>Реакции към хора, кучета и други животни</td></tr><tr><td>Здраве</td><td>Изследвания, ветеринарни грижи и специфични рискове</td></tr><tr><td>Самостоятелност</td><td>Постепенно обучение за оставане насаме</td></tr></tbody></table>"
+          },
+          {
+            "title": "Характерът е индивидуален",
+            "body": "<p>Породата дава ориентир за вероятни потребности, но не обещава конкретно поведение. Наблюдавайте самото куче: може ли да се отдалечи спокойно, търси ли контакт, възстановява ли се след малка промяна?</p><p>Помолете развъдника или организацията за честна информация за средата, навиците и известните затруднения. Не правете шумни или плашещи „тестове“. Вижте <a href=\"{{training}}\">как изграждаме обучение според темперамента</a>.</p>"
+          },
+          {
+            "title": "Кученце или възрастно куче?",
+            "body": "<p>Кученцето изисква чести грижи, обучение за тоалетна и постепенно изграждане на самостоятелност. При възрастно куче може да има повече информация за характер и навици, но адаптацията също изисква време и търпение.</p><p>И покупката, и осиновяването заслужават внимателна проверка. Срещнете се с кучето, задайте въпроси за здравето и условията и обсъдете подкрепата след вземането му. При несигурност разгледайте <a href=\"{{services}}\">възможностите за индивидуална консултация</a>.</p>"
+          },
+          {
+            "title": "Какво да попитате преди покупка",
+            "body": "<ul><li>Какви здравни изследвания са направени и може ли да видите документите?</li><li>В каква среда растат кученцата и как се запознават с ежедневни звуци?</li><li>Може ли да видите майката и условията на отглеждане?</li><li>Какво съдържат договорът, ветеринарният паспорт и планът за последваща грижа?</li><li>Към кого можете да се обърнете при затруднение?</li></ul><p>Не избирайте под натиск за незабавно плащане. Обсъдете здравните документи с ветеринарен лекар и уточнете реалистичен бюджет за храна, профилактика, застраховане по избор, обучение и непредвидени разходи.</p>"
+          },
+          {
+            "title": "Подгответе план за първия месец",
+            "body": "<p>Решете къде кучето ще спи, кой ще го извежда и как ще ограничите рисковите места у дома. Създайте общи правила за всички членове на семейството и спокойна зона, до която децата нямат свободен достъп без надзор.</p><p>Изборът продължава и след първия ден. Поддържайте рутина, наблюдавайте адаптацията и коригирайте плана според конкретното куче. Намерете практични теми в <a href=\"{{blog}}\">ръководствата за отглеждане и обучение</a>.</p>"
+          }
+        ]
+      },
+      "en": {
+        "title": "Which dog breed fits your life?",
+        "intro": "A beautiful dog catches your eye. The right dog fits your life. Choose with a clear view of time, temperament, care and the commitment ahead.",
+        "cta": "Tell us about your home, working day, experience and expectations. We can discuss a suitable dog profile before buying or adopting.",
+        "sections": [
+          {
+            "title": "Begin with your everyday routine",
+            "body": "<p>Describe an ordinary Tuesday rather than your ideal weekend. How much time can you give to walks, training, rest and coat care? Who will help during illness, travel or changes at work?</p><p>Home size is only one factor. Reliable outings, opportunities to rest and support you can actually count on matter more. If you choose a puppy, also plan the first weeks with <a href=\"{{puppy}}\">puppy training and settling in</a>.</p>"
+          },
+          {
+            "title": "Compare needs rather than labels",
+            "body": "<p>Size alone does not determine energy. A small dog may have a strong hunting interest and need substantial enrichment. A large dog may settle well indoors yet require more space for safe handling and a larger budget.</p><table><caption>Questions for a realistic choice</caption><thead><tr><th>Need</th><th>What to investigate</th></tr></thead><tbody><tr><td>Activity</td><td>Walking, mental work and ability to settle</td></tr><tr><td>Coat</td><td>Frequency, time and cost of care</td></tr><tr><td>Social behaviour</td><td>Responses to people, dogs and other animals</td></tr><tr><td>Health</td><td>Screening, veterinary care and specific risks</td></tr><tr><td>Independence</td><td>Gradual learning to spend time alone</td></tr></tbody></table>"
+          },
+          {
+            "title": "Temperament belongs to the individual",
+            "body": "<p>Breed gives clues about likely needs, not a promise of behaviour. Observe the dog itself: can they move away calmly, seek contact and recover after a small change?</p><p>Ask the breeder or rescue for honest information about the environment, habits and known difficulties. Avoid frightening or noisy tests. Explore <a href=\"{{training}}\">training shaped around temperament</a>.</p>"
+          },
+          {
+            "title": "Puppy or adult dog?",
+            "body": "<p>A puppy needs frequent care, toilet training and gradual development of independence. An adult may have a better-known temperament and routine, although settling into a new home still needs time.</p><p>Buying and adopting both deserve careful checks. Meet the dog, ask about health and living conditions, and discuss support after the move. For uncertainties, explore <a href=\"{{services}}\">individual consultation options</a>.</p>"
+          },
+          {
+            "title": "Questions to ask before buying",
+            "body": "<ul><li>Which health checks have been completed, and can you see the records?</li><li>Where do puppies grow up and how do they encounter everyday sounds?</li><li>Can you meet their mother and see the environment?</li><li>What do the contract, veterinary passport and ongoing care plan include?</li><li>Who can you contact if you need help?</li></ul><p>Do not choose under pressure to pay immediately. Discuss health records with your veterinarian and budget for food, preventive care, optional insurance, training and unexpected costs.</p>"
+          },
+          {
+            "title": "Plan your first month",
+            "body": "<p>Agree where the dog will sleep, who will provide walks and how risky areas will be managed. Use consistent household rules and a quiet space that children cannot access freely without supervision.</p><p>Your choice continues after day one. Maintain routines, observe adjustment and adapt the plan to the individual. Find practical topics in our <a href=\"{{blog}}\">care and training guides</a>.</p>"
+          }
+        ]
+      }
+    },
+    "blog": {
+      "bg": {
+        "title": "Малки стъпки. По-добро ежедневие.",
+        "intro": "Практични ръководства за обучение на кученце, спокойни разходки, социализация и избор на куче. Ясни стъпки, реалистични очаквания и посока към индивидуална помощ."
+      },
+      "en": {
+        "title": "Small steps. Better everyday life.",
+        "intro": "Practical guides to puppy training, calmer walks, socialisation and choosing a dog. Clear steps, realistic expectations and a path to individual support."
+      }
+    },
+    "ebooks": {
+      "bg": {
+        "title": "Вашият план. На една страница разстояние.",
+        "intro": "Три електронни ръководства за по-ясно общуване, първите 30 дни с кученце и последователно обучение. PDF издания на български и английски."
+      },
+      "en": {
+        "title": "Your plan. One page closer.",
+        "intro": "Three digital guides for clearer communication, your puppy’s first 30 days and consistent everyday training. PDF editions in Bulgarian and English."
+      }
+    }
+  },
+  "articles": {
+    "puppy-training-first-month": {
+      "photo": 1,
+      "bg": {
+        "title": "Обучение на кученце: откъде да започнете през първия месец",
+        "intro": "Първият месец не е състезание по команди. Той е време за безопасност, рутина и общ език. Ето как да подредите тоалетната, името, идването и първите срещи без излишно напрежение.",
+        "category": "Обучение на кученце",
+        "imageAlt": "Куче и водач по време на тренировка на открито",
+        "sections": [
+          {
+            "title": "Каква е реалистичната цел?",
+            "body": "<p>Много стопани започват с въпроса „Кога трябва да знае всички команди?“. По-полезно е да попитате какво ще помогне на кученцето да се чувства сигурно днес. Спокойният сън, предвидимите излизания и ясните реакции на хората създават основа за следващите умения.</p><p>Кученцата се различават по темп на адаптация. Не сравнявайте напредъка с кратки видеа в социалните мрежи. Наблюдавайте конкретни промени: по-лесно отпускане, доброволно обръщане към вас и по-малко грешки при добра организация. Нашата страница за <a href=\"{{puppy}}\">обучение на кученце</a> обединява основните направления.</p>"
+          },
+          {
+            "title": "Първа седмица: подредете средата",
+            "body": "<p>Ограничете достъпа до опасни предмети, осигурете вода и обособете място за почивка. Представете новия дом постепенно, без постоянно пренасяне от човек на човек. Децата трябва да знаят, че спящото или отдалечаващото се кученце не се преследва.</p><p>Запишете кога се събужда, храни, играе и има нужда от тоалетна. Излизайте след тези моменти и награждавайте навреме. При инцидент почистете, без да наказвате. Ако се налага да отсъствате, уговорете помощ: младото кученце не може просто да следва графика на възрастно куче.</p>"
+          },
+          {
+            "title": "Втора седмица: име и връщане към вас",
+            "body": "<p>Упражнявайте името в тиха стая. Кажете го веднъж; при обръщане отбележете „да“ и наградете. Не повтаряйте името постоянно при разсейване. Ако кученцето не реагира, намалете разстоянието или сменете мястото.</p><p>За първо идване приклекнете на малка дистанция в обезопасена среда, използвайте приятен сигнал и наградете приближаването. Понякога освободете кученцето обратно към играта. Така идването не означава всеки път край на интересното. Не го викайте, за да го наказвате.</p>"
+          },
+          {
+            "title": "Трета седмица: повод и спокойни наблюдения",
+            "body": "<p>Запознайте кученцето с нагръдника чрез кратки, приятни опити. Награждавайте приближаването и удобното носене. После упражнявайте няколко крачки с отпуснат повод в спокойна, безопасна зона.</p><p>Планирайте срещите според ветеринарната препоръка за здравните рискове. Социализацията може да включва наблюдение на хора или движение от достатъчно разстояние. Ако кученцето се плаши, отдалечете се. Не го притискайте към обекта, за да „свикне“.</p>"
+          },
+          {
+            "title": "Четвърта седмица: пренесете познатото",
+            "body": "<p>Умение в кухнята не означава същото умение на шумна улица. Пробвайте познатия сигнал в друга тиха стая и награждавайте лесните успехи. При ново място започнете с по-малка трудност, вместо да настоявате за предишното ниво.</p><p>Изменяйте само един фактор: разстояние, време или разсейване. При две-три последователни затруднения върнете по-лесната задача. Вижте <a href=\"{{training}}\">как подреждаме тренировъчния процес</a>, за да изградите последователност.</p>"
+          },
+          {
+            "title": "Пример за кратко упражнение",
+            "body": "<ol><li>Изберете тиха зона и пригответе малки подходящи награди.</li><li>Направете няколко лесни повторения на името.</li><li>Поканете кученцето да ви последва за две-три крачки.</li><li>Предложете спокойно занимание или почивка.</li><li>Запишете какво е било лесно и кое да опростите следващия път.</li></ol><p>Това е примерна последователност, не задължителна програма за всяко куче. При умора, загуба на интерес или напрежение прекратете по-рано. Включвайте хранителните награди в подходящия дневен прием, съгласуван с ветеринаря.</p>"
+          },
+          {
+            "title": "Кога да потърсите треньор?",
+            "body": "<p>Помощта е полезна, когато семейството използва различни правила, страхът се увеличава или ежедневната организация не работи. Не е нужно да чакате сериозен проблем. <a href=\"{{services}}\">Индивидуалното обучение</a> започва с контекст: възраст, здраве, среда и цели.</p><p>Не всяко поведение е въпрос на обучение. Болка, внезапна промяна, отказ от храна и други симптоми изискват ветеринарна оценка. При риск от ухапване осигурете безопасно разделяне и професионална помощ, вместо домашни експерименти.</p>"
+          },
+          {
+            "title": "Често задавани въпроси",
+            "body": "<h3>Кога започва обучението?</h3><p>Простите ежедневни навици могат да започнат при пристигането у дома. Интензивността и средата трябва да са съобразени с възрастта, здравето и адаптацията.</p><h3>Колко дълго трябва да тренираме?</h3><p>Изберете кратки сесии, които завършват при запазен интерес. Качеството и спокойствието са по-полезни ориентири от твърд брой минути.</p><h3>Как да следим напредъка?</h3><p>Записвайте една конкретна цел, условията и резултата. За структурирани задачи разгледайте <a href=\"{{ebooks}}\">електронните ръководства на K9 Academy</a>.</p>"
+          }
+        ]
+      },
+      "en": {
+        "title": "Puppy training: where to start in the first month",
+        "intro": "Your first month is not a race to collect commands. It is a time for safety, routine and shared communication. Here is how to organise toilet habits, attention, recall and first encounters.",
+        "category": "Puppy training",
+        "imageAlt": "A dog and handler during an outdoor training session",
+        "sections": [
+          {
+            "title": "What is a realistic goal?",
+            "body": "<p>Many owners ask when their puppy should know every command. A more useful question is what will help them feel safe today. Rest, predictable toilet breaks and consistent human responses create the foundation for later skills.</p><p>Puppies adjust at different speeds. Avoid comparing progress with short social videos. Look for concrete changes: easier settling, voluntarily turning towards you and fewer mistakes with better organisation. Our <a href=\"{{puppy}}\">puppy training page</a> brings the main areas together.</p>"
+          },
+          {
+            "title": "Week one: organise the environment",
+            "body": "<p>Limit access to risky objects, provide water and create a rest area. Introduce the home gradually without passing the puppy from person to person. Children should understand that a sleeping puppy or one moving away needs space.</p><p>Record waking, meals, play and toilet needs. Offer breaks after these events and reward promptly. Clean accidents without punishment. Arrange help when you are away: a young puppy cannot simply fit an adult dog’s schedule.</p>"
+          },
+          {
+            "title": "Week two: attention and coming back",
+            "body": "<p>Practise the name in a quiet room. Say it once, mark a turn towards you with “yes” and reward. Avoid repeating it constantly amid distractions. Reduce distance or change the environment if the task is too difficult.</p><p>For an early recall, crouch a short distance away in a secure area, use a friendly cue and reward the approach. Sometimes release your puppy back to play. Coming to you should not always end something enjoyable. Never call them over to punish them.</p>"
+          },
+          {
+            "title": "Week three: the lead and calm observation",
+            "body": "<p>Introduce a harness through brief, pleasant attempts. Reward approaching it and wearing it comfortably. Then practise a few loose-lead steps in a quiet, safe area.</p><p>Plan outings around your veterinarian’s guidance on health risks. Socialisation can include watching people or movement at a comfortable distance. Move away if your puppy becomes frightened. Avoid pushing them towards a trigger to make them get used to it.</p>"
+          },
+          {
+            "title": "Week four: transfer familiar skills",
+            "body": "<p>A skill in the kitchen is not automatically the same skill on a busy street. Try a familiar cue in another quiet room and reward easy successes. Start more simply in a new place.</p><p>Change one factor at a time: distance, duration or distraction. Return to an easier task after repeated difficulty. Explore <a href=\"{{training}}\">our training process</a> to build a consistent progression.</p>"
+          },
+          {
+            "title": "A brief practice sequence",
+            "body": "<ol><li>Choose a quiet area and prepare suitable small rewards.</li><li>Try a few easy repetitions of the name.</li><li>Invite your puppy to follow for two or three steps.</li><li>Offer a calm activity or rest.</li><li>Record what worked and what to simplify next time.</li></ol><p>This is an example, not a compulsory programme for every puppy. Finish earlier if tiredness, tension or loss of interest appears. Include food rewards within a suitable daily intake discussed with your veterinarian.</p>"
+          },
+          {
+            "title": "When should you consult a trainer?",
+            "body": "<p>Support helps when household rules conflict, fear increases or daily organisation is difficult. There is no need to wait for a serious problem. <a href=\"{{services}}\">Individual training</a> begins with age, health, environment and goals.</p><p>Not every behaviour is a training issue. Pain, sudden changes, reduced appetite or other symptoms need veterinary assessment. For bite risk, create safe separation and seek professional support rather than experimenting at home.</p>"
+          },
+          {
+            "title": "Frequently asked questions",
+            "body": "<h3>When does training begin?</h3><p>Simple everyday habits can begin on arrival. The intensity and environment should suit age, health and adjustment.</p><h3>How long should a session be?</h3><p>Use brief sessions that finish while interest remains. Quality and calm are more useful guides than a rigid number of minutes.</p><h3>How do we track progress?</h3><p>Record one concrete goal, the conditions and the result. For structured tasks, explore <a href=\"{{ebooks}}\">K9 Academy’s digital guides</a>.</p>"
+          }
+        ]
+      }
+    },
+    "puppy-socialisation": {
+      "photo": 7,
+      "bg": {
+        "title": "Социализация на кученце: добри преживявания без претоварване",
+        "intro": "Социализацията не е броене на срещи. Важно е как се чувства кученцето и дали има избор. Подредете хора, кучета, звуци и нови места в кратки, безопасни стъпки.",
+        "category": "Социализация",
+        "imageAlt": "Кучета и водачи по време на обща тренировка",
+        "sections": [
+          {
+            "title": "Какво всъщност означава социализация?",
+            "body": "<p>Целта не е кученцето да търпи всичко или да общува с всеки. Полезната социализация изгражда спокойствие и предвидимост в различни ситуации. Наблюдение от дистанция може да бъде по-добро преживяване от поредица натрапчиви поздрави.</p><p>Опишете средата, в която ще живее: асансьор, стълби, трафик, гости, деца или други животни. Подредете малък списък с приоритети. Съчетавайте тази работа с <a href=\"{{puppy}}\">основните навици на кученцето</a>, вместо да добавяте непрекъснато нови задачи.</p>"
+          },
+          {
+            "title": "Съгласувайте здравните рискове с ветеринаря",
+            "body": "<p>Попитайте ветеринарния лекар кои места и контакти са подходящи за конкретната възраст, ваксинационен статус и местни условия. Не използвайте обща онлайн препоръка като заместител на тази преценка.</p><p>Междувременно могат да се планират спокойни преживявания у дома: различни безопасни повърхности, хора на дистанция и ежедневни звуци с ниска интензивност. И тук наблюдавайте реакциите. Новото не трябва да се поднася с изненада или принуда.</p>"
+          },
+          {
+            "title": "Разчитайте сигналите и оставяйте избор",
+            "body": "<p>Поглед към новото, последван от спокойно връщане към вас, е различен от застиване и напрегнато наблюдение. Свиване, отдалечаване, укриване или продължително напрежение са повод да направите ситуацията по-лесна.</p><p>Позволете движение назад. Не държете кученцето неподвижно, докато някой го гали. Ако отказва награда, това може да е знак, че обстановката е твърде трудна, но оценявайте заедно с останалото поведение. Намалете интензивността и предложете почивка.</p>"
+          },
+          {
+            "title": "Първи срещи с хора и кучета",
+            "body": "<p>Изберете спокоен човек, който може да изчака доброволно приближаване. Не изисквайте докосване. Кратко наблюдение и приятна награда на безопасно разстояние често са достатъчни за една сесия.</p><p>При срещи с кучета търсете подходящ, здрав и спокойно общуващ партньор, според ветеринарните указания. Избягвайте претъпкани места и преследване от група кучета. Ако не сте сигурни как да подберете контактите, обсъдете <a href=\"{{services}}\">индивидуална програма за социализация</a>.</p>"
+          },
+          {
+            "title": "Звуци, транспорт и нови места",
+            "body": "<p>Започвайте далеч от натоварения участък и наблюдавайте за кратко. Увеличете времето или близостта само когато кученцето остава спокойно. Не комбинирайте първа среща с автобус, непознато куче и шумно заведение в един ден.</p><p>Упражнявайте отделно влизане в кола, кратък престой и движение, когато това е безопасно и подходящо. Не оставяйте куче в нагрята кола. При гадене, болка или силен страх потърсете ветеринарна и поведенческа помощ.</p>"
+          },
+          {
+            "title": "Примерен план за едно преживяване",
+            "body": "<ol><li>Изберете една цел, например наблюдение на човек с чадър.</li><li>Осигурете дистанция и възможност за отдалечаване.</li><li>Оставете кученцето да забележи човека без натиск за приближаване.</li><li>Наградете спокойното връщане към вас.</li><li>Приключете след кратък, положителен момент и запишете реакцията.</li></ol><p>Ако напрежението расте, не чакайте да стане непоносимо. Променете дистанцията или прекратете. Тази поетапност е част от <a href=\"{{training}}\">нашия тренировъчен процес</a>.</p>"
+          },
+          {
+            "title": "Дневник вместо отметки",
+            "body": "<p>Не е достатъчно да отбележите „видя велосипед“. Запишете приблизителната дистанция, движенията на тялото, интереса към награди и времето за възстановяване. Така следващата задача се избира според конкретното кученце.</p><p>Повтаряйте лесни преживявания и оставяйте дни с по-малко нови стимули. Почивката е част от ученето. За структурирани записи и ежедневни задачи разгледайте <a href=\"{{ebooks}}\">плана „Кученце: 30 дни“</a>.</p>"
+          },
+          {
+            "title": "Често задавани въпроси",
+            "body": "<h3>Трябва ли да поздравява всяко куче?</h3><p>Не. Умението да наблюдава спокойно и да продължи с вас е полезно само по себе си.</p><h3>Какво да правя при страх?</h3><p>Осигурете дистанция и избор. Не притискайте към обекта. При повтарящ се или нарастващ страх потърсете индивидуална оценка.</p><h3>Кога преживяването е успешно?</h3><p>Когато кученцето може да остане спокойно или да се възстанови лесно, без да бъде насилвано да участва.</p>"
+          }
+        ]
+      },
+      "en": {
+        "title": "Puppy socialisation: positive experiences without overload",
+        "intro": "Socialisation is not a count of encounters. Your puppy’s experience and ability to choose matter more. Introduce people, dogs, sounds and places through brief, safe steps.",
+        "category": "Socialisation",
+        "imageAlt": "Dogs and handlers during a shared training session",
+        "sections": [
+          {
+            "title": "What does socialisation mean?",
+            "body": "<p>The aim is not to tolerate everything or greet everyone. Useful socialisation builds calm and predictability in different situations. Observing from a distance can be better than a series of intrusive greetings.</p><p>List the environments your puppy will live with: lifts, stairs, traffic, visitors, children or other animals. Choose a few priorities. Combine this with <a href=\"{{puppy}}\">your puppy’s everyday foundations</a> rather than adding constant new challenges.</p>"
+          },
+          {
+            "title": "Discuss health risks with your veterinarian",
+            "body": "<p>Ask which places and contacts suit age, vaccination status and local conditions. General online guidance should not replace that assessment.</p><p>Meanwhile, manageable home experiences can include safe surfaces, people at a distance and everyday sounds at low intensity. Observe reactions here too. Avoid sudden or forced introductions.</p>"
+          },
+          {
+            "title": "Read signals and leave choices",
+            "body": "<p>A look towards something new followed by a relaxed return to you differs from freezing and tense watching. Crouching, withdrawal, hiding or prolonged tension means the situation should become easier.</p><p>Allow movement away. Do not hold your puppy still for petting. Refusing food may signal excessive difficulty, but consider it alongside the wider behaviour. Reduce intensity and offer rest.</p>"
+          },
+          {
+            "title": "First encounters with people and dogs",
+            "body": "<p>Choose a calm person who can wait for a voluntary approach. Touch is optional. Brief observation and a reward at a comfortable distance may be enough.</p><p>For dog meetings, choose a suitable, healthy and socially calm partner in line with veterinary advice. Avoid crowded places and group chasing. If you need help choosing contacts, discuss an <a href=\"{{services}}\">individual socialisation programme</a>.</p>"
+          },
+          {
+            "title": "Sounds, transport and new places",
+            "body": "<p>Start well away from busy areas and observe briefly. Increase duration or proximity only while your puppy remains comfortable. Do not combine a first bus encounter, unfamiliar dog and noisy café in one day.</p><p>Practise approaching a car, being inside briefly and travel separately when safe and appropriate. Never leave a dog in a hot car. Seek veterinary and behaviour support for sickness, pain or intense fear.</p>"
+          },
+          {
+            "title": "Plan one manageable experience",
+            "body": "<ol><li>Choose one goal, such as watching a person with an umbrella.</li><li>Provide distance and an exit.</li><li>Let your puppy notice without pressure to approach.</li><li>Reward a relaxed return of attention.</li><li>Finish after a brief positive moment and record the response.</li></ol><p>Do not wait for distress to become extreme. Move away or finish. This gradual approach forms part of <a href=\"{{training}}\">our training process</a>.</p>"
+          },
+          {
+            "title": "Keep a journal rather than a checklist",
+            "body": "<p>“Saw a bicycle” tells you little. Note approximate distance, body movement, interest in rewards and recovery time. Choose the next task around your actual puppy.</p><p>Repeat easy experiences and allow days with less novelty. Rest is part of learning. Explore the <a href=\"{{ebooks}}\">Puppy: 30 Days guide</a> for structured records and daily tasks.</p>"
+          },
+          {
+            "title": "Frequently asked questions",
+            "body": "<h3>Should my puppy greet every dog?</h3><p>No. Watching calmly and continuing with you is a useful skill itself.</p><h3>What should I do about fear?</h3><p>Create distance and choice. Avoid pushing towards the trigger. Seek assessment for repeated or increasing fear.</p><h3>What counts as success?</h3><p>Remaining comfortable or recovering easily without being forced to participate.</p>"
+          }
+        ]
+      }
+    },
+    "dog-breed-for-apartment": {
+      "photo": 10,
+      "bg": {
+        "title": "Куче за апартамент: как да изберете порода според ежедневието си",
+        "intro": "Малкият размер не гарантира лесно отглеждане, а големият не изключва живот в апартамент. Сравнете нуждите от движение, спокойствие, грижи и общуване с вашия реален ден.",
+        "category": "Избор на куче",
+        "imageAlt": "Куче и човек по време на разходка и обучение",
+        "sections": [
+          {
+            "title": "Защо няма една най-добра порода?",
+            "body": "<p>Две семейства в еднакви апартаменти могат да имат напълно различни възможности. Едното разполага с гъвкав график и опит; другото отсъства дълго и няма помощ. Подходящият избор започва с тези различия, а не със списък на „най-лесните“ кучета.</p><p>Породните характеристики са ориентир, но конкретното куче има собствен темперамент и история. Вижте <a href=\"{{breeds}}\">ръководството за избор на порода</a>, преди да стесните вариантите само по външен вид.</p>"
+          },
+          {
+            "title": "Разходки и умствена работа",
+            "body": "<p>Планирайте разходките в работни дни, при дъжд и през натоварени периоди. Някои кучета се нуждаят от повече задачи, а всички имат нужда от подходящи възможности за движение, душене и почивка. Дворът не замества автоматично общуването и заниманията.</p><p>Не избирайте активен работен тип куче с обещанието, че „ще започнете да спортувате“. Изберете спрямо навиците, които вече можете да поддържате. За конкретна оценка опишете маршрута, времето и опита си.</p>"
+          },
+          {
+            "title": "Шум, съседи и оставане насаме",
+            "body": "<p>Асансьорът, стъпките по стълбите и звънецът могат да бъдат ежедневни предизвикателства. Проверете дали има тихо място далеч от входната врата и дали можете да управлявате гледката към оживен прозорец.</p><p>Оставането насаме се изгражда постепенно. Не приемайте, че дадена порода понася автоматично цял работен ден сама. Ако кучето показва паника при раздяла, потърсете оценка, а не наказание за шума. Подкрепата може да включва <a href=\"{{services}}\">индивидуална работа по поведение</a>.</p>"
+          },
+          {
+            "title": "Козина, здраве и реален бюджет",
+            "body": "<p>Сравнете разходите за храна, профилактика, редовен груминг, обучение и непредвидена ветеринарна помощ. Дългата или специфична козина може да изисква повече време и професионална поддръжка, независимо от размера.</p><p>Питайте за здравни изследвания и документи. Обсъдете породните рискове с ветеринарен лекар, вместо да се доверявате на рекламни определения като „напълно здрав“ или „без алергии“. Не вземайте окончателно решение само по снимка.</p>"
+          },
+          {
+            "title": "Деца, гости и други животни",
+            "body": "<p>Семейният живот изисква управление и надзор, а не обещание за „порода за деца“. Осигурете отделни места за хранене и почивка и правила, които хората могат да следват. Децата не трябва да безпокоят спящо куче или да вземат предмет от устата му.</p><p>При други животни попитайте за известния опит на конкретното куче и планирайте постепенно запознаване. Използвайте безопасни прегради и не форсирайте близък контакт. При съмнение потърсете помощ преди срещата.</p>"
+          },
+          {
+            "title": "Кученце или възрастно куче в апартамент",
+            "body": "<p>Кученцето изисква чести тоалетни възможности и присъствие през адаптацията. Помислете как ще организирате излизането от висок етаж и помощта при отсъствия. Прочетете за <a href=\"{{puppy}}\">първия месец с кученце</a>.</p><p>При възрастно куче може да има повече информация за навици и реакции, но новият дом остава промяна. Попитайте организацията или предишния стопанин за съня, разходките, оставането насаме и срещите с хора. Планирайте време за адаптация и при двата варианта.</p>"
+          },
+          {
+            "title": "Проверка преди решение",
+            "body": "<table><caption>Вашият реалистичен план</caption><thead><tr><th>Въпрос</th><th>Какъв отговор е нужен?</th></tr></thead><tbody><tr><td>Кой извежда кучето?</td><td>Име и конкретни възможни часове</td></tr><tr><td>Кой помага при отсъствие?</td><td>Надежден човек или проверена услуга</td></tr><tr><td>Къде почива?</td><td>Тиха и безопасна зона</td></tr><tr><td>Какъв е бюджетът?</td><td>Редовни грижи и резерв за непредвидено</td></tr><tr><td>Как започва обучението?</td><td>Последователни правила и кратки задачи</td></tr></tbody></table><p>Ако няколко отговора липсват, първо попълнете плана. Научете повече за <a href=\"{{training}}\">поетапното обучение в реална среда</a>.</p>"
+          },
+          {
+            "title": "Често задавани въпроси",
+            "body": "<h3>Винаги ли малко куче е по-лесно?</h3><p>Не. Активността, чувствителността, общуването и нуждите от грижа са по-полезни критерии.</p><h3>Може ли голямо куче да живее в апартамент?</h3><p>Размерът сам по себе си не дава отговор. Важни са конкретните потребности, безопасността, достъпът и ежедневният план.</p><h3>Добър избор ли е осиновяването?</h3><p>То заслужава същата внимателна проверка и подготовка. Срещнете се с конкретното куче и задайте въпроси за известните му нужди.</p>"
+          }
+        ]
+      },
+      "en": {
+        "title": "A dog for an apartment: choose a breed for your everyday life",
+        "intro": "Small size does not guarantee easy care, and large size does not rule out apartment life. Compare activity, rest, care and social needs with your actual daily routine.",
+        "category": "Choosing a dog",
+        "imageAlt": "A dog and person during a walk and training session",
+        "sections": [
+          {
+            "title": "Why there is no single best breed",
+            "body": "<p>Two households in similar flats can have very different opportunities. One has a flexible schedule and experience; another is away for long hours without support. A good choice begins with these differences rather than a list of easy dogs.</p><p>Breed characteristics offer clues, but the individual has their own temperament and history. Explore our <a href=\"{{breeds}}\">breed selection guide</a> before narrowing choices by appearance.</p>"
+          },
+          {
+            "title": "Walks and mental engagement",
+            "body": "<p>Plan for working days, wet weather and busy periods. Dogs vary in the tasks they need, but all need suitable movement, sniffing and rest. A garden does not automatically replace interaction or enrichment.</p><p>Avoid choosing an active working type on the promise that you will start exercising. Choose around routines you can actually maintain. Describe your routes, available time and experience for an individual discussion.</p>"
+          },
+          {
+            "title": "Noise, neighbours and time alone",
+            "body": "<p>Lifts, footsteps and doorbells can be daily challenges. Consider a quiet resting place away from the entrance and how to manage views through a busy window.</p><p>Time alone develops gradually. Do not assume a breed will automatically cope with a whole working day. Seek assessment for separation panic rather than punishing noise. Support can include <a href=\"{{services}}\">individual behaviour work</a>.</p>"
+          },
+          {
+            "title": "Coat care, health and a realistic budget",
+            "body": "<p>Compare food, preventive care, grooming, training and unexpected veterinary costs. Long or specialised coats can require considerable time and professional maintenance regardless of size.</p><p>Ask for health screening and records. Discuss breed risks with a veterinarian rather than trusting claims of perfect health or freedom from allergies. Do not make the final decision from a photograph alone.</p>"
+          },
+          {
+            "title": "Children, visitors and other animals",
+            "body": "<p>Family life needs supervision and management rather than a promise of a child-friendly breed. Create separate feeding and resting areas and consistent human rules. Children must not disturb sleeping dogs or remove items from their mouths.</p><p>Ask about the dog’s actual experience with other animals and plan gradual introductions. Use safe barriers and avoid forcing close contact. Seek help before introductions if uncertain.</p>"
+          },
+          {
+            "title": "Puppy or adult in an apartment",
+            "body": "<p>A puppy needs frequent toilet opportunities and support during adjustment. Consider getting outside from an upper floor and arranging help. Read about <a href=\"{{puppy}}\">your first month with a puppy</a>.</p><p>An adult may have better-known habits, although a new home is still a change. Ask the rescue or previous carer about rest, walks, time alone and reactions to people. Plan settling-in time for either choice.</p>"
+          },
+          {
+            "title": "Check your plan before deciding",
+            "body": "<table><caption>Your realistic daily plan</caption><thead><tr><th>Question</th><th>A useful answer</th></tr></thead><tbody><tr><td>Who provides walks?</td><td>A person and feasible times</td></tr><tr><td>Who helps during absences?</td><td>Reliable support or a checked service</td></tr><tr><td>Where does the dog rest?</td><td>A quiet, safe space</td></tr><tr><td>What is the budget?</td><td>Regular care and an emergency reserve</td></tr><tr><td>How will training begin?</td><td>Consistent rules and brief tasks</td></tr></tbody></table><p>Fill missing answers before deciding. Learn more about <a href=\"{{training}}\">gradual training for real environments</a>.</p>"
+          },
+          {
+            "title": "Frequently asked questions",
+            "body": "<h3>Is a small dog always easier?</h3><p>No. Activity, sensitivity, social behaviour and care needs are more useful criteria.</p><h3>Can a large dog live in an apartment?</h3><p>Size alone cannot answer this. Individual needs, safety, access and the daily plan matter.</p><h3>Is adoption a good option?</h3><p>It deserves the same careful checks and preparation. Meet the individual dog and ask about known needs.</p>"
+          }
+        ]
+      }
+    },
+    "puppy-biting-hands": {
+      "photo": 4,
+      "bg": {
+        "title": "Кученцето хапе ръцете: как да реагирате спокойно и последователно",
+        "intro": "Младото куче изследва с уста, играе и понякога се превъзбужда. Подходящи играчки, разумна рутина и ясни паузи помагат да насочите поведението без борба и наказание.",
+        "category": "Ежедневни навици",
+        "imageAlt": "Малко куче по време на занимание на открито",
+        "sections": [
+          {
+            "title": "Наблюдавайте контекста преди реакцията",
+            "body": "<p>Хапането на ръце не означава автоматично агресия. Важно е какво се случва преди него: бурна игра, продължително будуване, опит за вземане на предмет или докосване на чувствително място. Запишете тези ситуации, вместо да търсите една универсална команда.</p><p>При твърдо тяло, застиване, охраняване на предмет или нараняващо ухапване осигурете безопасност и потърсете оценка. Не провокирайте кучето, за да проверите реакцията му. Основната организация е описана в <a href=\"{{puppy}}\">ръководството за обучение на кученце</a>.</p>"
+          },
+          {
+            "title": "Дайте подходящ изход за дъвчене",
+            "body": "<p>Подгответе няколко безопасни играчки, съобразени с размера и начина на дъвчене. Проверявайте ги за повреда и използвайте под надзор, когато е необходимо. Консултирайте се с ветеринаря за подходящите материали и предмети при никнене на зъби.</p><p>Предлагайте играчката преди ръцете да се превърнат в цел. Движете я спокойно и награждавайте интереса към нея. Избягвайте предмети, които могат да се разпаднат, да бъдат погълнати или да увредят зъбите.</p>"
+          },
+          {
+            "title": "Прекъснете играта без конфликт",
+            "body": "<p>Ако зъбите достигнат ръката, спрете движението и прекъснете взаимодействието спокойно. При безопасни условия се отдалечете за кратка пауза или използвайте предварително подготвена преграда. Върнете се към по-тихо занимание, когато възбудата спадне.</p><p>Не размахвайте ръце, не притискайте муцуната и не обръщайте кученцето по гръб. Викът може да усили играта при някои кучета. Наблюдавайте ефекта: полезната реакция намалява напрежението, а не го увеличава.</p>"
+          },
+          {
+            "title": "Проверете дали има достатъчно почивка",
+            "body": "<p>Понякога повече игра носи повече хапане. Кученцето може да е уморено и да има нужда от тихо място, вместо от нова задача. След активен период предложете вода, тоалетна според нуждата и възможност за сън.</p><p>Не използвайте зоната за почивка като наказание. Тя трябва да е познато, спокойно пространство. Упражнявайте отпускане при ниска възбуда, за да не го въвеждате за първи път в най-трудния момент. Вижте <a href=\"{{training}}\">нашия подход към устойчивите навици</a>.</p>"
+          },
+          {
+            "title": "Едни и същи правила за всички",
+            "body": "<p>Ако един човек насърчава игра с ръце, а друг я забранява, кученцето получава противоречиви сигнали. Уговорете обща играчка, начин за прекъсване и спокойна последователност след паузата.</p><p>Децата не трябва сами да управляват трудни ситуации. Възрастният осигурява надзор и отделяне чрез вратичка или друга безопасна преграда. Не оставяйте дете да дърпа играчка или храна от устата на кучето. Учете уважение към сигналите за отдалечаване.</p>"
+          },
+          {
+            "title": "Разграничете игра от проблем при докосване",
+            "body": "<p>Когато хапането се появява при поставяне на нагръдник, ресане или повдигане, потърсете причината. Възможни са дискомфорт, страх или липса на постепенно запознаване. Не продължавайте насила през сигналите за напрежение.</p><p>Първо обсъдете болка или здравен проблем с ветеринаря. След това планът може да включва доброволно приближаване към екипировката и кратки, приятни стъпки. При риск е подходяща <a href=\"{{services}}\">индивидуална консултация за поведение</a>.</p>"
+          },
+          {
+            "title": "Работен лист за една седмица",
+            "body": "<ul><li>Какво се случи точно преди хапането?</li><li>Колко активен беше предишният период?</li><li>Имаше ли подходяща играчка наблизо?</li><li>Как реагира човекът и какъв беше резултатът?</li><li>Какво ще променим в средата следващия път?</li></ul><p>Следете конкретни ситуации, а не само общия брой случаи. Дневникът може да покаже повтарящ се момент от деня или човешка реакция, която пречи. За систематични записи използвайте <a href=\"{{ebooks}}\">електронните работни тетрадки</a>.</p>"
+          },
+          {
+            "title": "Често задавани въпроси",
+            "body": "<h3>Нормално ли е кученцето да използва устата си?</h3><p>Изследването и играта с уста са често срещани, но контекстът, силата и сигналите на тялото имат значение. Не приемайте всяко хапане за безобидно.</p><h3>Трябва ли да крещя „не“?</h3><p>По-полезни са управление на средата, подходяща играчка и спокойна пауза. Наблюдавайте дали реакцията ви намалява възбудата.</p><h3>Кога да потърся помощ?</h3><p>При нараняване, охраняване на ресурси, внезапна промяна или страх при докосване потърсете професионална оценка и осигурете безопасност.</p>"
+          }
+        ]
+      },
+      "en": {
+        "title": "Puppy biting hands: respond calmly and consistently",
+        "intro": "Young dogs explore with their mouths, play and sometimes become overexcited. Appropriate toys, a manageable routine and clear pauses help direct behaviour without conflict or punishment.",
+        "category": "Everyday habits",
+        "imageAlt": "A small dog during an outdoor activity",
+        "sections": [
+          {
+            "title": "Observe the context first",
+            "body": "<p>Mouthing does not automatically mean aggression. Notice what came before: rough play, prolonged wakefulness, taking an object or touching a sensitive area. Record the situations rather than searching for one universal command.</p><p>For a rigid body, freezing, guarding or an injurious bite, create safety and seek assessment. Do not provoke behaviour to test it. Our <a href=\"{{puppy}}\">puppy training guide</a> explains the basic daily organisation.</p>"
+          },
+          {
+            "title": "Provide a suitable chewing outlet",
+            "body": "<p>Prepare safe toys suited to size and chewing style. Check for damage and supervise where appropriate. Discuss suitable materials and teething options with your veterinarian.</p><p>Offer a toy before hands become the target. Move it calmly and reward interest. Avoid objects that can break up, be swallowed or damage teeth.</p>"
+          },
+          {
+            "title": "Pause play without confrontation",
+            "body": "<p>If teeth reach your hand, stop movement and end the interaction calmly. Where safe, step away briefly or use a prepared barrier. Return to a quieter activity when arousal drops.</p><p>Avoid waving hands, holding the muzzle or rolling your puppy onto their back. Shouting may intensify play for some dogs. Watch the result: a useful response reduces tension rather than increasing it.</p>"
+          },
+          {
+            "title": "Check opportunities for rest",
+            "body": "<p>More play can sometimes mean more mouthing. Your puppy may need a quiet space instead of another task. After an active period, offer water, a toilet opportunity as needed and the chance to sleep.</p><p>A rest area should be a familiar, comfortable space rather than punishment. Practise settling when arousal is low. Explore <a href=\"{{training}}\">our approach to lasting habits</a>.</p>"
+          },
+          {
+            "title": "Use consistent household rules",
+            "body": "<p>If one person encourages hand play and another forbids it, the puppy receives conflicting messages. Agree suitable toys, how to pause and what calm activity follows.</p><p>Children should not manage difficult situations themselves. Adults provide supervision and separation through a gate or other safe barrier. Children must not pull food or toys from a dog’s mouth. Teach respect for moving-away signals.</p>"
+          },
+          {
+            "title": "Separate play from handling difficulties",
+            "body": "<p>If biting occurs during harness fitting, brushing or lifting, investigate the cause. Discomfort, fear or a lack of gradual introduction may be involved. Avoid forcing through signs of tension.</p><p>Discuss possible pain with your veterinarian first. A later plan may use voluntary approaches and short, pleasant steps. For risk, seek an <a href=\"{{services}}\">individual behaviour consultation</a>.</p>"
+          },
+          {
+            "title": "A one-week observation sheet",
+            "body": "<ul><li>What happened immediately beforehand?</li><li>How active was the previous period?</li><li>Was a suitable toy available?</li><li>How did the person respond, and what followed?</li><li>What can we change next time?</li></ul><p>Track specific situations rather than just a total count. A journal may reveal a recurring time or response that makes things harder. Use our <a href=\"{{ebooks}}\">digital workbooks</a> for systematic records.</p>"
+          },
+          {
+            "title": "Frequently asked questions",
+            "body": "<h3>Is mouth exploration normal?</h3><p>Exploration and play using the mouth are common, but context, intensity and body signals matter. Do not assume every bite is harmless.</p><h3>Should I shout “no”?</h3><p>Environmental management, suitable toys and calm pauses are more useful. Notice whether your response reduces arousal.</p><h3>When should I ask for help?</h3><p>Seek assessment and create safety for injury, guarding, sudden change or fear during handling.</p>"
+          }
+        ]
+      }
+    },
+    "dog-pulling-on-lead": {
+      "photo": 8,
+      "bg": {
+        "title": "Кучето дърпа повода: практичен план за по-спокойна разходка",
+        "intro": "Дърпането не се решава с по-силно дърпане от ваша страна. Подредете средата, награждавайте отпуснатия повод и изградете ясна връзка между спокойно движение и достъп до интересните места.",
+        "category": "Спокойни разходки",
+        "imageAlt": "Куче с водач на тренировъчно поле",
+        "sections": [
+          {
+            "title": "Първо разберете кога започва дърпането",
+            "body": "<p>Случва ли се още пред входа, близо до други кучета или само по пътя към парка? Запишете мястото, посоката и разсейването. Ако всяко опъване води до желаната миризма или човек, движението напред може да поддържа навика.</p><p>Дърпането понякога е свързано със страх или прекомерна възбуда. При застиване, паника, силни реакции или риск от ухапване не започвайте по-трудни упражнения. Потърсете <a href=\"{{services}}\">индивидуална работа по поведение</a> и осигурете безопасна дистанция.</p>"
+          },
+          {
+            "title": "Екипировка, която позволява спокойно учене",
+            "body": "<p>Изберете удобна, добре прилягаща екипировка и повод, който ви позволява безопасен контрол, без постоянно напрежение. Проверявайте за протриване и ограничаване на движението. При съмнение за болка обсъдете ситуацията с ветеринарния лекар.</p><p>Наградите трябва да са лесни за даване, а ръцете свободни от телефон или други предмети. Не използвайте болка, резки корекции или пристягане като начин да получите спокойно ходене. Намаляването на трудността е по-полезно от усилването на натиска.</p>"
+          },
+          {
+            "title": "Упражнение 1: няколко крачки в тиха зона",
+            "body": "<p>Започнете там, където кучето може да ви забележи. При доброволно приближаване наградете до избраната страна на тялото си. Направете две-три крачки. Ако поводът остане отпуснат, отбележете момента и наградете отново.</p><p>Не изисквайте постоянно гледане в очите и не превръщайте разходката само в „редом“. Целта е удобно съвместно движение. Повторете кратка серия и предложете почивка с душене. Ако кучето е начинаещо, разгледайте и <a href=\"{{puppy}}\">първите стъпки с кученце</a>.</p>"
+          },
+          {
+            "title": "Упражнение 2: отпуснатият повод отваря пътя",
+            "body": "<p>При безопасни условия спрете спокойно, когато поводът се опъне. Не го дръпвайте назад. Изчакайте отпускане или поканете кучето с познат сигнал да се върне близо до вас, след което продължете.</p><p>Ако спирането само повишава напрежението, задачата е твърде трудна. Отдалечете се от разсейването и започнете с по-кратък маршрут. Използвайте достъпа до подходящо място за душене като награда след няколко спокойни крачки.</p>"
+          },
+          {
+            "title": "Упражнение 3: сменете посоката преди конфликта",
+            "body": "<p>Упражнете предварително кратък сигнал за обръщане в спокойна среда. Кажете го, направете плавна промяна на посоката и наградете следването. Това е полезно, когато предстои тесен участък или се приближава разсейване.</p><p>Не използвайте обръщането като рязко дърпане или изненада. Осигурете място и се движете предвидимо. Пренасянето към по-трудни места следва същата логика като <a href=\"{{training}}\">поетапното обучение на K9 Academy</a>.</p>"
+          },
+          {
+            "title": "Как да измервате напредъка",
+            "body": "<p>Изберете конкретен участък и отбелязвайте колко често поводът се опъва, колко лесно кучето се връща към вас и от каква дистанция забелязва разсейването спокойно. Сравнявайте сходни условия, а не тихата сутрин с претъпкания парк.</p><p>Напредъкът може да бъде по-кратка спокойна разходка или по-бързо възстановяване след разсейване. Не очаквайте еднакво поведение във всяка среда. По-трудните дни са информация за следващата задача, не причина за наказание.</p>"
+          },
+          {
+            "title": "Чести грешки, които поддържат дърпането",
+            "body": "<ul><li>Различни правила при всеки член на семейството.</li><li>Твърде дълга сесия без възможност за душене и почивка.</li><li>Упражнения в среда, която постоянно претоварва кучето.</li><li>Награда след опъването, без ясно отбелязано отпускане.</li><li>Резки движения, които превръщат повода в източник на напрежение.</li></ul><p>Уговорете общ подход и започнете с малка, изпълнима цел. При силни реакции към кучета или хора поискайте оценка, съобразена с конкретния случай.</p>"
+          },
+          {
+            "title": "Въпроси преди следващата разходка",
+            "body": "<h3>Трябва ли кучето винаги да върви до крака ми?</h3><p>Не. Спокойната разходка може да включва душене и движение на различна дистанция, когато поводът и средата позволяват това безопасно.</p><h3>Може ли възрастно куче да научи нов навик?</h3><p>Планът се съобразява с историята, здравето и условията. Започнете с лесна задача и последователни реакции.</p><h3>Как да подредя упражненията?</h3><p>Работете върху една задача наведнъж. За дневник и план вижте <a href=\"{{ebooks}}\">работните тетрадки за обучение</a>.</p>"
+          }
+        ]
+      },
+      "en": {
+        "title": "Dog pulling on the lead: a practical plan for calmer walks",
+        "intro": "Pulling is not solved by pulling harder yourself. Choose manageable conditions, reward a loose lead and build a clear relationship between calm movement and access to interesting places.",
+        "category": "Calmer walks",
+        "imageAlt": "A dog and handler on a training field",
+        "sections": [
+          {
+            "title": "Identify where pulling starts",
+            "body": "<p>Does pulling begin at the door, near other dogs or only on the route to the park? Record the place, direction and distraction. When tension consistently leads to a desired scent or person, forward movement can maintain the habit.</p><p>Pulling can also involve fear or high arousal. For freezing, panic, intense reactions or bite risk, avoid escalating exercises. Seek <a href=\"{{services}}\">individual behaviour support</a> and create safe distance.</p>"
+          },
+          {
+            "title": "Equipment that supports learning",
+            "body": "<p>Choose comfortable, well-fitting equipment and a lead that allows safe control without constant tension. Check for rubbing or restricted movement. Discuss possible pain with your veterinarian.</p><p>Use rewards that are easy to deliver and keep hands free of phones and other items. Avoid pain, sudden corrections or tightening equipment as a route to calm walking. An easier environment is more useful than increased pressure.</p>"
+          },
+          {
+            "title": "Exercise one: a few quiet steps",
+            "body": "<p>Begin where your dog can notice you. Reward a voluntary approach beside your chosen side. Take two or three steps. Mark and reward again if the lead stays loose.</p><p>Do not demand constant eye contact or turn the entire walk into heelwork. The goal is comfortable shared movement. Complete a brief set, then allow a sniffing break. For a beginner, also explore <a href=\"{{puppy}}\">first steps with a puppy</a>.</p>"
+          },
+          {
+            "title": "Exercise two: loose leads open the route",
+            "body": "<p>Where safe, stop calmly when the lead tightens. Do not jerk backwards. Wait for slack or use a familiar cue to invite your dog close, then move on.</p><p>If stopping increases tension, the task is too hard. Move away from distractions and shorten the route. Access to a suitable sniffing spot can reward a few calm steps.</p>"
+          },
+          {
+            "title": "Exercise three: change direction early",
+            "body": "<p>Practise a brief turn cue in a quiet place. Say it, make a smooth change of direction and reward following. This can help before a narrow section or approaching distraction.</p><p>A turn should not be a sudden jerk or surprise. Allow space and move predictably. Progressing to harder places follows the same logic as <a href=\"{{training}}\">K9 Academy’s gradual training process</a>.</p>"
+          },
+          {
+            "title": "Measure useful progress",
+            "body": "<p>Choose a specific stretch and record how often tension occurs, how easily your dog returns towards you and the distance at which distractions remain manageable. Compare similar conditions rather than a quiet morning with a crowded park.</p><p>Progress may mean a shorter calm walk or faster recovery after distraction. Behaviour will differ between settings. A difficult day gives information for the next task rather than a reason for punishment.</p>"
+          },
+          {
+            "title": "Common mistakes",
+            "body": "<ul><li>Different rules from each household member.</li><li>Long sessions without sniffing or rest.</li><li>Constantly overwhelming environments.</li><li>Rewards delivered without marking the loose lead clearly.</li><li>Sudden movements that make the lead stressful.</li></ul><p>Agree a shared approach and start with one achievable goal. Seek individual assessment for intense reactions to people or dogs.</p>"
+          },
+          {
+            "title": "Questions before your next walk",
+            "body": "<h3>Must my dog always stay beside my leg?</h3><p>No. A calm walk can include sniffing and different distances when the lead and environment permit this safely.</p><h3>Can an adult learn a different habit?</h3><p>The plan should reflect history, health and circumstances. Begin with a manageable task and consistent responses.</p><h3>How should I organise practice?</h3><p>Work on one task at a time. For planning and records, explore our <a href=\"{{ebooks}}\">training workbooks</a>.</p>"
+          }
+        ]
+      }
+    }
+  }
+}

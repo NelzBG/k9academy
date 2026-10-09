@@ -18,5 +18,5 @@ for(const lang of ['','en/'])for(const [source,route]of Object.entries(routes)){
   forms++;
  }
 }
-assert.equal(forms,config.contactMode==='online'?12:0);
+assert.equal(forms,config.contactMode==='online'?Object.keys(routes).filter(source=>!['privacy.php','terms.php'].includes(source)).length*2:0);
 console.log('PASS: '+forms+' enquiry forms; all call, Viber, Messenger and email handlers point to confirmed destinations.');

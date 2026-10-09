@@ -1,0 +1,18 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {dirname,resolve,join} from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const config=JSON.parse(await readFile(join(root,'src/search.json'),'utf8'));
+const origin=JSON.parse(await readFile(join(root,'src/production.json'),'utf8')).origin;
+if(new URL(origin).hostname!==config.host||!/^[A-Za-z0-9-]{8,128}$/.test(config.indexNowKey))throw Error('Invalid IndexNow host/key configuration');
+const keyLocation=origin+'/'+config.indexNowKey+'.txt';
+const response=await fetch(keyLocation,{signal:AbortSignal.timeout(20000)});
+if(response.status!==200||(await response.text()).trim()!==config.indexNowKey)throw Error('Publish and verify the IndexNow key before submitting.');
+const sitemap=await fetch(origin+'/sitemap.xml',{signal:AbortSignal.timeout(20000)});
+if(sitemap.status!==200)throw Error('Public sitemap unavailable');
+const urlList=[...(await sitemap.text()).matchAll(/<loc>(.*?)<\/loc>/g)].map(m=>m[1].replaceAll('&amp;','&'));
+if(!urlList.length||urlList.some(u=>new URL(u).origin!==origin))throw Error('Sitemap includes an unexpected destination');
+const submitted=await fetch('https://api.indexnow.org/indexnow',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({host:config.host,key:config.indexNowKey,keyLocation,urlList}),signal:AbortSignal.timeout(30000)});
+const result={submittedAt:new Date().toISOString(),host:config.host,keyVerified:true,urls:urlList.length,status:submitted.status,result:submitted.status===200?'received':submitted.status===202?'received; key validation pending':'rejected',body:(await submitted.text()).slice(0,300)};
+await mkdir(join(root,'reports'),{recursive:true});await writeFile(join(root,'reports/indexnow.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));
+if(![200,202].includes(submitted.status))process.exitCode=1;

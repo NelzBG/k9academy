@@ -58,13 +58,13 @@ for(const lang of ['bg','en']) for(const [source,slug] of Object.entries(routes)
   }
   for(const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(match[1]);
 }
-for(const css of ['site.css','interface-20260906-glass.css']) {
+for(const css of ['site.css','interface-20260906-glass.css','training-library-20260914.css','editorial-20261009.css']) {
   const text=await readFile(join(root,'assets/css',css),'utf8');
   for(const match of text.matchAll(/url\(["']?([^"')]+)["']?\)/g)) if(!match[1].startsWith('data:')) await exactFile(new URL(match[1],'https://www.k9academy.bg/assets/css/'+css).pathname);
 }
 const sitemap=await readFile(join(root,'sitemap.xml'),'utf8');
-check((sitemap.match(/<loc>/g)||[]).length===16,'Sitemap must contain 16 pages');
+check((sitemap.match(/<loc>/g)||[]).length===Object.keys(routes).length*2,'Sitemap must contain every bilingual route');
 check((await readFile(join(root,'CNAME'),'utf8')).trim()==='www.k9academy.bg','Custom domain changed');
-if(production) check(!(await readFile(join(root,'robots.txt'),'utf8')).includes('Disallow: /'),'Robots blocks production');
+if(production) check(!(await readFile(join(root,'robots.txt'),'utf8')).split(/\r?\n/).some(line => line.trim()==='Disallow: /'),'Robots blocks production');
 if(failures.length) { console.error(failures.join('\n'));process.exit(1); }
-console.log('PASS: 16 bilingual pages, canonical/hreflang, all local links/anchors, srcsets and CSS assets ('+checked.size+' paths).');
+console.log('PASS: all bilingual pages, canonical/hreflang, all local links/anchors, srcsets and CSS assets ('+checked.size+' paths).');

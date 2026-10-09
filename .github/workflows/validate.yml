@@ -21,6 +21,8 @@ jobs:
           node tools/check.mjs --production
           node tools/check-enquiry.mjs
           php tools/check-enquiry-mailer.php
+          php tools/backend/check-ebooks.php
+          node tools/audit-links.mjs
           node tools/check-contact-handlers.mjs
           node tools/check-training-library.mjs
       - name: Build with the existing Pages pipeline

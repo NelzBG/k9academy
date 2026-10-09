@@ -6,5 +6,14 @@
   "training.php": "training/",
   "contact.php": "contact/",
   "privacy.php": "privacy/",
-  "terms.php": "terms/"
+  "terms.php": "terms/",
+  "puppy.php": "puppy-training/",
+  "breeds.php": "choose-a-breed/",
+  "blog.php": "blog/",
+  "ebooks.php": "ebooks/",
+  "article-puppy-training-first-month.php": "blog/puppy-training-first-month/",
+  "article-puppy-socialisation.php": "blog/puppy-socialisation/",
+  "article-dog-breed-for-apartment.php": "blog/dog-breed-for-apartment/",
+  "article-puppy-biting-hands.php": "blog/puppy-biting-hands/",
+  "article-dog-pulling-on-lead.php": "blog/dog-pulling-on-lead/"
 }

@@ -21,7 +21,7 @@ http.createServer(async (req,res) => {
     if (!['GET','HEAD'].includes(req.method)) { res.writeHead(405); res.end(); return; }
     let target = resolve(root, '.' + decodeURIComponent(url.pathname));
     if (!target.startsWith(root + sep) && target !== root) { res.writeHead(403); res.end(); return; }
-    if (/(^|[\\/])(src|tools|tests|\\.git)([\\/]|$)/.test(target.slice(root.length))) { res.writeHead(404); res.end(); return; }
+    if (/(^|[\\/])(src|tools|tests|private|output|reports|node_modules|\\.git)([\\/]|$)/.test(target.slice(root.length))) { res.writeHead(404); res.end(); return; }
     let info = await stat(target);
     if (info.isDirectory()) { target=join(target,'index.html'); info=await stat(target); }
     let data = await readFile(target);
@@ -36,5 +36,5 @@ http.createServer(async (req,res) => {
     }
     res.writeHead(200,{...headers,'Content-Length':data.length});
     res.end(req.method === 'HEAD' ? undefined : data);
-  } catch { res.writeHead(404,{'Content-Type':'text/plain'});res.end('Not found'); }
+  } catch { const error=await readFile(join(root,'404.html'));res.writeHead(404,{'Content-Type':'text/html; charset=utf-8'});res.end(req.method==='HEAD'?undefined:error); }
 }).listen(port,'127.0.0.1',()=>console.log('K9 static preview: http://127.0.0.1:'+port+(qaForm?' (local form test stub)':'')));

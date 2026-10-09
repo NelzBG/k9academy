@@ -17,6 +17,9 @@ $sections = $lang === 'bg' ? [
     ['K9 Shop', 'The K9 Shop page links to a separate external website. Its terms, availability, payments and delivery are managed independently.'],
     ['Responsible participation', 'Provide accurate information about your dog’s health and behaviour and follow the trainer’s safety instructions. Discuss any questions and the appropriate training format before attending.']
 ];
+$sections[] = $lang === 'bg'
+    ? ['Дигитални ръководства', 'Покупката е еднократна и включва описаните PDF издания на български и английски за лично ползване. Обучителни сесии не са включени. Цената и общата сума са показани преди плащане. Stripe обработва плащането чрез търговския акаунт Hondpro. След потвърдено плащане файловете могат да се изтеглят чрез защитени линкове и се изпращат на имейла от покупката. Линковете са валидни 30 дни; изтеглените файлове могат да бъдат запазени. За проблем с доставка или въпрос относно покупка пишете на mail.k9shop@gmail.com. Приложимите законови права остават в сила.']
+    : ['Digital guides', 'A one-time purchase includes the described Bulgarian and English PDF editions for personal use. Training sessions are not included. The price and total are shown before payment. Stripe processes payment through the Hondpro merchant account. After confirmed payment, files are available through protected download links and sent to the checkout email. Links are valid for 30 days; downloaded files can be kept. For delivery problems or purchase questions, contact mail.k9shop@gmail.com. Applicable statutory rights remain in effect.'];
 $title = $lang === 'bg' ? 'Общи условия' : 'Terms and conditions';
 $intro = $lang === 'bg' ? 'Информация за сайта, запитванията и записването за обучение.' : 'Information about this website, enquiries and arranging training.';
 ?>

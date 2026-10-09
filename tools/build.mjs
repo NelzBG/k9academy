@@ -38,11 +38,18 @@ const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;')
 for (const [name, route] of Object.entries({ 'Home.html': '/', 'About.html': '/about/', 'Contact.html': '/contact/', 'bg/index.html': '/' })) {
   await write(name, '<!doctype html><html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>K9 Academy</title><link rel="canonical" href="' + config.origin + route + '"><meta http-equiv="refresh" content="0;url=' + route + '"><script>location.replace(' + JSON.stringify(route) + ' + location.search + location.hash);</script></head><body><a href="' + route + '">K9 Academy</a></body></html>\n');
 }
-await write('robots.txt', 'User-agent: *\n' + (preview ? 'Disallow: /' : 'Allow: /\nSitemap: ' + config.origin + '/sitemap.xml') + '\n');
+await write('robots.txt', 'User-agent: *\n' + (preview ? 'Disallow: /' : 'Allow: /\nDisallow: /src/\nDisallow: /tools/\nDisallow: /tests/\nSitemap: ' + config.origin + '/sitemap.xml') + '\n');
 await write('CNAME', 'www.k9academy.bg\n');
 await write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + pages.map(({ route, file }) => {
   const bg = '/' + routes[file], en = '/en/' + routes[file];
   return '  <url><loc>' + escape(config.origin + route) + '</loc><xhtml:link rel="alternate" hreflang="bg" href="' + escape(config.origin + bg) + '"/><xhtml:link rel="alternate" hreflang="en" href="' + escape(config.origin + en) + '"/><xhtml:link rel="alternate" hreflang="x-default" href="' + escape(config.origin + bg) + '"/></url>';
 }).join('\n') + '\n</urlset>\n');
-await write('404.html', '<!doctype html><html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>404 — K9 Academy</title><link rel="stylesheet" href="/assets/css/site.css"><link rel="icon" href="/assets/images/brand-20260905/logo.webp"></head><body><main class="site-container legal-page"><p class="eyebrow">K9 / 404</p><h1>Страницата не е намерена.<br>Page not found.</h1><p><a class="button button-acid" href="/">Начало</a> <a class="button button-ink" href="/en/">Home</a></p></main></body></html>\n');
+const errorRender = spawnSync(php, ['-d', 'display_errors=stderr', join(root, 'tools/render-error.php')], {encoding:'utf8'});
+if (errorRender.status !== 0 || errorRender.stderr.trim()) throw Error(errorRender.stderr);
+await write('404.html', errorRender.stdout);
+const llms = '# K9 Academy\n\n> Bulgarian dog training and guidance for people and dogs. Educational guides support reward-based practice and do not replace an individual consultation.\n\n## Website\n- Bulgarian: ' + config.origin + '/\n- English: ' + config.origin + '/en/\n- Contact: ' + config.origin + '/contact/\n- Email: mail.k9shop@gmail.com\n- Phone: +359892360550\n\n## Guides and services\n' + pages.filter(p => p.language==='en' && !/privacy|terms/.test(p.route)).map(p => '- [' + p.route + '](' + config.origin + p.route + ')').join('\n') + '\n\n## Discovery\n- Sitemap: ' + config.origin + '/sitemap.xml\n- Robots: ' + config.origin + '/robots.txt\n\nPaid PDF files and customer order links are private and are not part of the crawlable website. Do not infer service prices, availability or guarantees from general educational content.\n';
+await write('llms.txt', llms);
+await write('llm.txt', llms);
+const indexKey = JSON.parse(await readFile(join(root, 'src/search.json'),'utf8')).indexNowKey;
+await write(indexKey + '.txt', indexKey + '\n');
 console.log('Generated ' + pages.length + ' bilingual pages (' + (preview ? 'preview; indexing disabled' : 'production') + ').');

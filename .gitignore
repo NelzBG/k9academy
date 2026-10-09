@@ -4,3 +4,12 @@ node_modules/
 _site/
 .jekyll-cache/
 *.log
+
+/private/
+/output/
+/reports/
+/node_modules/
+*.local.json
+
+/tools/backend/send-delivery-test.php
+/tools/backend/k9-stripe-probe.php
