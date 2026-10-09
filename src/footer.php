@@ -71,7 +71,7 @@
 <footer class="site-footer">
     <div class="site-container footer-grid">
         <div>
-            <a class="brand brand-footer k9-brand" aria-label="K9 Academy" href="<?= k9e(k9_url('index.php')) ?>">
+            <a class="brand brand-footer k9-brand" aria-label="K9 ACADEMY — <?= k9e(k9t('brand_tagline')) ?>" href="<?= k9e(k9_url('index.php')) ?>">
                 <?= k9_icon('logo','k9-logo') ?>
                 <span class="brand-type"><strong>ACADEMY</strong><small><?= k9e(k9t('brand_tagline')) ?></small></span>
             </a>
@@ -142,27 +142,15 @@
     <div class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-floating-status data-hidden-message="<?= k9e(k9t('channel_hidden')) ?>" data-restored-message="<?= k9e(k9t('channels_restored')) ?>"></div>
 </div>
 
-<div class="cookie-wall" hidden data-cookie-wall>
-    <div class="cookie-backdrop"></div>
-    <section class="cookie-panel" role="dialog" aria-modal="true" aria-labelledby="cookie-title" tabindex="-1" data-cookie-panel>
-        <div class="cookie-kicker"><span aria-hidden="true">K9</span> Privacy first</div>
-        <h2 id="cookie-title"><?= k9e(k9t('cookie_title')) ?></h2>
-        <p><?= k9e(k9t('cookie_copy')) ?></p>
-        <div class="cookie-links"><a href="<?= k9e(k9_url('privacy.php')) ?>"><?= k9e(k9t('privacy')) ?></a><a href="<?= k9e(k9_url('terms.php')) ?>"><?= k9e(k9t('terms')) ?></a></div>
-        <div class="cookie-actions">
-            <button class="button button-ghost" type="button" data-cookie-choice="essential"><?= k9e(k9t('cookie_essential')) ?></button>
-            <button class="button button-acid" type="button" data-cookie-choice="accepted"><?= k9e(k9t('cookie_accept')) ?></button>
-        </div>
-    </section>
-</div>
+
 
 
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
-<script src="assets/js/site-20260905.js" defer></script>
-<script src="assets/js/editorial-20261009.js?v=20261009-speed1" defer></script>
+<script src="assets/js/site-20260905.js?v=20261009-stable2" defer></script>
+<script src="assets/js/editorial-20261009.js?v=20261009-stable2" defer></script>
 <script src="assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
-<script src="assets/js/interface-20260906-glass.js?v=20261009-speed1" defer></script>
+<script src="assets/js/interface-20260906-glass.js?v=20261009-stable2" defer></script>
 <?php if (!empty($hasBreedCarousel)): ?><script src="assets/js/breed-carousel-20260906.js" defer></script><?php endif; ?>
 <?php if (!empty($hasDogViewer)): ?><script src="assets/js/model-loader-20261009.js" defer></script><?php endif; ?>
 <?php if (!empty($hasTrainingGallery)): ?><script src="assets/js/training-library-20260914.js" defer></script><?php endif; ?>

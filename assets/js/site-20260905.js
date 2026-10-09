@@ -38,23 +38,46 @@
 
     const cookieWall = document.querySelector('[data-cookie-wall]');
     const cookiePanel = document.querySelector('[data-cookie-panel]');
+    const cookieInert = new Map();
+    let cookieReturnFocus = null;
     const openCookieWall = () => {
         if (!cookieWall) return;
+        cookieReturnFocus = document.activeElement;
+        cookieWall.dataset.cookieReopened = 'true';
         cookieWall.hidden = false;
         body.classList.add('cookie-open');
-        window.setTimeout(() => cookiePanel?.focus(), 20);
+        [...body.children].filter(el => el !== cookieWall && !['SCRIPT','LINK','STYLE','NOSCRIPT'].includes(el.tagName)).forEach(el => {
+            if (!cookieInert.has(el)) cookieInert.set(el, el.inert);
+            el.inert = true;
+        });
+        cookiePanel?.focus({preventScroll:true});
     };
     const closeCookieWall = (choice) => {
         if (!cookieWall) return;
         try { localStorage.setItem('k9-cookie-choice', choice); } catch {}
+        document.documentElement.dataset.cookieChoiceSet = 'true';
         cookieWall.hidden = true;
+        delete cookieWall.dataset.cookieReopened;
         body.classList.remove('cookie-open');
+        cookieInert.forEach((wasInert, el) => { el.inert = wasInert; });
+        cookieInert.clear();
+        if (cookieReturnFocus && cookieReturnFocus !== body) cookieReturnFocus.focus({preventScroll:true});
     };
     let cookieChoice = null;
     try { cookieChoice = localStorage.getItem('k9-cookie-choice'); } catch {}
-    if (cookieWall && !cookieChoice) openCookieWall();
+    if (cookieWall) {
+        if (cookieChoice === 'accepted' || cookieChoice === 'essential') cookieWall.hidden = true;
+        else openCookieWall();
+    }
     document.querySelectorAll('[data-cookie-choice]').forEach((button) => button.addEventListener('click', () => closeCookieWall(button.dataset.cookieChoice || 'essential')));
     document.querySelectorAll('[data-cookie-settings]').forEach((button) => button.addEventListener('click', openCookieWall));
+    document.addEventListener('keydown', event => {
+        if (!cookieWall || cookieWall.hidden || !body.classList.contains('cookie-open') || event.key !== 'Tab') return;
+        const items = [...cookiePanel.querySelectorAll('a[href],button:not(:disabled)')];
+        const first = items[0], last = items.at(-1);
+        if (event.shiftKey && (document.activeElement === first || document.activeElement === cookiePanel)) { event.preventDefault(); last?.focus({preventScroll:true}); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus({preventScroll:true}); }
+    });
 
     document.querySelectorAll('[data-contact-form]').forEach((form) => {
         const bg = document.documentElement.lang === 'bg';
