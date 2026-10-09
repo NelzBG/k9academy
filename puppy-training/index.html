@@ -151,6 +151,23 @@
 
 [data-theme=dark] .training-gallery h2 em,[data-theme=dark] .training-gallery .eyebrow-acid,[data-theme=dark] .dog-lab .eyebrow-acid{color:var(--acid)}
 .training-lightbox :focus-visible{outline-color:var(--acid)}
+
+.callback-section{padding:clamp(2.5rem,5vw,4.5rem) 0;scroll-margin-top:calc(var(--k9-header) + 1rem);color:var(--ink)}
+.callback-grid{display:grid;gap:2rem;align-items:center}
+.callback-copy h2{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.12;letter-spacing:-.035em;margin:0 0 1rem}
+.callback-copy>p:not(.eyebrow){max-width:45ch;margin:0;color:var(--muted);line-height:1.7}
+.callback-form{padding:clamp(1.1rem,3vw,1.8rem);background:var(--surface-raised);color:var(--ink);border:1px solid var(--line);border-radius:1rem}
+.callback-form>label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.65rem}
+.callback-fields{display:flex;flex-wrap:wrap;gap:.65rem;align-items:stretch}
+.callback-fields input{flex:1 1 12rem;min-width:0;width:100%;padding:.85rem 1rem;min-height:3rem;border:1px solid var(--reading-accent);border-radius:.65rem;background:var(--surface);color:var(--ink);font:inherit}
+.callback-fields input:focus-visible{outline:3px solid var(--reading-accent);outline-offset:3px}
+.callback-fields button{flex:1 1 auto;font-size:.85rem;white-space:normal}
+.callback-note,.callback-status{font-size:.8rem;line-height:1.6;color:var(--muted);margin:.9rem 0 0}
+.callback-note a{text-decoration:underline;text-underline-offset:3px}
+.callback-status:empty{display:none}
+.callback-form[aria-busy=true] button{cursor:wait}
+@media(min-width:48rem){.callback-grid{grid-template-columns:1fr 1.1fr;gap:3rem}.callback-fields{flex-wrap:nowrap}}
+@media(max-width:24rem){.callback-fields{flex-direction:column}.callback-fields input,.callback-fields button{flex-basis:auto}}
 </style>
     <link rel="icon" type="image/webp" href="/assets/images/brand-20260905/logo.webp">
     <script type="importmap">
@@ -220,6 +237,19 @@
  <div class="reading-copy"><section id="guide-0"><span class="reading-number">01</span><h2>Започнете с безопасност и спокойствие</h2><p>Подгответе тихо място за сън, вода, безопасни играчки за дъвчене и зона без кабели или дребни предмети. Първите дни не са изпит по послушание. Дайте време на кученцето да се ориентира и наблюдавайте кога има нужда от почивка.</p><p>Съгласувайте ваксинациите, обезпаразитяването и подходящите места за излизане с ветеринарния лекар. Изберете няколко постоянни думи и ги използвайте еднакво в семейството. Ако още обмисляте бъдещото си куче, започнете с <a href="/choose-a-breed/">избор на порода според начина ви на живот</a>.</p></section><section id="guide-1"><span class="reading-number">02</span><h2>Рутина за тоалетна, храна и почивка</h2><p>Предлагайте възможност за тоалетна след събуждане, хранене и игра. Изчакайте спокойно и наградете веднага след правилното действие. При инцидент у дома почистете с подходящ препарат и преценете дали следващото излизане трябва да е по-рано.</p><p>Не наказвайте кученцето след случилото се. Записвайте приблизително часовете за сън, хранене и тоалетна: така ще разпознаете неговия ритъм. Честото уриниране, болката или внезапната промяна изискват ветеринарна консултация.</p></section><section id="guide-2"><span class="reading-number">03</span><h2>Име, внимание и първи сигнали</h2><p>Кажете името веднъж в тиха среда. Когато кученцето се обърне към вас, отбележете момента с кратко „да“ и дайте награда. Работете в няколко кратки серии и приключвайте, докато интересът е още налице.</p><p>След това упражнявайте идване от близко разстояние, спокойно сядане и оставане върху постелка. Добавяйте трудност постепенно: първо разстояние, после продължителност или разсейване. Разгледайте <a href="/training/">нашия процес на обучение</a>, за да видите как малките стъпки се превръщат в устойчив навик.</p></section><section id="guide-3"><span class="reading-number">04</span><h2>Социализация без претоварване</h2><p>Социализацията означава положителни и управляеми преживявания. Не е нужно кученцето да поздравява всяко куче или човек. Наблюдение от спокойна дистанция, кратка среща с подходящ партньор и възможност да се отдалечи са добри начала.</p><p>При свиване, застиване, опити за бягство или продължително напрежение намалете трудността. Не го дърпайте към страшния обект. За индивидуален план разгледайте <a href="/services/">програмите за социализация</a>.</p></section><section id="guide-4"><span class="reading-number">05</span><h2>Хапане, дъвчене и първи разходки</h2><p>Пазете ръцете от бурна игра и предложете подходяща играчка. Ако възбудата расте, прекъснете спокойно и осигурете почивка. Не стискайте муцуната и не превръщайте всяка грешка в конфликт.</p><p>Запознайте кученцето с нагръдника и повода у дома. Награждавайте доброволното приближаване и няколко крачки с отпуснат повод. Използвайте удобна екипировка и безопасна среда. В <a href="/blog/">блога за обучение на кучета</a> ще намерите отделни ръководства за хапане, повод и социализация.</p></section><section id="guide-5"><span class="reading-number">06</span><h2>Кога е полезна индивидуална помощ?</h2><p>Потърсете помощ, когато страхът нараства, ежедневието е трудно за подреждане или не сте сигурни как да реагирате. Ранната консултация може да изясни средата, сигналите и реалистичните следващи стъпки.</p><p>При риск от ухапване осигурете безопасна дистанция и физическо разделяне; не правете провокации, за да „проверите“ поведението. Болка, внезапна промяна, отказ от храна или здравословни симптоми са повод първо да се свържете с ветеринарен лекар.</p></section> <aside class="editorial-callout"><h2>Нека намерим вашата посока.</h2><p>Споделете възрастта на кученцето, как протича денят ви и кое ви затруднява. Заедно ще подредим първите стъпки.</p><a class="button button-acid" href="/contact/#contact-form">Свържете се с K9 Academy</a></aside></div>
 </div></section>
 </main>
+<section class="callback-section k9-textured" id="call-me-back" aria-labelledby="callback-title">
+ <div class="site-container callback-grid">
+  <div class="callback-copy"><p class="eyebrow">K9 / ДА ПОГОВОРИМ</p><h2 id="callback-title">Предпочитате да ви се обадим?</h2><p>Оставете само телефонния си номер, за да обсъдим подходящото обучение за вашето куче.</p></div>
+  <form class="callback-form" action="https://www.nextgen.run/demo/k9/api/enquiry.php" method="post" data-callback-form novalidate>
+   <input type="hidden" name="kind" value="callback"><input type="hidden" name="language" value="bg"><input type="hidden" name="page" value="https://www.k9academy.bg/puppy-training/">
+   <div hidden aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+   <label for="callback-phone">Телефонен номер</label>
+   <div class="callback-fields"><input id="callback-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" required aria-describedby="callback-note callback-status"><button class="button button-acid" type="submit">Обадете ми се<img class="k9-icon " src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></button></div>
+   <p id="callback-note" class="callback-note">Използваме номера ви само за отговор на тази заявка. <a href="/privacy/">Поверителност</a></p>
+   <p id="callback-status" class="callback-status" data-callback-status role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</section>
 <section class="ebook-section k9-textured" id="ebooks" aria-labelledby="ebook-title"><div class="site-container">
  <div class="editorial-section-heading"><div><p class="eyebrow">K9 / БИБЛИОТЕКА</p><h2 id="ebook-title">Знание, което остава с вас.</h2></div><p>Прочетете. Упражнете. Върнете се към най-важното. Изберете ръководството за вашия следващ етап.</p></div>
  <div class="ebook-grid">  <article class="ebook-card"><a class="ebook-cover" href="/ebooks/#book-start"><img src="/assets/images/editorial/start-cover.webp" width="640" height="960" alt="Добро начало" loading="lazy" decoding="async"><span class="ebook-cover-type"><small>K9 ACADEMY / 01</small><strong>Добро начало</strong><em>Първите стъпки с вашето куче</em></span></a>
@@ -294,6 +324,7 @@
         <div>
             <h2>Контакт</h2>
             <div class="footer-links">
+                <a href="#call-me-back">Обадете ми се <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
                 <a href="tel:+359892360550">+359 892 360 550</a>
                 <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>
                 <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener">Пишете в Messenger <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
@@ -355,9 +386,10 @@
 
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
-<script src="/assets/js/site-20260905.js?v=20261009-colours8" defer></script>
-<script src="/assets/js/editorial-20261009.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/site-20260905.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/callback-20261009.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/editorial-20261009.js?v=20261009-callback9" defer></script>
 <script src="/assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
-<script src="/assets/js/interface-20260906-glass.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/interface-20260906-glass.js?v=20261009-callback9" defer></script>
 </body>
 </html>

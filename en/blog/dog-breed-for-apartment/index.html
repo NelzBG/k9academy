@@ -151,6 +151,23 @@
 
 [data-theme=dark] .training-gallery h2 em,[data-theme=dark] .training-gallery .eyebrow-acid,[data-theme=dark] .dog-lab .eyebrow-acid{color:var(--acid)}
 .training-lightbox :focus-visible{outline-color:var(--acid)}
+
+.callback-section{padding:clamp(2.5rem,5vw,4.5rem) 0;scroll-margin-top:calc(var(--k9-header) + 1rem);color:var(--ink)}
+.callback-grid{display:grid;gap:2rem;align-items:center}
+.callback-copy h2{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.12;letter-spacing:-.035em;margin:0 0 1rem}
+.callback-copy>p:not(.eyebrow){max-width:45ch;margin:0;color:var(--muted);line-height:1.7}
+.callback-form{padding:clamp(1.1rem,3vw,1.8rem);background:var(--surface-raised);color:var(--ink);border:1px solid var(--line);border-radius:1rem}
+.callback-form>label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.65rem}
+.callback-fields{display:flex;flex-wrap:wrap;gap:.65rem;align-items:stretch}
+.callback-fields input{flex:1 1 12rem;min-width:0;width:100%;padding:.85rem 1rem;min-height:3rem;border:1px solid var(--reading-accent);border-radius:.65rem;background:var(--surface);color:var(--ink);font:inherit}
+.callback-fields input:focus-visible{outline:3px solid var(--reading-accent);outline-offset:3px}
+.callback-fields button{flex:1 1 auto;font-size:.85rem;white-space:normal}
+.callback-note,.callback-status{font-size:.8rem;line-height:1.6;color:var(--muted);margin:.9rem 0 0}
+.callback-note a{text-decoration:underline;text-underline-offset:3px}
+.callback-status:empty{display:none}
+.callback-form[aria-busy=true] button{cursor:wait}
+@media(min-width:48rem){.callback-grid{grid-template-columns:1fr 1.1fr;gap:3rem}.callback-fields{flex-wrap:nowrap}}
+@media(max-width:24rem){.callback-fields{flex-direction:column}.callback-fields input,.callback-fields button{flex-basis:auto}}
 </style>
     <link rel="icon" type="image/webp" href="/assets/images/brand-20260905/logo.webp">
     <script type="importmap">
@@ -215,6 +232,19 @@
 <section id="article-0"><h2>Why there is no single best breed</h2><p>Two households in similar flats can have very different opportunities. One has a flexible schedule and experience; another is away for long hours without support. A good choice begins with these differences rather than a list of easy dogs.</p><p>Breed characteristics offer clues, but the individual has their own temperament and history. Explore our <a href="/en/choose-a-breed/">breed selection guide</a> before narrowing choices by appearance.</p></section><section id="article-1"><h2>Walks and mental engagement</h2><p>Plan for working days, wet weather and busy periods. Dogs vary in the tasks they need, but all need suitable movement, sniffing and rest. A garden does not automatically replace interaction or enrichment.</p><p>Avoid choosing an active working type on the promise that you will start exercising. Choose around routines you can actually maintain. Describe your routes, available time and experience for an individual discussion.</p></section><section id="article-2"><h2>Noise, neighbours and time alone</h2><p>Lifts, footsteps and doorbells can be daily challenges. Consider a quiet resting place away from the entrance and how to manage views through a busy window.</p><p>Time alone develops gradually. Do not assume a breed will automatically cope with a whole working day. Seek assessment for separation panic rather than punishing noise. Support can include <a href="/en/services/">individual behaviour work</a>.</p></section><section id="article-3"><h2>Coat care, health and a realistic budget</h2><p>Compare food, preventive care, grooming, training and unexpected veterinary costs. Long or specialised coats can require considerable time and professional maintenance regardless of size.</p><p>Ask for health screening and records. Discuss breed risks with a veterinarian rather than trusting claims of perfect health or freedom from allergies. Do not make the final decision from a photograph alone.</p></section><section id="article-4"><h2>Children, visitors and other animals</h2><p>Family life needs supervision and management rather than a promise of a child-friendly breed. Create separate feeding and resting areas and consistent human rules. Children must not disturb sleeping dogs or remove items from their mouths.</p><p>Ask about the dog’s actual experience with other animals and plan gradual introductions. Use safe barriers and avoid forcing close contact. Seek help before introductions if uncertain.</p></section><section id="article-5"><h2>Puppy or adult in an apartment</h2><p>A puppy needs frequent toilet opportunities and support during adjustment. Consider getting outside from an upper floor and arranging help. Read about <a href="/en/puppy-training/">your first month with a puppy</a>.</p><p>An adult may have better-known habits, although a new home is still a change. Ask the rescue or previous carer about rest, walks, time alone and reactions to people. Plan settling-in time for either choice.</p></section><section id="article-6"><h2>Check your plan before deciding</h2><table><caption>Your realistic daily plan</caption><thead><tr><th>Question</th><th>A useful answer</th></tr></thead><tbody><tr><td>Who provides walks?</td><td>A person and feasible times</td></tr><tr><td>Who helps during absences?</td><td>Reliable support or a checked service</td></tr><tr><td>Where does the dog rest?</td><td>A quiet, safe space</td></tr><tr><td>What is the budget?</td><td>Regular care and an emergency reserve</td></tr><tr><td>How will training begin?</td><td>Consistent rules and brief tasks</td></tr></tbody></table><p>Fill missing answers before deciding. Learn more about <a href="/en/training/">gradual training for real environments</a>.</p></section><section id="article-7"><h2>Frequently asked questions</h2><h3>Is a small dog always easier?</h3><p>No. Activity, sensitivity, social behaviour and care needs are more useful criteria.</p><h3>Can a large dog live in an apartment?</h3><p>Size alone cannot answer this. Individual needs, safety, access and the daily plan matter.</p><h3>Is adoption a good option?</h3><p>It deserves the same careful checks and preparation. Meet the individual dog and ask about known needs.</p></section><aside class="editorial-callout"><h2>Your next step is personal.</h2><p>Tell us about your dog’s age, routine and behaviour. We can discuss the right training direction.</p><a class="button button-acid" href="/en/contact/#contact-form">Discuss training</a></aside>
 <div class="article-sources"><h2>Sources and further reading</h2><p>General principles follow guidance from <a href="https://avsab.org/resources/position-statements/" target="_blank" rel="noopener">American Veterinary Society of Animal Behavior</a> on reward-based training and safe socialisation. This educational material is not an individual assessment. Seek a veterinarian and qualified professional for pain, sudden changes or bite risk.</p></div>
 </div></div></section></article></main>
+<section class="callback-section k9-textured" id="call-me-back" aria-labelledby="callback-title">
+ <div class="site-container callback-grid">
+  <div class="callback-copy"><p class="eyebrow">K9 / LET’S TALK</p><h2 id="callback-title">Prefer a call?</h2><p>Leave just your phone number to discuss the right training for your dog.</p></div>
+  <form class="callback-form" action="https://www.nextgen.run/demo/k9/api/enquiry.php" method="post" data-callback-form novalidate>
+   <input type="hidden" name="kind" value="callback"><input type="hidden" name="language" value="en"><input type="hidden" name="page" value="https://www.k9academy.bg/en/blog/dog-breed-for-apartment/">
+   <div hidden aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+   <label for="callback-phone">Phone number</label>
+   <div class="callback-fields"><input id="callback-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" required aria-describedby="callback-note callback-status"><button class="button button-acid" type="submit">Call me back<img class="k9-icon " src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></button></div>
+   <p id="callback-note" class="callback-note">We use your number only to respond to this request. <a href="/en/privacy/">Privacy</a></p>
+   <p id="callback-status" class="callback-status" data-callback-status role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</section>
 <section class="ebook-section k9-textured" id="ebooks" aria-labelledby="ebook-title"><div class="site-container">
  <div class="editorial-section-heading"><div><p class="eyebrow">K9 / THE LIBRARY</p><h2 id="ebook-title">Guidance that stays with you.</h2></div><p>Read. Practise. Return to what matters. Choose the guide for your next stage.</p></div>
  <div class="ebook-grid">  <article class="ebook-card"><a class="ebook-cover" href="/en/ebooks/#book-start"><img src="/assets/images/editorial/start-cover.webp" width="640" height="960" alt="A Better Start" loading="lazy" decoding="async"><span class="ebook-cover-type"><small>K9 ACADEMY / 01</small><strong>A Better Start</strong><em>First steps with your dog</em></span></a>
@@ -289,6 +319,7 @@
         <div>
             <h2>Contact</h2>
             <div class="footer-links">
+                <a href="#call-me-back">Call me back <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
                 <a href="tel:+359892360550">+359 892 360 550</a>
                 <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>
                 <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener">Message on Messenger <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
@@ -350,9 +381,10 @@
 
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
-<script src="/assets/js/site-20260905.js?v=20261009-colours8" defer></script>
-<script src="/assets/js/editorial-20261009.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/site-20260905.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/callback-20261009.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/editorial-20261009.js?v=20261009-callback9" defer></script>
 <script src="/assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
-<script src="/assets/js/interface-20260906-glass.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/interface-20260906-glass.js?v=20261009-callback9" defer></script>
 </body>
 </html>

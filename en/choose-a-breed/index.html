@@ -151,6 +151,23 @@
 
 [data-theme=dark] .training-gallery h2 em,[data-theme=dark] .training-gallery .eyebrow-acid,[data-theme=dark] .dog-lab .eyebrow-acid{color:var(--acid)}
 .training-lightbox :focus-visible{outline-color:var(--acid)}
+
+.callback-section{padding:clamp(2.5rem,5vw,4.5rem) 0;scroll-margin-top:calc(var(--k9-header) + 1rem);color:var(--ink)}
+.callback-grid{display:grid;gap:2rem;align-items:center}
+.callback-copy h2{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.12;letter-spacing:-.035em;margin:0 0 1rem}
+.callback-copy>p:not(.eyebrow){max-width:45ch;margin:0;color:var(--muted);line-height:1.7}
+.callback-form{padding:clamp(1.1rem,3vw,1.8rem);background:var(--surface-raised);color:var(--ink);border:1px solid var(--line);border-radius:1rem}
+.callback-form>label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.65rem}
+.callback-fields{display:flex;flex-wrap:wrap;gap:.65rem;align-items:stretch}
+.callback-fields input{flex:1 1 12rem;min-width:0;width:100%;padding:.85rem 1rem;min-height:3rem;border:1px solid var(--reading-accent);border-radius:.65rem;background:var(--surface);color:var(--ink);font:inherit}
+.callback-fields input:focus-visible{outline:3px solid var(--reading-accent);outline-offset:3px}
+.callback-fields button{flex:1 1 auto;font-size:.85rem;white-space:normal}
+.callback-note,.callback-status{font-size:.8rem;line-height:1.6;color:var(--muted);margin:.9rem 0 0}
+.callback-note a{text-decoration:underline;text-underline-offset:3px}
+.callback-status:empty{display:none}
+.callback-form[aria-busy=true] button{cursor:wait}
+@media(min-width:48rem){.callback-grid{grid-template-columns:1fr 1.1fr;gap:3rem}.callback-fields{flex-wrap:nowrap}}
+@media(max-width:24rem){.callback-fields{flex-direction:column}.callback-fields input,.callback-fields button{flex-basis:auto}}
 </style>
     <link rel="icon" type="image/webp" href="/assets/images/brand-20260905/logo.webp">
     <script type="importmap">
@@ -220,6 +237,19 @@
  <div class="reading-copy"><section id="guide-0"><span class="reading-number">01</span><h2>Begin with your everyday routine</h2><p>Describe an ordinary Tuesday rather than your ideal weekend. How much time can you give to walks, training, rest and coat care? Who will help during illness, travel or changes at work?</p><p>Home size is only one factor. Reliable outings, opportunities to rest and support you can actually count on matter more. If you choose a puppy, also plan the first weeks with <a href="/en/puppy-training/">puppy training and settling in</a>.</p></section><section id="guide-1"><span class="reading-number">02</span><h2>Compare needs rather than labels</h2><p>Size alone does not determine energy. A small dog may have a strong hunting interest and need substantial enrichment. A large dog may settle well indoors yet require more space for safe handling and a larger budget.</p><table><caption>Questions for a realistic choice</caption><thead><tr><th>Need</th><th>What to investigate</th></tr></thead><tbody><tr><td>Activity</td><td>Walking, mental work and ability to settle</td></tr><tr><td>Coat</td><td>Frequency, time and cost of care</td></tr><tr><td>Social behaviour</td><td>Responses to people, dogs and other animals</td></tr><tr><td>Health</td><td>Screening, veterinary care and specific risks</td></tr><tr><td>Independence</td><td>Gradual learning to spend time alone</td></tr></tbody></table></section><section id="guide-2"><span class="reading-number">03</span><h2>Temperament belongs to the individual</h2><p>Breed gives clues about likely needs, not a promise of behaviour. Observe the dog itself: can they move away calmly, seek contact and recover after a small change?</p><p>Ask the breeder or rescue for honest information about the environment, habits and known difficulties. Avoid frightening or noisy tests. Explore <a href="/en/training/">training shaped around temperament</a>.</p></section><section id="guide-3"><span class="reading-number">04</span><h2>Puppy or adult dog?</h2><p>A puppy needs frequent care, toilet training and gradual development of independence. An adult may have a better-known temperament and routine, although settling into a new home still needs time.</p><p>Buying and adopting both deserve careful checks. Meet the dog, ask about health and living conditions, and discuss support after the move. For uncertainties, explore <a href="/en/services/">individual consultation options</a>.</p></section><section id="guide-4"><span class="reading-number">05</span><h2>Questions to ask before buying</h2><ul><li>Which health checks have been completed, and can you see the records?</li><li>Where do puppies grow up and how do they encounter everyday sounds?</li><li>Can you meet their mother and see the environment?</li><li>What do the contract, veterinary passport and ongoing care plan include?</li><li>Who can you contact if you need help?</li></ul><p>Do not choose under pressure to pay immediately. Discuss health records with your veterinarian and budget for food, preventive care, optional insurance, training and unexpected costs.</p></section><section id="guide-5"><span class="reading-number">06</span><h2>Plan your first month</h2><p>Agree where the dog will sleep, who will provide walks and how risky areas will be managed. Use consistent household rules and a quiet space that children cannot access freely without supervision.</p><p>Your choice continues after day one. Maintain routines, observe adjustment and adapt the plan to the individual. Find practical topics in our <a href="/en/blog/">care and training guides</a>.</p></section> <aside class="editorial-callout"><h2>Let’s find your direction.</h2><p>Tell us about your home, working day, experience and expectations. We can discuss a suitable dog profile before buying or adopting.</p><a class="button button-acid" href="/en/contact/#contact-form">Contact K9 Academy</a></aside></div>
 </div></section>
 </main>
+<section class="callback-section k9-textured" id="call-me-back" aria-labelledby="callback-title">
+ <div class="site-container callback-grid">
+  <div class="callback-copy"><p class="eyebrow">K9 / LET’S TALK</p><h2 id="callback-title">Prefer a call?</h2><p>Leave just your phone number to discuss the right training for your dog.</p></div>
+  <form class="callback-form" action="https://www.nextgen.run/demo/k9/api/enquiry.php" method="post" data-callback-form novalidate>
+   <input type="hidden" name="kind" value="callback"><input type="hidden" name="language" value="en"><input type="hidden" name="page" value="https://www.k9academy.bg/en/choose-a-breed/">
+   <div hidden aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+   <label for="callback-phone">Phone number</label>
+   <div class="callback-fields"><input id="callback-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" required aria-describedby="callback-note callback-status"><button class="button button-acid" type="submit">Call me back<img class="k9-icon " src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></button></div>
+   <p id="callback-note" class="callback-note">We use your number only to respond to this request. <a href="/en/privacy/">Privacy</a></p>
+   <p id="callback-status" class="callback-status" data-callback-status role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</section>
 <section class="ebook-section k9-textured" id="ebooks" aria-labelledby="ebook-title"><div class="site-container">
  <div class="editorial-section-heading"><div><p class="eyebrow">K9 / THE LIBRARY</p><h2 id="ebook-title">Guidance that stays with you.</h2></div><p>Read. Practise. Return to what matters. Choose the guide for your next stage.</p></div>
  <div class="ebook-grid">  <article class="ebook-card"><a class="ebook-cover" href="/en/ebooks/#book-start"><img src="/assets/images/editorial/start-cover.webp" width="640" height="960" alt="A Better Start" loading="lazy" decoding="async"><span class="ebook-cover-type"><small>K9 ACADEMY / 01</small><strong>A Better Start</strong><em>First steps with your dog</em></span></a>
@@ -294,6 +324,7 @@
         <div>
             <h2>Contact</h2>
             <div class="footer-links">
+                <a href="#call-me-back">Call me back <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
                 <a href="tel:+359892360550">+359 892 360 550</a>
                 <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>
                 <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener">Message on Messenger <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
@@ -355,9 +386,10 @@
 
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
-<script src="/assets/js/site-20260905.js?v=20261009-colours8" defer></script>
-<script src="/assets/js/editorial-20261009.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/site-20260905.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/callback-20261009.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/editorial-20261009.js?v=20261009-callback9" defer></script>
 <script src="/assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
-<script src="/assets/js/interface-20260906-glass.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/interface-20260906-glass.js?v=20261009-callback9" defer></script>
 </body>
 </html>

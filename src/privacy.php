@@ -37,6 +37,9 @@ $sections[] = $lang === 'bg'
 $sections[] = $lang === 'bg'
     ? ['Покупки и доставка на PDF', 'Stripe обработва платежните данни. Сайтът не получава номера на банковата ви карта. Услугата за доставка обработва имейла, избраното издание и референцията за потвърденото плащане, за да изпрати файловете и да защити изтеглянето. Референциите за поръчки и статусът на доставка се пазят в частно хранилище на доставчика на услугата. За въпроси относно данните от покупката пишете на mail.k9shop@gmail.com.']
     : ['Purchases and PDF delivery', 'Stripe handles payment details. This website does not receive your full card number. The delivery service processes the email, selected guide and verified payment reference to send the files and protect downloads. Order references and delivery status are kept in private storage on the service host. Contact mail.k9shop@gmail.com with questions about purchase data.'];
+$sections[] = $lang === 'bg'
+    ? ['Заявка за обратно обаждане', 'Кратката форма изисква само телефонен номер. Номерът, езикът и страницата, от която е изпратена заявката, се препращат по защитена връзка към същия адрес за контакт: mail.k9shop@gmail.com. Използваме номера, за да отговорим на поисканото обаждане. Не е необходим имейл и не се изпраща клиентско потвърждение по имейл.']
+    : ['Callback requests', 'The short form requires only a phone number. The number, language and submitting page are sent over an encrypted connection to the same contact address: mail.k9shop@gmail.com. We use the number to respond to the call you requested. No email is required and no customer confirmation email is sent.'];
 $title = $lang === 'bg' ? 'Поверителност' : 'Privacy';
 $intro = $lang === 'bg' ? 'Как обработваме запитванията и предпочитанията ви в сайта.' : 'How we handle your enquiries and website preferences.';
 ?>

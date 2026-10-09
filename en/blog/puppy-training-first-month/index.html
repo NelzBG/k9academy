@@ -151,6 +151,23 @@
 
 [data-theme=dark] .training-gallery h2 em,[data-theme=dark] .training-gallery .eyebrow-acid,[data-theme=dark] .dog-lab .eyebrow-acid{color:var(--acid)}
 .training-lightbox :focus-visible{outline-color:var(--acid)}
+
+.callback-section{padding:clamp(2.5rem,5vw,4.5rem) 0;scroll-margin-top:calc(var(--k9-header) + 1rem);color:var(--ink)}
+.callback-grid{display:grid;gap:2rem;align-items:center}
+.callback-copy h2{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.12;letter-spacing:-.035em;margin:0 0 1rem}
+.callback-copy>p:not(.eyebrow){max-width:45ch;margin:0;color:var(--muted);line-height:1.7}
+.callback-form{padding:clamp(1.1rem,3vw,1.8rem);background:var(--surface-raised);color:var(--ink);border:1px solid var(--line);border-radius:1rem}
+.callback-form>label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.65rem}
+.callback-fields{display:flex;flex-wrap:wrap;gap:.65rem;align-items:stretch}
+.callback-fields input{flex:1 1 12rem;min-width:0;width:100%;padding:.85rem 1rem;min-height:3rem;border:1px solid var(--reading-accent);border-radius:.65rem;background:var(--surface);color:var(--ink);font:inherit}
+.callback-fields input:focus-visible{outline:3px solid var(--reading-accent);outline-offset:3px}
+.callback-fields button{flex:1 1 auto;font-size:.85rem;white-space:normal}
+.callback-note,.callback-status{font-size:.8rem;line-height:1.6;color:var(--muted);margin:.9rem 0 0}
+.callback-note a{text-decoration:underline;text-underline-offset:3px}
+.callback-status:empty{display:none}
+.callback-form[aria-busy=true] button{cursor:wait}
+@media(min-width:48rem){.callback-grid{grid-template-columns:1fr 1.1fr;gap:3rem}.callback-fields{flex-wrap:nowrap}}
+@media(max-width:24rem){.callback-fields{flex-direction:column}.callback-fields input,.callback-fields button{flex-basis:auto}}
 </style>
     <link rel="icon" type="image/webp" href="/assets/images/brand-20260905/logo.webp">
     <script type="importmap">
@@ -215,6 +232,19 @@
 <section id="article-0"><h2>What is a realistic goal?</h2><p>Many owners ask when their puppy should know every command. A more useful question is what will help them feel safe today. Rest, predictable toilet breaks and consistent human responses create the foundation for later skills.</p><p>Puppies adjust at different speeds. Avoid comparing progress with short social videos. Look for concrete changes: easier settling, voluntarily turning towards you and fewer mistakes with better organisation. Our <a href="/en/puppy-training/">puppy training page</a> brings the main areas together.</p></section><section id="article-1"><h2>Week one: organise the environment</h2><p>Limit access to risky objects, provide water and create a rest area. Introduce the home gradually without passing the puppy from person to person. Children should understand that a sleeping puppy or one moving away needs space.</p><p>Record waking, meals, play and toilet needs. Offer breaks after these events and reward promptly. Clean accidents without punishment. Arrange help when you are away: a young puppy cannot simply fit an adult dog’s schedule.</p></section><section id="article-2"><h2>Week two: attention and coming back</h2><p>Practise the name in a quiet room. Say it once, mark a turn towards you with “yes” and reward. Avoid repeating it constantly amid distractions. Reduce distance or change the environment if the task is too difficult.</p><p>For an early recall, crouch a short distance away in a secure area, use a friendly cue and reward the approach. Sometimes release your puppy back to play. Coming to you should not always end something enjoyable. Never call them over to punish them.</p></section><section id="article-3"><h2>Week three: the lead and calm observation</h2><p>Introduce a harness through brief, pleasant attempts. Reward approaching it and wearing it comfortably. Then practise a few loose-lead steps in a quiet, safe area.</p><p>Plan outings around your veterinarian’s guidance on health risks. Socialisation can include watching people or movement at a comfortable distance. Move away if your puppy becomes frightened. Avoid pushing them towards a trigger to make them get used to it.</p></section><section id="article-4"><h2>Week four: transfer familiar skills</h2><p>A skill in the kitchen is not automatically the same skill on a busy street. Try a familiar cue in another quiet room and reward easy successes. Start more simply in a new place.</p><p>Change one factor at a time: distance, duration or distraction. Return to an easier task after repeated difficulty. Explore <a href="/en/training/">our training process</a> to build a consistent progression.</p></section><section id="article-5"><h2>A brief practice sequence</h2><ol><li>Choose a quiet area and prepare suitable small rewards.</li><li>Try a few easy repetitions of the name.</li><li>Invite your puppy to follow for two or three steps.</li><li>Offer a calm activity or rest.</li><li>Record what worked and what to simplify next time.</li></ol><p>This is an example, not a compulsory programme for every puppy. Finish earlier if tiredness, tension or loss of interest appears. Include food rewards within a suitable daily intake discussed with your veterinarian.</p></section><section id="article-6"><h2>When should you consult a trainer?</h2><p>Support helps when household rules conflict, fear increases or daily organisation is difficult. There is no need to wait for a serious problem. <a href="/en/services/">Individual training</a> begins with age, health, environment and goals.</p><p>Not every behaviour is a training issue. Pain, sudden changes, reduced appetite or other symptoms need veterinary assessment. For bite risk, create safe separation and seek professional support rather than experimenting at home.</p></section><section id="article-7"><h2>Frequently asked questions</h2><h3>When does training begin?</h3><p>Simple everyday habits can begin on arrival. The intensity and environment should suit age, health and adjustment.</p><h3>How long should a session be?</h3><p>Use brief sessions that finish while interest remains. Quality and calm are more useful guides than a rigid number of minutes.</p><h3>How do we track progress?</h3><p>Record one concrete goal, the conditions and the result. For structured tasks, explore <a href="/en/ebooks/">K9 Academy’s digital guides</a>.</p></section><aside class="editorial-callout"><h2>Your next step is personal.</h2><p>Tell us about your dog’s age, routine and behaviour. We can discuss the right training direction.</p><a class="button button-acid" href="/en/contact/#contact-form">Discuss training</a></aside>
 <div class="article-sources"><h2>Sources and further reading</h2><p>General principles follow guidance from <a href="https://avsab.org/resources/position-statements/" target="_blank" rel="noopener">American Veterinary Society of Animal Behavior</a> on reward-based training and safe socialisation. This educational material is not an individual assessment. Seek a veterinarian and qualified professional for pain, sudden changes or bite risk.</p></div>
 </div></div></section></article></main>
+<section class="callback-section k9-textured" id="call-me-back" aria-labelledby="callback-title">
+ <div class="site-container callback-grid">
+  <div class="callback-copy"><p class="eyebrow">K9 / LET’S TALK</p><h2 id="callback-title">Prefer a call?</h2><p>Leave just your phone number to discuss the right training for your dog.</p></div>
+  <form class="callback-form" action="https://www.nextgen.run/demo/k9/api/enquiry.php" method="post" data-callback-form novalidate>
+   <input type="hidden" name="kind" value="callback"><input type="hidden" name="language" value="en"><input type="hidden" name="page" value="https://www.k9academy.bg/en/blog/puppy-training-first-month/">
+   <div hidden aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+   <label for="callback-phone">Phone number</label>
+   <div class="callback-fields"><input id="callback-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" required aria-describedby="callback-note callback-status"><button class="button button-acid" type="submit">Call me back<img class="k9-icon " src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></button></div>
+   <p id="callback-note" class="callback-note">We use your number only to respond to this request. <a href="/en/privacy/">Privacy</a></p>
+   <p id="callback-status" class="callback-status" data-callback-status role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</section>
 <section class="ebook-section k9-textured" id="ebooks" aria-labelledby="ebook-title"><div class="site-container">
  <div class="editorial-section-heading"><div><p class="eyebrow">K9 / THE LIBRARY</p><h2 id="ebook-title">Guidance that stays with you.</h2></div><p>Read. Practise. Return to what matters. Choose the guide for your next stage.</p></div>
  <div class="ebook-grid">  <article class="ebook-card"><a class="ebook-cover" href="/en/ebooks/#book-start"><img src="/assets/images/editorial/start-cover.webp" width="640" height="960" alt="A Better Start" loading="lazy" decoding="async"><span class="ebook-cover-type"><small>K9 ACADEMY / 01</small><strong>A Better Start</strong><em>First steps with your dog</em></span></a>
@@ -289,6 +319,7 @@
         <div>
             <h2>Contact</h2>
             <div class="footer-links">
+                <a href="#call-me-back">Call me back <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
                 <a href="tel:+359892360550">+359 892 360 550</a>
                 <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>
                 <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener">Message on Messenger <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
@@ -350,9 +381,10 @@
 
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
-<script src="/assets/js/site-20260905.js?v=20261009-colours8" defer></script>
-<script src="/assets/js/editorial-20261009.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/site-20260905.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/callback-20261009.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/editorial-20261009.js?v=20261009-callback9" defer></script>
 <script src="/assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
-<script src="/assets/js/interface-20260906-glass.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/interface-20260906-glass.js?v=20261009-callback9" defer></script>
 </body>
 </html>

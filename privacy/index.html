@@ -151,6 +151,23 @@
 
 [data-theme=dark] .training-gallery h2 em,[data-theme=dark] .training-gallery .eyebrow-acid,[data-theme=dark] .dog-lab .eyebrow-acid{color:var(--acid)}
 .training-lightbox :focus-visible{outline-color:var(--acid)}
+
+.callback-section{padding:clamp(2.5rem,5vw,4.5rem) 0;scroll-margin-top:calc(var(--k9-header) + 1rem);color:var(--ink)}
+.callback-grid{display:grid;gap:2rem;align-items:center}
+.callback-copy h2{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.12;letter-spacing:-.035em;margin:0 0 1rem}
+.callback-copy>p:not(.eyebrow){max-width:45ch;margin:0;color:var(--muted);line-height:1.7}
+.callback-form{padding:clamp(1.1rem,3vw,1.8rem);background:var(--surface-raised);color:var(--ink);border:1px solid var(--line);border-radius:1rem}
+.callback-form>label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.65rem}
+.callback-fields{display:flex;flex-wrap:wrap;gap:.65rem;align-items:stretch}
+.callback-fields input{flex:1 1 12rem;min-width:0;width:100%;padding:.85rem 1rem;min-height:3rem;border:1px solid var(--reading-accent);border-radius:.65rem;background:var(--surface);color:var(--ink);font:inherit}
+.callback-fields input:focus-visible{outline:3px solid var(--reading-accent);outline-offset:3px}
+.callback-fields button{flex:1 1 auto;font-size:.85rem;white-space:normal}
+.callback-note,.callback-status{font-size:.8rem;line-height:1.6;color:var(--muted);margin:.9rem 0 0}
+.callback-note a{text-decoration:underline;text-underline-offset:3px}
+.callback-status:empty{display:none}
+.callback-form[aria-busy=true] button{cursor:wait}
+@media(min-width:48rem){.callback-grid{grid-template-columns:1fr 1.1fr;gap:3rem}.callback-fields{flex-wrap:nowrap}}
+@media(max-width:24rem){.callback-fields{flex-direction:column}.callback-fields input,.callback-fields button{flex-basis:auto}}
 </style>
     <link rel="icon" type="image/webp" href="/assets/images/brand-20260905/logo.webp">
     <script type="importmap">
@@ -211,10 +228,23 @@
 <main id="main-content" class="legal-page">
     <header class="legal-hero"><div class="site-container"><p class="eyebrow eyebrow-acid">K9 / Privacy</p><h1>Поверителност</h1><p>Как обработваме запитванията и предпочитанията ви в сайта.</p></div></header>
     <div class="site-container legal-layout">
-        <nav class="legal-index" aria-label="Поверителност"><a href="#privacy-1"><span>01</span>Кой отговаря на запитванията</a><a href="#privacy-2"><span>02</span>Данни във формата</a><a href="#privacy-3"><span>03</span>Изпращане и обработка</a><a href="#privacy-4"><span>04</span>Локални настройки</a><a href="#privacy-5"><span>05</span>Хостинг и външни услуги</a><a href="#privacy-6"><span>06</span>Външни връзки</a><a href="#privacy-7"><span>07</span>Видео от YouTube</a><a href="#privacy-8"><span>08</span>Покупки и доставка на PDF</a></nav>
-        <article class="legal-content"><section id="privacy-1"><span>01</span><h2>Кой отговаря на запитванията</h2><p>K9 Academy използва информацията, която изпращате, за да отговори на въпросите ви и да обсъди поисканото обучение. За въпроси относно вашите данни: mail.k9shop@gmail.com.</p></section><section id="privacy-2"><span>02</span><h2>Данни във формата</h2><p>Формата изисква име, телефон, избрано направление, съобщение и съгласие за отговор. Имейлът е задължителен за потвърждение, а информацията за кучето е по избор. Не включвайте чувствителна информация, която не е необходима за запитването.</p></section><section id="privacy-3"><span>03</span><h2>Изпращане и обработка</h2><p>Запитването се изпраща по защитена връзка до услугата за контакт и се препраща към mail.k9shop@gmail.com. Потвърждение се изпраща и на посочения от вас имейл. Данните се използват за отговор и последваща комуникация по заявката. Свържете се с нас, ако искате корекция или изтриване на изпратената информация.</p></section><section id="privacy-4"><span>04</span><h2>Локални настройки</h2><p>Езикът, светлата или тъмната тема, изборът за бисквитки и позицията на контактните бутони се пазят в localStorage на устройството ви. Можете да ги премахнете чрез настройките на браузъра.</p></section><section id="privacy-5"><span>05</span><h2>Хостинг и външни услуги</h2><p>Сайтът се хоства от GitHub Pages. Доставчиците на хостинг и услугата за контакт могат да обработват технически данни за обслужване на заявките и предотвратяване на злоупотреба. Сайтът не зарежда рекламни или аналитични скриптове.</p></section><section id="privacy-6"><span>06</span><h2>Външни връзки</h2><p>Когато отворите Facebook Messenger, Viber, K9 Shop или страницата на 3D модела, се прилагат политиките на съответната услуга.</p></section><section id="privacy-7"><span>07</span><h2>Видео от YouTube</h2><p>Външният видео плейър се зарежда след разрешение за видео или натискане на бутона за гледане. Тогава YouTube получава техническа информация за заявката, включително IP адрес. Използваме домейна youtube-nocookie.com. За отказ изберете „Само необходимите“ в настройките за бисквитки.</p></section><section id="privacy-8"><span>08</span><h2>Покупки и доставка на PDF</h2><p>Stripe обработва платежните данни. Сайтът не получава номера на банковата ви карта. Услугата за доставка обработва имейла, избраното издание и референцията за потвърденото плащане, за да изпрати файловете и да защити изтеглянето. Референциите за поръчки и статусът на доставка се пазят в частно хранилище на доставчика на услугата. За въпроси относно данните от покупката пишете на mail.k9shop@gmail.com.</p></section></article>
+        <nav class="legal-index" aria-label="Поверителност"><a href="#privacy-1"><span>01</span>Кой отговаря на запитванията</a><a href="#privacy-2"><span>02</span>Данни във формата</a><a href="#privacy-3"><span>03</span>Изпращане и обработка</a><a href="#privacy-4"><span>04</span>Локални настройки</a><a href="#privacy-5"><span>05</span>Хостинг и външни услуги</a><a href="#privacy-6"><span>06</span>Външни връзки</a><a href="#privacy-7"><span>07</span>Видео от YouTube</a><a href="#privacy-8"><span>08</span>Покупки и доставка на PDF</a><a href="#privacy-9"><span>09</span>Заявка за обратно обаждане</a></nav>
+        <article class="legal-content"><section id="privacy-1"><span>01</span><h2>Кой отговаря на запитванията</h2><p>K9 Academy използва информацията, която изпращате, за да отговори на въпросите ви и да обсъди поисканото обучение. За въпроси относно вашите данни: mail.k9shop@gmail.com.</p></section><section id="privacy-2"><span>02</span><h2>Данни във формата</h2><p>Формата изисква име, телефон, избрано направление, съобщение и съгласие за отговор. Имейлът е задължителен за потвърждение, а информацията за кучето е по избор. Не включвайте чувствителна информация, която не е необходима за запитването.</p></section><section id="privacy-3"><span>03</span><h2>Изпращане и обработка</h2><p>Запитването се изпраща по защитена връзка до услугата за контакт и се препраща към mail.k9shop@gmail.com. Потвърждение се изпраща и на посочения от вас имейл. Данните се използват за отговор и последваща комуникация по заявката. Свържете се с нас, ако искате корекция или изтриване на изпратената информация.</p></section><section id="privacy-4"><span>04</span><h2>Локални настройки</h2><p>Езикът, светлата или тъмната тема, изборът за бисквитки и позицията на контактните бутони се пазят в localStorage на устройството ви. Можете да ги премахнете чрез настройките на браузъра.</p></section><section id="privacy-5"><span>05</span><h2>Хостинг и външни услуги</h2><p>Сайтът се хоства от GitHub Pages. Доставчиците на хостинг и услугата за контакт могат да обработват технически данни за обслужване на заявките и предотвратяване на злоупотреба. Сайтът не зарежда рекламни или аналитични скриптове.</p></section><section id="privacy-6"><span>06</span><h2>Външни връзки</h2><p>Когато отворите Facebook Messenger, Viber, K9 Shop или страницата на 3D модела, се прилагат политиките на съответната услуга.</p></section><section id="privacy-7"><span>07</span><h2>Видео от YouTube</h2><p>Външният видео плейър се зарежда след разрешение за видео или натискане на бутона за гледане. Тогава YouTube получава техническа информация за заявката, включително IP адрес. Използваме домейна youtube-nocookie.com. За отказ изберете „Само необходимите“ в настройките за бисквитки.</p></section><section id="privacy-8"><span>08</span><h2>Покупки и доставка на PDF</h2><p>Stripe обработва платежните данни. Сайтът не получава номера на банковата ви карта. Услугата за доставка обработва имейла, избраното издание и референцията за потвърденото плащане, за да изпрати файловете и да защити изтеглянето. Референциите за поръчки и статусът на доставка се пазят в частно хранилище на доставчика на услугата. За въпроси относно данните от покупката пишете на mail.k9shop@gmail.com.</p></section><section id="privacy-9"><span>09</span><h2>Заявка за обратно обаждане</h2><p>Кратката форма изисква само телефонен номер. Номерът, езикът и страницата, от която е изпратена заявката, се препращат по защитена връзка към същия адрес за контакт: mail.k9shop@gmail.com. Използваме номера, за да отговорим на поисканото обаждане. Не е необходим имейл и не се изпраща клиентско потвърждение по имейл.</p></section></article>
     </div>
 </main>
+<section class="callback-section k9-textured" id="call-me-back" aria-labelledby="callback-title">
+ <div class="site-container callback-grid">
+  <div class="callback-copy"><p class="eyebrow">K9 / ДА ПОГОВОРИМ</p><h2 id="callback-title">Предпочитате да ви се обадим?</h2><p>Оставете само телефонния си номер, за да обсъдим подходящото обучение за вашето куче.</p></div>
+  <form class="callback-form" action="https://www.nextgen.run/demo/k9/api/enquiry.php" method="post" data-callback-form novalidate>
+   <input type="hidden" name="kind" value="callback"><input type="hidden" name="language" value="bg"><input type="hidden" name="page" value="https://www.k9academy.bg/privacy/">
+   <div hidden aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+   <label for="callback-phone">Телефонен номер</label>
+   <div class="callback-fields"><input id="callback-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" required aria-describedby="callback-note callback-status"><button class="button button-acid" type="submit">Обадете ми се<img class="k9-icon " src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></button></div>
+   <p id="callback-note" class="callback-note">Използваме номера ви само за отговор на тази заявка. <a href="/privacy/">Поверителност</a></p>
+   <p id="callback-status" class="callback-status" data-callback-status role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</section>
 <aside class="learning-links k9-textured" aria-label="Свързани ръководства"><div class="site-container"><p class="eyebrow">Следваща стъпка</p><p>За въпроси относно данните използвайте <a href="/contact/">контактите ни</a>. Вижте <a href="/ebooks/">информацията за дигиталните покупки</a>, <a href="/services/">как се уговаря обучение</a> и <a href="/training/">образователното съдържание на сайта</a>.</p></div></aside>
 <section class="ebook-section k9-textured" id="ebooks" aria-labelledby="ebook-title"><div class="site-container">
  <div class="editorial-section-heading"><div><p class="eyebrow">K9 / БИБЛИОТЕКА</p><h2 id="ebook-title">Знание, което остава с вас.</h2></div><p>Прочетете. Упражнете. Върнете се към най-важното. Изберете ръководството за вашия следващ етап.</p></div>
@@ -244,6 +274,7 @@
         <div>
             <h2>Контакт</h2>
             <div class="footer-links">
+                <a href="#call-me-back">Обадете ми се <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
                 <a href="tel:+359892360550">+359 892 360 550</a>
                 <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>
                 <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener">Пишете в Messenger <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
@@ -305,9 +336,10 @@
 
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
-<script src="/assets/js/site-20260905.js?v=20261009-colours8" defer></script>
-<script src="/assets/js/editorial-20261009.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/site-20260905.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/callback-20261009.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/editorial-20261009.js?v=20261009-callback9" defer></script>
 <script src="/assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
-<script src="/assets/js/interface-20260906-glass.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/interface-20260906-glass.js?v=20261009-callback9" defer></script>
 </body>
 </html>
