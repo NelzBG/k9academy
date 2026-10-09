@@ -1,9 +1,9 @@
 /* Shared mobile-first layout, type, navigation and input behavior. */
-@font-face{font-family:K9Interface;src:url("../fonts/k9-hero/font-0.ttf") format("truetype");font-weight:400;font-display:swap}
-@font-face{font-family:K9Interface;src:url("../fonts/k9-hero/font-2.ttf") format("truetype");font-weight:600;font-display:swap}
-@font-face{font-family:K9Interface;src:url("../fonts/k9-hero/font-4.ttf") format("truetype");font-weight:800;font-display:swap}
-@font-face{font-family:K9Display;src:url("../fonts/k9-hero/font-6.ttf") format("truetype");font-weight:600;font-display:swap}
-@font-face{font-family:K9Display;src:url("../fonts/k9-hero/font-7.ttf") format("truetype");font-weight:700;font-display:swap}
+@font-face{font-family:K9Interface;src:url("../fonts/k9-hero/font-0-website.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:K9Interface;src:url("../fonts/k9-hero/font-2-website.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:K9Interface;src:url("../fonts/k9-hero/font-4-website.woff2") format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:K9Display;src:url("../fonts/k9-hero/font-6-website.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:K9Display;src:url("../fonts/k9-hero/font-7-website.woff2") format("woff2");font-weight:700;font-display:swap}
 :root{--font-sans:K9Interface,Arial,sans-serif;--font-display:K9Display,"Arial Narrow",sans-serif;--acid:#d9ff00;--color-k9-acid:#d9ff00;--k9-touch:3rem;--k9-gutter:1.1rem;--k9-header:6.75rem;--k9-radius:.75rem;--k9-speed:180ms;scroll-padding-top:calc(var(--k9-header) + 1rem);scrollbar-gutter:stable}
 body{font-family:var(--font-sans);padding-bottom:0;}
 .site-container{width:min(calc(100% - var(--k9-gutter)*2),84rem)}

@@ -149,6 +149,6 @@
     document.addEventListener('visibilitychange',sync);
     new MutationObserver(() => {effects();load();sync();}).observe(body,{attributes:true,attributeFilter:['class']});
     reduced.addEventListener('change',()=>{load();sync();});
-    if('IntersectionObserver' in window)new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;load();sync();},{threshold:.05}).observe(feature.querySelector('.k9-motion-stage'));
+    if('IntersectionObserver' in window)new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;load();sync();},{threshold:.75}).observe(feature.querySelector('.k9-motion-stage'));
     else{inView=true;load();}
 })();

@@ -22,13 +22,13 @@
   return {container, controls, frame: container.querySelector('.k9-youtube-frame'), poster: container.querySelector('.k9-video-poster'),
    play: controls.querySelector('[data-pause-video]'), watch: controls.querySelector('[data-watch-video]'),
    status: controls.querySelector('[data-video-status]'), external: controls.querySelector('[data-youtube-link]'),
-   api: null, ready: false, loading: false, generation: 0, inView: false, paused: false,
+   api: null, ready: false, loading: false, generation: 0, inView: false, paused: false, deferred: null,
    blocked: false, explicit: false, playback: -1};
  });
  function label(state) {
   state.watch.textContent = allowed() ? text.watch : text.allowWatch;
   state.play.textContent = state.loading ? text.starting : state.playback === 1 ? text.pause : allowed() ? text.play : text.allowPlay;
-  state.play.disabled = state.loading;
+  state.play.disabled = state.loading && !state.deferred;
   state.play.setAttribute('aria-pressed', String(state.playback === 1));
  }
  function iframe(state, foreground) {
@@ -42,6 +42,7 @@
   frame.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
   frame.referrerPolicy = 'strict-origin-when-cross-origin';
   frame.allowFullscreen = true;
+  frame.loading = foreground ? 'eager' : 'lazy';
   if (!foreground) { frame.id = state.container.id + '-player'; frame.tabIndex = -1; frame.setAttribute('aria-hidden', 'true'); }
   return frame;
  }
@@ -67,8 +68,16 @@
   return allowed() && state.inView && !state.paused && !state.blocked && !document.hidden && !activeDialog &&
    !document.body.matches('.cookie-open,.menu-open') && (state.explicit || (!reduced.matches && !navigator.connection?.saveData));
  }
+ function cancelDeferred(state) {
+  const task = state.deferred;
+  if (!task) return;
+  state.deferred = null;
+  if (task.kind === 'idle') window.cancelIdleCallback?.(task.id);
+  else clearTimeout(task.id);
+ }
  function destroy(state) {
   state.generation++;
+  cancelDeferred(state);
   state.api?.destroy(); state.api = null; state.ready = false; state.loading = false; state.playback = -1;
   state.frame.replaceChildren(); state.container.classList.remove('is-video-ready'); state.container.classList.remove('is-video-requested');
   if (state.poster) state.poster.hidden = false;
@@ -77,46 +86,78 @@
  function failed(state) {
   destroy(state); state.blocked = true; state.status.textContent = text.failed; state.external.hidden = false; label(state);
  }
- async function start(state) {
-  if (state.api || state.loading || !canPlay(state)) return;
+ async function start(state, immediate = false) {
+  if (state.api || !canPlay(state)) return;
+  if (state.deferred) {
+   if (!immediate) return;
+   state.generation++;
+   cancelDeferred(state);
+   state.loading = false;
+  }
+  if (state.loading) return;
   const generation = ++state.generation;
   state.loading = true; state.status.textContent = ''; state.external.hidden = true; label(state);
-  const frame = iframe(state, false);
-  state.frame.append(frame);
-  try {
-   const yt = await loadApi();
-   if (generation !== state.generation || !allowed()) return;
-   state.api = new yt.Player(frame.id, {events: {
-    onReady: event => {
-     if (generation !== state.generation) return;
-     state.api = event.target; state.ready = true; state.loading = false;
-     event.target.mute(); label(state); sync(state);
-    },
-    onStateChange: event => {
-     if (generation !== state.generation) return;
-     state.playback = event.data;
-     if (event.data === 1) {
-      state.blocked = false;
-      if (!canPlay(state)) { event.target.pauseVideo(); return; }
-      if (state.poster) state.poster.hidden = true;
-      state.container.classList.add('is-video-ready'); state.container.dataset.videoState = 'playing';
-      state.status.textContent = ''; state.external.hidden = true;
-     } else if (event.data === 2) state.container.dataset.videoState = 'paused';
-     else if (event.data === 0 && canPlay(state)) { event.target.seekTo(Number(state.container.dataset.start) || 0, true); event.target.playVideo(); }
-     label(state);
-    },
-    onAutoplayBlocked: () => {
-     if (generation !== state.generation) return;
-     state.blocked = true; state.playback = -1; state.status.textContent = text.blocked; label(state);
-    },
-    onError: () => { if (generation === state.generation) failed(state); }
-   }});
-  } catch { if (generation === state.generation) failed(state); }
+  const mount = async () => {
+   if (generation !== state.generation) return;
+   state.deferred = null;
+   if (!canPlay(state)) { state.loading = false; label(state); return; }
+   const frame = iframe(state, false);
+   state.frame.append(frame);
+   try {
+    const yt = await loadApi();
+    if (generation !== state.generation || !allowed()) return;
+    state.api = new yt.Player(frame.id, {events: {
+     onReady: event => {
+      if (generation !== state.generation) return;
+      state.api = event.target; state.ready = true; state.loading = false;
+      event.target.mute(); label(state); sync(state);
+     },
+     onStateChange: event => {
+      if (generation !== state.generation) return;
+      state.playback = event.data;
+      if (event.data === 1) {
+       state.blocked = false;
+       if (!canPlay(state)) { event.target.pauseVideo(); return; }
+       if (state.poster) state.poster.hidden = true;
+       state.container.classList.add('is-video-ready'); state.container.dataset.videoState = 'playing';
+       state.status.textContent = ''; state.external.hidden = true;
+      } else if (event.data === 2) state.container.dataset.videoState = 'paused';
+      else if (event.data === 0 && canPlay(state)) { event.target.seekTo(Number(state.container.dataset.start) || 0, true); event.target.playVideo(); }
+      label(state);
+     },
+     onAutoplayBlocked: () => {
+      if (generation !== state.generation) return;
+      state.blocked = true; state.playback = -1; state.status.textContent = text.blocked; label(state);
+     },
+     onError: () => { if (generation === state.generation) failed(state); }
+    }});
+   } catch { if (generation === state.generation) failed(state); }
+  };
+  if (!immediate && !state.explicit) {
+   if (typeof window.requestIdleCallback === 'function') {
+    const id = window.requestIdleCallback(() => { void mount(); }, {timeout: 1200});
+    state.deferred = {kind: 'idle', id};
+   } else {
+    const id = window.setTimeout(() => { void mount(); }, 350);
+    state.deferred = {kind: 'timeout', id};
+   }
+   label(state);
+   return;
+  }
+  await mount();
  }
  function sync(state) {
-  if (!canPlay(state)) { if (state.ready) state.api.pauseVideo(); return; }
+  if (!canPlay(state)) {
+   if (state.deferred) {
+    state.generation++;
+    cancelDeferred(state);
+    state.loading = false; label(state);
+   }
+   if (state.ready) state.api.pauseVideo();
+   return;
+  }
   if (state.ready) { state.api.mute(); state.api.playVideo(); }
-  else start(state);
+  else start(state, state.explicit);
  }
  const syncAll = () => states.forEach(sync);
  function stopAll() { states.forEach(state => { if (state.ready) state.api.pauseVideo(); }); }

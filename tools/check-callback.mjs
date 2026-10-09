@@ -20,7 +20,7 @@ for(const path of [...['','en/'].flatMap(prefix=>Object.values(routes).map(slug=
  assert.equal(inputs.length,1);assert.match(inputs[0],/type="tel"/);assert.match(inputs[0],/name="phone"/);assert.match(inputs[0],/required/);
  assert(!shown.includes('type="checkbox"'));assert(form.includes('name="kind" value="callback"'));
  assert(html.includes('id="call-me-back"'));assert(html.includes('href="#call-me-back"'));
- assert(html.includes('callback-20261009.js?v=20261009-callback9'));pages++;
+ assert(html.includes('callback-20261009.js?v=20261010-speed1'));pages++;
 }
 const source=await readFile(join(root,'assets/js/callback-20261009.js'),'utf8');
 function client({lang='en',response={ok:true,status:200,json:async()=>({ok:true})},failure=false,pending=false,phoneValue='+359 892 360 550'}={}){

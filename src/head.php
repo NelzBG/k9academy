@@ -41,8 +41,7 @@ require_once __DIR__ . '/ui.php';
             } catch {}
         })();
     </script>
-    <?php if ($currentFile === 'index.php'): ?><link rel="preload" as="image" href="assets/video/k9-hero-poster-20260905.webp" fetchpriority="high"><?php endif; ?>
-    <?php foreach ([0,2,4,6,7] as $font): ?><link rel="preload" as="font" type="font/woff2" href="/assets/fonts/k9-hero/font-<?= $font ?>-website.woff2" crossorigin><?php endforeach; ?>
+    <?php foreach (($currentFile === 'index.php' ? [0,2,6,7] : [0,2,4,6,7]) as $font): ?><link rel="preload" as="font" type="font/woff2" href="/assets/fonts/k9-hero/font-<?= $font ?>-website.woff2" crossorigin><?php endforeach; ?>
     <style data-k9-styles><?= file_get_contents(__DIR__ . '/../assets/css/k9-site-20261009.css') ?></style>
     <link rel="icon" type="image/webp" href="assets/images/brand-20260905/logo.webp">
     <script type="importmap">
