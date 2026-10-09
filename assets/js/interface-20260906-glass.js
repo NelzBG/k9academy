@@ -5,7 +5,7 @@
     const header = document.querySelector('[data-site-header]');
     const menu = document.querySelector('[data-mobile-nav]');
     const menuButton = document.querySelector('[data-menu-toggle]');
-    const desktop = matchMedia('(min-width: 64rem)');
+    const desktop = matchMedia('(min-width: 82rem)');
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const bg = root.lang === 'bg';
     const storage = {
@@ -70,7 +70,9 @@
         const dark = root.dataset.theme === 'dark';
         themeButtons.forEach(button => {
             button.setAttribute('aria-pressed',String(dark));
-            button.setAttribute('aria-label',bg ? (dark ? 'Включи светла тема' : 'Включи тъмна тема') : (dark ? 'Switch to light theme' : 'Switch to dark theme'));
+            const action = bg ? (dark ? 'Включи светла тема' : 'Включи тъмна тема') : (dark ? 'Switch to light theme' : 'Switch to dark theme');
+            const visible = button.textContent.trim();
+            button.setAttribute('aria-label', visible ? visible + ' — ' + action : action);
         });
     };
     themeButtons.forEach(button => button.addEventListener('click',() => {

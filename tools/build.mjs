@@ -24,6 +24,10 @@ const write = async (path, content) => {
   await mkdir(dirname(file), { recursive: true });
   await writeFile(file, content, 'utf8');
 };
+// One stylesheet request preserves source ordering and relative asset URLs.
+const styleSources = ['site.css','interface-20260906-glass.css','training-library-20260914.css','editorial-20261009.css'];
+const styles = (await Promise.all(styleSources.map(css=>readFile(join(root,'assets/css',css),'utf8')))).join('\n').replace(/url\(([\"']?)(\.\.\/[^\"')]+)\1\)/g, (_,quote,path)=>'url('+quote+new URL(path,'https://www.k9academy.bg/assets/css/').pathname+quote+')');
+await write('assets/css/k9-site-20261009.css', styles);
 const pages = [];
 for (const language of ['bg', 'en']) {
   for (const [file, slug] of Object.entries(routes)) {

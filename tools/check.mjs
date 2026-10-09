@@ -58,7 +58,7 @@ for(const lang of ['bg','en']) for(const [source,slug] of Object.entries(routes)
   }
   for(const match of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) JSON.parse(match[1]);
 }
-for(const css of ['site.css','interface-20260906-glass.css','training-library-20260914.css','editorial-20261009.css']) {
+for(const css of ['site.css','interface-20260906-glass.css','training-library-20260914.css','editorial-20261009.css','k9-site-20261009.css']) {
   const text=await readFile(join(root,'assets/css',css),'utf8');
   for(const match of text.matchAll(/url\(["']?([^"')]+)["']?\)/g)) if(!match[1].startsWith('data:')) await exactFile(new URL(match[1],'https://www.k9academy.bg/assets/css/'+css).pathname);
 }
