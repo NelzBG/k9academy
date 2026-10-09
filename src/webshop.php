@@ -8,7 +8,7 @@ $copy = $lang === 'bg' ? [
     'kicker' => 'K9 Shop',
     'title' => 'Екипировката също<br><em>говори на кучето.</em>',
     'lead' => 'Подбрани храни, награди и тренировъчни средства за ежедневна грижа и по-ясна работа.',
-    'maintenance' => 'Магазинът временно е в профилактика.',
+    'maintenance' => 'Магазинът за екипировка временно е в профилактика.',
     'maintenance_copy' => 'Можете да посетите свързания K9 Shop и да проверите кога каталогът отново ще бъде достъпен.',
     'visit' => 'Към k9shop.bg',
     'categories_kicker' => 'Подбрани категории',
@@ -20,7 +20,7 @@ $copy = $lang === 'bg' ? [
     'kicker' => 'K9 Shop',
     'title' => 'Equipment also<br><em>speaks to the dog.</em>',
     'lead' => 'Selected food, rewards and practical training tools for daily care and clearer work.',
-    'maintenance' => 'The shop is temporarily closed for maintenance.',
+    'maintenance' => 'The equipment shop is temporarily closed for maintenance.',
     'maintenance_copy' => 'You can visit the associated K9 Shop and check when the catalogue becomes available again.',
     'visit' => 'Visit k9shop.bg',
     'categories_kicker' => 'Selected categories',
@@ -43,7 +43,7 @@ $categories = $lang === 'bg' ? [
 <main id="main-content">
     <section class="shop-hero">
         <div class="site-container shop-hero-grid">
-            <div class="shop-copy reveal is-visible"><p class="eyebrow eyebrow-acid"><?= k9e($copy['kicker']) ?></p><h1><?= $copy['title'] ?></h1><p><?= k9e($copy['lead']) ?></p></div>
+            <div class="shop-copy reveal is-visible"><p class="eyebrow eyebrow-acid"><?= k9e($copy['kicker']) ?></p><h1><?= $copy['title'] ?></h1><p><?= k9e($copy['lead']) ?></p><p><a class="button button-acid" href="<?= k9e(k9_url('ebooks.php',null,'#ebooks')) ?>"><?= $lang==='bg'?'Разгледайте PDF ръководствата':'Browse the PDF guides' ?><?= k9_icon('arrow') ?></a></p></div>
             <div class="shop-object reveal is-visible" aria-hidden="true"><div class="shop-orbit"><span>K9</span><i></i><b></b></div><p>FOCUS / REWARD / REPEAT</p></div>
         </div>
     </section>
