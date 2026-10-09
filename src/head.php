@@ -41,11 +41,6 @@ require_once __DIR__ . '/ui.php';
             } catch {}
         })();
     </script>
-    <link rel="preload" href="assets/fonts/k9-hero/font-0.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/k9-hero/font-6.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/k9-hero/font-4.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/k9-hero/font-2.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/k9-hero/font-7.woff2" as="font" type="font/woff2" crossorigin>
     <?php if ($currentFile === 'index.php'): ?><link rel="preload" as="image" href="assets/video/k9-hero-poster-20260905.webp" fetchpriority="high"><?php endif; ?>
     <style data-k9-styles><?= file_get_contents(__DIR__ . '/../assets/css/k9-site-20261009.css') ?></style>
     <link rel="icon" type="image/webp" href="assets/images/brand-20260905/logo.webp">

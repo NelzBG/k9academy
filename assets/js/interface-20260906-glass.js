@@ -98,9 +98,9 @@
     let effectsPaused = false;
     let signalVisible = true;
     const effects = () => {
-        signal?.querySelectorAll('.k9-signal-band').forEach(el => {el.style.animationPlayState=effectsPaused||!signalVisible||document.hidden?'paused':'running';});
+        signal?.querySelectorAll('.k9-signal-band').forEach(el => {el.style.animationPlayState=effectsPaused||!signalVisible||document.hidden||body.matches('.cookie-open,.menu-open')?'paused':'running';});
         if(effectsButton){
-            effectsButton.hidden = reduced.matches;
+            effectsButton.classList.toggle('is-unavailable',reduced.matches);
             effectsButton.textContent = bg ? (effectsPaused?'Пусни ефектите':'Спри ефектите') : (effectsPaused?'Play effects':'Pause effects');
             effectsButton.setAttribute('aria-pressed',String(effectsPaused));
         }
@@ -125,12 +125,12 @@
     const sync=()=>{
         if(!ready||reduced.matches){still();return;}
         feature.classList.add('has-video');playButton.hidden=false;
-        if(userPaused||!inView||document.hidden)video.pause();
+        if(userPaused||!inView||document.hidden||body.matches('.cookie-open,.menu-open'))video.pause();
         else video.play().catch(()=>{userPaused=true;label();});
         label();
     };
     const load=()=>{
-        if(loaded||failed||reduced.matches||navigator.connection?.saveData||!inView)return;
+        if(loaded||failed||reduced.matches||navigator.connection?.saveData||!inView||body.matches('.cookie-open,.menu-open'))return;
         if(!video.canPlayType('video/webm; codecs="vp9"'))return;
         loaded=true;video.muted=true;video.src=video.dataset.src;video.load();
     };
@@ -147,6 +147,7 @@
     video.addEventListener('play',label);video.addEventListener('pause',label);
     playButton.addEventListener('click',()=>{userPaused=!userPaused;sync();});
     document.addEventListener('visibilitychange',sync);
+    new MutationObserver(() => {effects();load();sync();}).observe(body,{attributes:true,attributeFilter:['class']});
     reduced.addEventListener('change',()=>{load();sync();});
     if('IntersectionObserver' in window)new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;load();sync();},{threshold:.05}).observe(feature.querySelector('.k9-motion-stage'));
     else{inView=true;load();}

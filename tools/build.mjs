@@ -26,7 +26,13 @@ const write = async (path, content) => {
 };
 // One stylesheet request preserves source ordering and relative asset URLs.
 const styleSources = ['site.css','interface-20260906-glass.css','training-library-20260914.css','editorial-20261009.css'];
-const styles = (await Promise.all(styleSources.map(css=>readFile(join(root,'assets/css',css),'utf8')))).join('\n').replace(/url\(([\"']?)(\.\.\/[^\"')]+)\1\)/g, (_,quote,path)=>'url('+quote+new URL(path,'https://www.k9academy.bg/assets/css/').pathname+quote+')');
+let styles = (await Promise.all(styleSources.map(css=>readFile(join(root,'assets/css',css),'utf8')))).join('\n').replace(/url\(([\"']?)(\.\.\/[^\"')]+)\1\)/g, (_,quote,path)=>'url('+quote+new URL(path,'https://www.k9academy.bg/assets/css/').pathname+quote+')');
+// Embed the small BG/EN font subsets so the first paint never waits on font requests.
+for (const weight of [0,2,4,6,7]) {
+  const fontPath = '/assets/fonts/k9-hero/font-' + weight + '-website.woff2';
+  const font = await readFile(join(root, fontPath.slice(1)));
+  styles = styles.replaceAll(fontPath, 'data:font/woff2;base64,' + font.toString('base64'));
+}
 await write('assets/css/k9-site-20261009.css', styles);
 const pages = [];
 for (const language of ['bg', 'en']) {
