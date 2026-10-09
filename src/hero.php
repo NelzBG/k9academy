@@ -42,7 +42,7 @@ $intro = $lang === 'bg' ? [
             <div class="k9-signal-caption">INSTINCT<br><b>IN SYNC.</b></div>
         </div>
         <div class="k9-hero-bottom">
-            <p><?= k9e($intro['team']) ?></p><button class="k9-effects-toggle" type="button" data-effects-toggle hidden><?= $lang === 'bg' ? 'Спри ефектите' : 'Pause effects' ?></button>
+            <p><?= k9e($intro['team']) ?></p><button class="k9-effects-toggle" type="button" data-effects-toggle><?= $lang === 'bg' ? 'Спри ефектите' : 'Pause effects' ?></button>
             <div class="ui:flex ui:flex-wrap ui:gap-5"><span><b>01</b> <?= k9e($intro['one']) ?></span><span><b>02</b> <?= k9e($intro['two']) ?></span><span><b>03</b> <?= k9e($intro['three']) ?></span></div>
         </div>
     </div>

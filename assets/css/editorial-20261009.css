@@ -40,3 +40,11 @@
 .cookie-panel,.cookie-panel h2,.cookie-panel .button{font-family:Arial,sans-serif}
 .cookie-panel h2{font-weight:800;font-style:normal;letter-spacing:-.025em;font-size:clamp(1.8rem,5vw,2.7rem);line-height:1.08}
 .cookie-wall[hidden],:root[data-cookie-choice-set] .cookie-wall:not([data-cookie-reopened]){display:none}
+
+/* Keep the two-line hero and its effect control stable during font decoding. */
+.k9-effects-toggle.is-unavailable{visibility:hidden}
+.k9-hero h1 span,.k9-hero h1 em{white-space:nowrap}
+@media(max-width:39.99rem){.k9-hero h1{font-size:clamp(1.8rem,9vw,4.6rem)}}
+@media(prefers-reduced-motion:reduce){.k9-effects-toggle{visibility:hidden}}
+
+.k9-hero h1{max-width:100%}
