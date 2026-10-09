@@ -106,7 +106,6 @@ body.menu-open .floating-cta-layer,body.k9-keyboard-open .floating-cta-layer{vis
 }
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}
- .k9-signal *{animation:none!important}
 }
 
 .k9-menu-toggle .k9-close-image{display:none}
