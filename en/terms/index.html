@@ -151,6 +151,23 @@
 
 [data-theme=dark] .training-gallery h2 em,[data-theme=dark] .training-gallery .eyebrow-acid,[data-theme=dark] .dog-lab .eyebrow-acid{color:var(--acid)}
 .training-lightbox :focus-visible{outline-color:var(--acid)}
+
+.callback-section{padding:clamp(2.5rem,5vw,4.5rem) 0;scroll-margin-top:calc(var(--k9-header) + 1rem);color:var(--ink)}
+.callback-grid{display:grid;gap:2rem;align-items:center}
+.callback-copy h2{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.12;letter-spacing:-.035em;margin:0 0 1rem}
+.callback-copy>p:not(.eyebrow){max-width:45ch;margin:0;color:var(--muted);line-height:1.7}
+.callback-form{padding:clamp(1.1rem,3vw,1.8rem);background:var(--surface-raised);color:var(--ink);border:1px solid var(--line);border-radius:1rem}
+.callback-form>label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.65rem}
+.callback-fields{display:flex;flex-wrap:wrap;gap:.65rem;align-items:stretch}
+.callback-fields input{flex:1 1 12rem;min-width:0;width:100%;padding:.85rem 1rem;min-height:3rem;border:1px solid var(--reading-accent);border-radius:.65rem;background:var(--surface);color:var(--ink);font:inherit}
+.callback-fields input:focus-visible{outline:3px solid var(--reading-accent);outline-offset:3px}
+.callback-fields button{flex:1 1 auto;font-size:.85rem;white-space:normal}
+.callback-note,.callback-status{font-size:.8rem;line-height:1.6;color:var(--muted);margin:.9rem 0 0}
+.callback-note a{text-decoration:underline;text-underline-offset:3px}
+.callback-status:empty{display:none}
+.callback-form[aria-busy=true] button{cursor:wait}
+@media(min-width:48rem){.callback-grid{grid-template-columns:1fr 1.1fr;gap:3rem}.callback-fields{flex-wrap:nowrap}}
+@media(max-width:24rem){.callback-fields{flex-direction:column}.callback-fields input,.callback-fields button{flex-basis:auto}}
 </style>
     <link rel="icon" type="image/webp" href="/assets/images/brand-20260905/logo.webp">
     <script type="importmap">
@@ -215,6 +232,19 @@
         <article class="legal-content"><section id="term-1"><span>01</span><h2>About this website</h2><p>This website presents the approach and training programmes of K9 Academy. For specific questions, contact us through Facebook or call +359 892 360 550.</p></section><section id="term-2"><span>02</span><h2>Training services</h2><p>The format, schedule, terms and price are agreed directly after discussing the case. Website content is general information and does not guarantee a particular result.</p></section><section id="term-3"><span>03</span><h2>Enquiries and booking</h2><p>Contacting us does not automatically confirm a booking. Training appointments and service terms are confirmed separately with K9 Academy before the service begins.</p></section><section id="term-4"><span>04</span><h2>K9 Shop</h2><p>The K9 Shop page links to a separate external website. Its terms, availability, payments and delivery are managed independently.</p></section><section id="term-5"><span>05</span><h2>Responsible participation</h2><p>Provide accurate information about your dog’s health and behaviour and follow the trainer’s safety instructions. Discuss any questions and the appropriate training format before attending.</p></section><section id="term-6"><span>06</span><h2>Digital guides</h2><p>A one-time purchase includes the described Bulgarian and English PDF editions for personal use. Training sessions are not included. The price and total are shown before payment. Stripe processes payment through the Hondpro merchant account. After confirmed payment, files are available through protected download links and sent to the checkout email. Links are valid for 30 days; downloaded files can be kept. For delivery problems or purchase questions, contact mail.k9shop@gmail.com. Applicable statutory rights remain in effect.</p></section></article>
     </div>
 </main>
+<section class="callback-section k9-textured" id="call-me-back" aria-labelledby="callback-title">
+ <div class="site-container callback-grid">
+  <div class="callback-copy"><p class="eyebrow">K9 / LET’S TALK</p><h2 id="callback-title">Prefer a call?</h2><p>Leave just your phone number to discuss the right training for your dog.</p></div>
+  <form class="callback-form" action="https://www.nextgen.run/demo/k9/api/enquiry.php" method="post" data-callback-form novalidate>
+   <input type="hidden" name="kind" value="callback"><input type="hidden" name="language" value="en"><input type="hidden" name="page" value="https://www.k9academy.bg/en/terms/">
+   <div hidden aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+   <label for="callback-phone">Phone number</label>
+   <div class="callback-fields"><input id="callback-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" required aria-describedby="callback-note callback-status"><button class="button button-acid" type="submit">Call me back<img class="k9-icon " src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></button></div>
+   <p id="callback-note" class="callback-note">We use your number only to respond to this request. <a href="/en/privacy/">Privacy</a></p>
+   <p id="callback-status" class="callback-status" data-callback-status role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</section>
 <aside class="learning-links k9-textured" aria-label="Related guidance"><div class="site-container"><p class="eyebrow">Next step</p><p>Before choosing <a href="/en/ebooks/">a digital guide</a>, read its description. Terms for <a href="/en/services/">training services</a> are agreed individually. Explore <a href="/en/training/">our approach</a> and use <a href="/en/contact/">our contact options</a> for specific questions.</p></div></aside>
 <section class="ebook-section k9-textured" id="ebooks" aria-labelledby="ebook-title"><div class="site-container">
  <div class="editorial-section-heading"><div><p class="eyebrow">K9 / THE LIBRARY</p><h2 id="ebook-title">Guidance that stays with you.</h2></div><p>Read. Practise. Return to what matters. Choose the guide for your next stage.</p></div>
@@ -244,6 +274,7 @@
         <div>
             <h2>Contact</h2>
             <div class="footer-links">
+                <a href="#call-me-back">Call me back <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
                 <a href="tel:+359892360550">+359 892 360 550</a>
                 <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>
                 <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener">Message on Messenger <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
@@ -305,9 +336,10 @@
 
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
-<script src="/assets/js/site-20260905.js?v=20261009-colours8" defer></script>
-<script src="/assets/js/editorial-20261009.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/site-20260905.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/callback-20261009.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/editorial-20261009.js?v=20261009-callback9" defer></script>
 <script src="/assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
-<script src="/assets/js/interface-20260906-glass.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/interface-20260906-glass.js?v=20261009-callback9" defer></script>
 </body>
 </html>

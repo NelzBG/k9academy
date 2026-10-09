@@ -44,3 +44,26 @@ function k9_deliver_enquiry(array $values, array $config, ?callable $transport =
     $copy=k9_enquiry_email($values,$config,true,$reference);
     return ['ok'=>true,'customerCopy'=>$transport($copy),'reference'=>$reference];
 }
+
+function k9_callback_email(array $v, array $config, string $reference): array {
+    $bg=$v['language']==='bg';
+    $e=static fn(string $s):string=>htmlspecialchars($s,ENT_QUOTES|ENT_SUBSTITUTE,'UTF-8');
+    $heading=$bg?'Заявка за обратно обаждане.':'Callback request.';
+    $intro=$bg?'Посетител на сайта поиска да му се обадите. Използвайте номера по-долу, за да отговорите на заявката.':'A website visitor asked you to call them. Use the number below to respond to their request.';
+    $phoneLabel=$bg?'Телефон':'Phone';$pageLabel=$bg?'Страница':'Page';$actionLabel=$bg?'Обадете се на посетителя':'Call the visitor';
+    $tel=preg_replace('/[^0-9+]/','',$v['phone']);
+    $note=$bg?'Посетителят поиска телефонен разговор. Не е посочен имейл и не се изпраща клиентско копие.':'The visitor requested a phone call. No email address was supplied and no customer copy is sent.';
+    $plain="K9 ACADEMY\n".$heading."\n\n".$intro."\n\n".$phoneLabel.': '.$v['phone']."\n".$pageLabel.': '.($v['page']?:'https://www.k9academy.bg/')."\nLanguage: ".strtoupper($v['language'])."\n\n".$note."\n\n".$reference;
+    $html='<!doctype html><html lang="'.$v['language'].'"><head><meta charset="utf-8"></head><body style="margin:0;background:#eff1e8;font-family:Arial,Helvetica,sans-serif"><table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr><td align="center" style="padding:24px 12px"><table role="presentation" width="600" style="width:100%;max-width:600px" cellspacing="0" cellpadding="0"><tr><td style="padding:28px;background:#151c12;color:#d9ff00;border-radius:16px 16px 0 0;font-weight:bold;font-size:23px">K9 ACADEMY</td></tr><tr><td style="padding:28px;background:#ffffff;color:#172011"><p style="font-size:11px;color:#546044">'.$e($reference).'</p><h1 style="font-size:28px;line-height:1.15">'.$e($heading).'</h1><p style="line-height:1.7;color:#394330">'.$e($intro).'</p><p style="font-size:12px;color:#546044">'.$e($phoneLabel).'</p><p style="font-size:26px;font-weight:bold"><a href="tel:'.$e($tel).'" style="color:#172011">'.$e($v['phone']).'</a></p><p style="font-size:12px;color:#546044">'.$e($pageLabel).'</p><p style="overflow-wrap:anywhere;word-break:break-word"><a href="'.$e($v['page']?:'https://www.k9academy.bg/').'" style="color:#394330">'.$e($v['page']?:'https://www.k9academy.bg/').'</a></p><p style="font-size:13px;line-height:1.7;color:#546044">'.$e($note).'</p><p><a href="tel:'.$e($tel).'" style="display:inline-block;background:#d9ff00;color:#172011;padding:16px 22px;border-radius:8px;text-decoration:none;font-weight:bold">'.$e($actionLabel).'</a></p></td></tr><tr><td style="padding:22px 28px;background:#151c12;color:#f4f2e9;border-radius:0 0 16px 16px;font-size:13px"><a href="https://www.k9academy.bg/" style="color:#d9ff00">www.k9academy.bg</a><br>'.$e($config['recipient']).'</td></tr></table></td></tr></table></body></html>';
+    $subject=($bg?'Обратно обаждане':'Callback request').' | K9 Academy | '.$reference;
+    $boundary='k9_'.bin2hex(random_bytes(16));
+    $body='--'.$boundary."\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n".chunk_split(base64_encode($plain),76,"\r\n").'--'.$boundary."\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: base64\r\n\r\n".chunk_split(base64_encode($html),76,"\r\n").'--'.$boundary."--\r\n";
+    return ['to'=>$config['recipient'],'subject'=>mb_encode_mimeheader($subject,'UTF-8','B',"\r\n"),'body'=>$body,
+        'headers'=>['From'=>'K9 Academy <'.$config['from'].'>','Reply-To'=>$config['recipient'],'MIME-Version'=>'1.0','Content-Type'=>'multipart/alternative; boundary="'.$boundary.'"','Auto-Submitted'=>'auto-generated','X-Auto-Response-Suppress'=>'All'],'html'=>$html,'text'=>$plain];
+}
+
+function k9_deliver_callback(array $values,array $config,?callable $transport=null):array {
+    $reference='K9-CB-'.gmdate('Ymd').'-'.strtoupper(bin2hex(random_bytes(4)));
+    $transport??=static fn(array $m):bool=>mail($m['to'],$m['subject'],$m['body'],$m['headers'],'-f'.$config['from']);
+    return ['ok'=>$transport(k9_callback_email($values,$config,$reference)),'reference'=>$reference];
+}

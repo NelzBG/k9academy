@@ -13,3 +13,5 @@ Download links are signed, expire after 30 days, and access only a paid order an
 Run `php tools/backend/check-ebooks.php` for payment validation, signature, expiry, traversal, idempotency and MIME checks. Create an unpaid real checkout for each product to verify current merchant configuration without making a charge. A real purchase requires the buyer's own payment action. If verifying a live order, do not print its email or download token.
 
 For recovery, back up this dedicated directory and the existing enquiry files before replacing them. Roll back only K9 files. Never change another website's catalogue, webhook, pricing or keys.
+
+The existing enquiry endpoint also accepts kind=callback with language, phone, optional same-site page URL and the empty website honeypot. It shares the existing private recipient/from configuration and five-per-hour address limit with full enquiries. Callback delivery sends exactly one team email with a tel link and no customer email copy. Deploy enquiry-mailer.php before enquiry.php, after backing up and verifying the live hashes. Test fixtures use injected transports and send no real email.

@@ -151,6 +151,23 @@
 
 [data-theme=dark] .training-gallery h2 em,[data-theme=dark] .training-gallery .eyebrow-acid,[data-theme=dark] .dog-lab .eyebrow-acid{color:var(--acid)}
 .training-lightbox :focus-visible{outline-color:var(--acid)}
+
+.callback-section{padding:clamp(2.5rem,5vw,4.5rem) 0;scroll-margin-top:calc(var(--k9-header) + 1rem);color:var(--ink)}
+.callback-grid{display:grid;gap:2rem;align-items:center}
+.callback-copy h2{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.12;letter-spacing:-.035em;margin:0 0 1rem}
+.callback-copy>p:not(.eyebrow){max-width:45ch;margin:0;color:var(--muted);line-height:1.7}
+.callback-form{padding:clamp(1.1rem,3vw,1.8rem);background:var(--surface-raised);color:var(--ink);border:1px solid var(--line);border-radius:1rem}
+.callback-form>label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.65rem}
+.callback-fields{display:flex;flex-wrap:wrap;gap:.65rem;align-items:stretch}
+.callback-fields input{flex:1 1 12rem;min-width:0;width:100%;padding:.85rem 1rem;min-height:3rem;border:1px solid var(--reading-accent);border-radius:.65rem;background:var(--surface);color:var(--ink);font:inherit}
+.callback-fields input:focus-visible{outline:3px solid var(--reading-accent);outline-offset:3px}
+.callback-fields button{flex:1 1 auto;font-size:.85rem;white-space:normal}
+.callback-note,.callback-status{font-size:.8rem;line-height:1.6;color:var(--muted);margin:.9rem 0 0}
+.callback-note a{text-decoration:underline;text-underline-offset:3px}
+.callback-status:empty{display:none}
+.callback-form[aria-busy=true] button{cursor:wait}
+@media(min-width:48rem){.callback-grid{grid-template-columns:1fr 1.1fr;gap:3rem}.callback-fields{flex-wrap:nowrap}}
+@media(max-width:24rem){.callback-fields{flex-direction:column}.callback-fields input,.callback-fields button{flex-basis:auto}}
 </style>
     <link rel="icon" type="image/webp" href="/assets/images/brand-20260905/logo.webp">
     <script type="importmap">
@@ -215,6 +232,19 @@
 <section id="article-0"><h2>Identify where pulling starts</h2><p>Does pulling begin at the door, near other dogs or only on the route to the park? Record the place, direction and distraction. When tension consistently leads to a desired scent or person, forward movement can maintain the habit.</p><p>Pulling can also involve fear or high arousal. For freezing, panic, intense reactions or bite risk, avoid escalating exercises. Seek <a href="/en/services/">individual behaviour support</a> and create safe distance.</p></section><section id="article-1"><h2>Equipment that supports learning</h2><p>Choose comfortable, well-fitting equipment and a lead that allows safe control without constant tension. Check for rubbing or restricted movement. Discuss possible pain with your veterinarian.</p><p>Use rewards that are easy to deliver and keep hands free of phones and other items. Avoid pain, sudden corrections or tightening equipment as a route to calm walking. An easier environment is more useful than increased pressure.</p></section><section id="article-2"><h2>Exercise one: a few quiet steps</h2><p>Begin where your dog can notice you. Reward a voluntary approach beside your chosen side. Take two or three steps. Mark and reward again if the lead stays loose.</p><p>Do not demand constant eye contact or turn the entire walk into heelwork. The goal is comfortable shared movement. Complete a brief set, then allow a sniffing break. For a beginner, also explore <a href="/en/puppy-training/">first steps with a puppy</a>.</p></section><section id="article-3"><h2>Exercise two: loose leads open the route</h2><p>Where safe, stop calmly when the lead tightens. Do not jerk backwards. Wait for slack or use a familiar cue to invite your dog close, then move on.</p><p>If stopping increases tension, the task is too hard. Move away from distractions and shorten the route. Access to a suitable sniffing spot can reward a few calm steps.</p></section><section id="article-4"><h2>Exercise three: change direction early</h2><p>Practise a brief turn cue in a quiet place. Say it, make a smooth change of direction and reward following. This can help before a narrow section or approaching distraction.</p><p>A turn should not be a sudden jerk or surprise. Allow space and move predictably. Progressing to harder places follows the same logic as <a href="/en/training/">K9 Academy’s gradual training process</a>.</p></section><section id="article-5"><h2>Measure useful progress</h2><p>Choose a specific stretch and record how often tension occurs, how easily your dog returns towards you and the distance at which distractions remain manageable. Compare similar conditions rather than a quiet morning with a crowded park.</p><p>Progress may mean a shorter calm walk or faster recovery after distraction. Behaviour will differ between settings. A difficult day gives information for the next task rather than a reason for punishment.</p></section><section id="article-6"><h2>Common mistakes</h2><ul><li>Different rules from each household member.</li><li>Long sessions without sniffing or rest.</li><li>Constantly overwhelming environments.</li><li>Rewards delivered without marking the loose lead clearly.</li><li>Sudden movements that make the lead stressful.</li></ul><p>Agree a shared approach and start with one achievable goal. Seek individual assessment for intense reactions to people or dogs.</p></section><section id="article-7"><h2>Questions before your next walk</h2><h3>Must my dog always stay beside my leg?</h3><p>No. A calm walk can include sniffing and different distances when the lead and environment permit this safely.</p><h3>Can an adult learn a different habit?</h3><p>The plan should reflect history, health and circumstances. Begin with a manageable task and consistent responses.</p><h3>How should I organise practice?</h3><p>Work on one task at a time. For planning and records, explore our <a href="/en/ebooks/">training workbooks</a>.</p></section><aside class="editorial-callout"><h2>Your next step is personal.</h2><p>Tell us about your dog’s age, routine and behaviour. We can discuss the right training direction.</p><a class="button button-acid" href="/en/contact/#contact-form">Discuss training</a></aside>
 <div class="article-sources"><h2>Sources and further reading</h2><p>General principles follow guidance from <a href="https://avsab.org/resources/position-statements/" target="_blank" rel="noopener">American Veterinary Society of Animal Behavior</a> on reward-based training and safe socialisation. This educational material is not an individual assessment. Seek a veterinarian and qualified professional for pain, sudden changes or bite risk.</p></div>
 </div></div></section></article></main>
+<section class="callback-section k9-textured" id="call-me-back" aria-labelledby="callback-title">
+ <div class="site-container callback-grid">
+  <div class="callback-copy"><p class="eyebrow">K9 / LET’S TALK</p><h2 id="callback-title">Prefer a call?</h2><p>Leave just your phone number to discuss the right training for your dog.</p></div>
+  <form class="callback-form" action="https://www.nextgen.run/demo/k9/api/enquiry.php" method="post" data-callback-form novalidate>
+   <input type="hidden" name="kind" value="callback"><input type="hidden" name="language" value="en"><input type="hidden" name="page" value="https://www.k9academy.bg/en/blog/dog-pulling-on-lead/">
+   <div hidden aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+   <label for="callback-phone">Phone number</label>
+   <div class="callback-fields"><input id="callback-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" required aria-describedby="callback-note callback-status"><button class="button button-acid" type="submit">Call me back<img class="k9-icon " src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></button></div>
+   <p id="callback-note" class="callback-note">We use your number only to respond to this request. <a href="/en/privacy/">Privacy</a></p>
+   <p id="callback-status" class="callback-status" data-callback-status role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</section>
 <section class="ebook-section k9-textured" id="ebooks" aria-labelledby="ebook-title"><div class="site-container">
  <div class="editorial-section-heading"><div><p class="eyebrow">K9 / THE LIBRARY</p><h2 id="ebook-title">Guidance that stays with you.</h2></div><p>Read. Practise. Return to what matters. Choose the guide for your next stage.</p></div>
  <div class="ebook-grid">  <article class="ebook-card"><a class="ebook-cover" href="/en/ebooks/#book-start"><img src="/assets/images/editorial/start-cover.webp" width="640" height="960" alt="A Better Start" loading="lazy" decoding="async"><span class="ebook-cover-type"><small>K9 ACADEMY / 01</small><strong>A Better Start</strong><em>First steps with your dog</em></span></a>
@@ -289,6 +319,7 @@
         <div>
             <h2>Contact</h2>
             <div class="footer-links">
+                <a href="#call-me-back">Call me back <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
                 <a href="tel:+359892360550">+359 892 360 550</a>
                 <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>
                 <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener">Message on Messenger <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
@@ -350,9 +381,10 @@
 
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
-<script src="/assets/js/site-20260905.js?v=20261009-colours8" defer></script>
-<script src="/assets/js/editorial-20261009.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/site-20260905.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/callback-20261009.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/editorial-20261009.js?v=20261009-callback9" defer></script>
 <script src="/assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
-<script src="/assets/js/interface-20260906-glass.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/interface-20260906-glass.js?v=20261009-callback9" defer></script>
 </body>
 </html>

@@ -151,6 +151,23 @@
 
 [data-theme=dark] .training-gallery h2 em,[data-theme=dark] .training-gallery .eyebrow-acid,[data-theme=dark] .dog-lab .eyebrow-acid{color:var(--acid)}
 .training-lightbox :focus-visible{outline-color:var(--acid)}
+
+.callback-section{padding:clamp(2.5rem,5vw,4.5rem) 0;scroll-margin-top:calc(var(--k9-header) + 1rem);color:var(--ink)}
+.callback-grid{display:grid;gap:2rem;align-items:center}
+.callback-copy h2{font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.12;letter-spacing:-.035em;margin:0 0 1rem}
+.callback-copy>p:not(.eyebrow){max-width:45ch;margin:0;color:var(--muted);line-height:1.7}
+.callback-form{padding:clamp(1.1rem,3vw,1.8rem);background:var(--surface-raised);color:var(--ink);border:1px solid var(--line);border-radius:1rem}
+.callback-form>label{display:block;font-weight:600;font-size:.85rem;margin-bottom:.65rem}
+.callback-fields{display:flex;flex-wrap:wrap;gap:.65rem;align-items:stretch}
+.callback-fields input{flex:1 1 12rem;min-width:0;width:100%;padding:.85rem 1rem;min-height:3rem;border:1px solid var(--reading-accent);border-radius:.65rem;background:var(--surface);color:var(--ink);font:inherit}
+.callback-fields input:focus-visible{outline:3px solid var(--reading-accent);outline-offset:3px}
+.callback-fields button{flex:1 1 auto;font-size:.85rem;white-space:normal}
+.callback-note,.callback-status{font-size:.8rem;line-height:1.6;color:var(--muted);margin:.9rem 0 0}
+.callback-note a{text-decoration:underline;text-underline-offset:3px}
+.callback-status:empty{display:none}
+.callback-form[aria-busy=true] button{cursor:wait}
+@media(min-width:48rem){.callback-grid{grid-template-columns:1fr 1.1fr;gap:3rem}.callback-fields{flex-wrap:nowrap}}
+@media(max-width:24rem){.callback-fields{flex-direction:column}.callback-fields input,.callback-fields button{flex-basis:auto}}
 </style>
     <link rel="icon" type="image/webp" href="/assets/images/brand-20260905/logo.webp">
     <script type="importmap">
@@ -220,6 +237,19 @@
  <div class="reading-copy"><section id="guide-0"><span class="reading-number">01</span><h2>Започнете от ежедневието си</h2><p>Опишете обикновения си вторник, а не идеалния уикенд. Колко време имате за разходки, обучение, почивка и грижа за козината? Кой ще поеме кучето при болест, пътуване или промяна в работата?</p><p>Площта на дома е само един фактор. По-важни са предвидимите излизания, възможността за спокойствие и помощта, на която реално можете да разчитате. Ако избирате кученце, планирайте и първите седмици с <a href="/puppy-training/">обучение и адаптация на кученцето</a>.</p></section><section id="guide-1"><span class="reading-number">02</span><h2>Сравнявайте потребности, не етикети</h2><p>Размерът не определя сам по себе си енергията. Малко куче може да има силен ловен интерес и висока нужда от занимания. Голямо куче може да се отпуска добре у дома, но да изисква повече пространство за безопасно водене и по-висок бюджет.</p><table><caption>Въпроси за реалистичен избор</caption><thead><tr><th>Потребност</th><th>Какво да проверите</th></tr></thead><tbody><tr><td>Активност</td><td>Разходки, умствена работа и способност за почивка</td></tr><tr><td>Козина</td><td>Честота, време и разходи за поддръжка</td></tr><tr><td>Общуване</td><td>Реакции към хора, кучета и други животни</td></tr><tr><td>Здраве</td><td>Изследвания, ветеринарни грижи и специфични рискове</td></tr><tr><td>Самостоятелност</td><td>Постепенно обучение за оставане насаме</td></tr></tbody></table></section><section id="guide-2"><span class="reading-number">03</span><h2>Характерът е индивидуален</h2><p>Породата дава ориентир за вероятни потребности, но не обещава конкретно поведение. Наблюдавайте самото куче: може ли да се отдалечи спокойно, търси ли контакт, възстановява ли се след малка промяна?</p><p>Помолете развъдника или организацията за честна информация за средата, навиците и известните затруднения. Не правете шумни или плашещи „тестове“. Вижте <a href="/training/">как изграждаме обучение според темперамента</a>.</p></section><section id="guide-3"><span class="reading-number">04</span><h2>Кученце или възрастно куче?</h2><p>Кученцето изисква чести грижи, обучение за тоалетна и постепенно изграждане на самостоятелност. При възрастно куче може да има повече информация за характер и навици, но адаптацията също изисква време и търпение.</p><p>И покупката, и осиновяването заслужават внимателна проверка. Срещнете се с кучето, задайте въпроси за здравето и условията и обсъдете подкрепата след вземането му. При несигурност разгледайте <a href="/services/">възможностите за индивидуална консултация</a>.</p></section><section id="guide-4"><span class="reading-number">05</span><h2>Какво да попитате преди покупка</h2><ul><li>Какви здравни изследвания са направени и може ли да видите документите?</li><li>В каква среда растат кученцата и как се запознават с ежедневни звуци?</li><li>Може ли да видите майката и условията на отглеждане?</li><li>Какво съдържат договорът, ветеринарният паспорт и планът за последваща грижа?</li><li>Към кого можете да се обърнете при затруднение?</li></ul><p>Не избирайте под натиск за незабавно плащане. Обсъдете здравните документи с ветеринарен лекар и уточнете реалистичен бюджет за храна, профилактика, застраховане по избор, обучение и непредвидени разходи.</p></section><section id="guide-5"><span class="reading-number">06</span><h2>Подгответе план за първия месец</h2><p>Решете къде кучето ще спи, кой ще го извежда и как ще ограничите рисковите места у дома. Създайте общи правила за всички членове на семейството и спокойна зона, до която децата нямат свободен достъп без надзор.</p><p>Изборът продължава и след първия ден. Поддържайте рутина, наблюдавайте адаптацията и коригирайте плана според конкретното куче. Намерете практични теми в <a href="/blog/">ръководствата за отглеждане и обучение</a>.</p></section> <aside class="editorial-callout"><h2>Нека намерим вашата посока.</h2><p>Разкажете ни за дома, работния си ден, опита и очакванията си. Можем да обсъдим подходящ профил на куче преди покупка или осиновяване.</p><a class="button button-acid" href="/contact/#contact-form">Свържете се с K9 Academy</a></aside></div>
 </div></section>
 </main>
+<section class="callback-section k9-textured" id="call-me-back" aria-labelledby="callback-title">
+ <div class="site-container callback-grid">
+  <div class="callback-copy"><p class="eyebrow">K9 / ДА ПОГОВОРИМ</p><h2 id="callback-title">Предпочитате да ви се обадим?</h2><p>Оставете само телефонния си номер, за да обсъдим подходящото обучение за вашето куче.</p></div>
+  <form class="callback-form" action="https://www.nextgen.run/demo/k9/api/enquiry.php" method="post" data-callback-form novalidate>
+   <input type="hidden" name="kind" value="callback"><input type="hidden" name="language" value="bg"><input type="hidden" name="page" value="https://www.k9academy.bg/choose-a-breed/">
+   <div hidden aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+   <label for="callback-phone">Телефонен номер</label>
+   <div class="callback-fields"><input id="callback-phone" type="tel" name="phone" autocomplete="tel" inputmode="tel" maxlength="40" required aria-describedby="callback-note callback-status"><button class="button button-acid" type="submit">Обадете ми се<img class="k9-icon " src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></button></div>
+   <p id="callback-note" class="callback-note">Използваме номера ви само за отговор на тази заявка. <a href="/privacy/">Поверителност</a></p>
+   <p id="callback-status" class="callback-status" data-callback-status role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</section>
 <section class="ebook-section k9-textured" id="ebooks" aria-labelledby="ebook-title"><div class="site-container">
  <div class="editorial-section-heading"><div><p class="eyebrow">K9 / БИБЛИОТЕКА</p><h2 id="ebook-title">Знание, което остава с вас.</h2></div><p>Прочетете. Упражнете. Върнете се към най-важното. Изберете ръководството за вашия следващ етап.</p></div>
  <div class="ebook-grid">  <article class="ebook-card"><a class="ebook-cover" href="/ebooks/#book-start"><img src="/assets/images/editorial/start-cover.webp" width="640" height="960" alt="Добро начало" loading="lazy" decoding="async"><span class="ebook-cover-type"><small>K9 ACADEMY / 01</small><strong>Добро начало</strong><em>Първите стъпки с вашето куче</em></span></a>
@@ -294,6 +324,7 @@
         <div>
             <h2>Контакт</h2>
             <div class="footer-links">
+                <a href="#call-me-back">Обадете ми се <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
                 <a href="tel:+359892360550">+359 892 360 550</a>
                 <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>
                 <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener">Пишете в Messenger <img class="k9-icon k9-icon-up" src="/assets/images/brand-20260905/arrow.webp" width="32" height="32" alt="" aria-hidden="true" decoding="async"></a>
@@ -355,9 +386,10 @@
 
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
-<script src="/assets/js/site-20260905.js?v=20261009-colours8" defer></script>
-<script src="/assets/js/editorial-20261009.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/site-20260905.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/callback-20261009.js?v=20261009-callback9" defer></script>
+<script src="/assets/js/editorial-20261009.js?v=20261009-callback9" defer></script>
 <script src="/assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
-<script src="/assets/js/interface-20260906-glass.js?v=20261009-colours8" defer></script>
+<script src="/assets/js/interface-20260906-glass.js?v=20261009-callback9" defer></script>
 </body>
 </html>
