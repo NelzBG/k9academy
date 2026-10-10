@@ -60,6 +60,7 @@ $categories = $lang === 'bg' ? [
             </div>
         </div>
     </section>
+    <?php require __DIR__ . '/callback-section.php'; ?>
 
     <section class="shop-ethos"><div class="site-container editorial-split"><div class="reveal"><p class="eyebrow eyebrow-acid">K9 / Utility</p><h2><?= k9e($copy['ethos_title']) ?></h2></div><div class="editorial-copy reveal"><p><?= k9e($copy['ethos_copy']) ?></p><a class="button button-acid" href="<?= k9e(k9_url('contact.php')) ?>"><?= k9e($copy['ask']) ?><span aria-hidden="true"><?= k9_icon('arrow','k9-icon-up') ?></span></a></div></div></section>
 </main>

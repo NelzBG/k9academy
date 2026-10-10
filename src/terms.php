@@ -27,7 +27,8 @@ $intro = $lang === 'bg' ? 'Информация за сайта, запитва�
     <header class="legal-hero"><div class="site-container"><p class="eyebrow eyebrow-acid">K9 / Legal</p><h1><?= k9e($title) ?></h1><p><?= k9e($intro) ?></p></div></header>
     <div class="site-container legal-layout">
         <nav class="legal-index" aria-label="<?= k9e($title) ?>"><?php foreach ($sections as $index => [$heading]): ?><a href="#term-<?= $index + 1 ?>"><span>0<?= $index + 1 ?></span><?= k9e($heading) ?></a><?php endforeach; ?></nav>
-        <article class="legal-content"><?php foreach ($sections as $index => [$heading, $body]): ?><section id="term-<?= $index + 1 ?>"><span>0<?= $index + 1 ?></span><h2><?= k9e($heading) ?></h2><p><?= k9e($body) ?></p></section><?php endforeach; ?></article>
+        <article class="legal-content"><?php foreach ($sections as $index => [$heading, $body]): ?><section id="term-<?= $index + 1 ?>"><span>0<?= $index + 1 ?></span><h2><?= k9e($heading) ?></h2><p><?= k9e($body) ?></p></section><?php if ($index === 1) require __DIR__ . '/callback-section.php'; ?><?php endforeach; ?></article>
     </div>
+
 </main>
 <?php require __DIR__ . '/footer.php'; ?>

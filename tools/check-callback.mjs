@@ -9,17 +9,39 @@ import vm from 'node:vm';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const php=process.env.PHP_BINARY||(process.platform==='win32'?'C:/xampp/php/php.exe':'php');
 const routes=JSON.parse(await readFile(join(root,'src/routes.json'),'utf8'));
+const placementAfter={
+ 'index.php':'class="k9-breeds"',
+ 'aboutus.php':'class="values-section"',
+ 'services.php':'class="extras-section"',
+ 'webshop.php':'class="content-section"',
+ 'training.php':'class="dog-lab training-dog-lab"',
+ 'contact.php':'training-gallery',
+ 'privacy.php':'id="privacy-2"',
+ 'terms.php':'id="term-2"',
+ 'puppy.php':'id="guide-1"',
+ 'breeds.php':'id="guide-1"',
+ 'blog.php':'blog-grid',
+ 'ebooks.php':'class="editorial-reading k9-textured"'
+};
 let pages=0;
 for(const path of [...['','en/'].flatMap(prefix=>Object.values(routes).map(slug=>prefix+slug+'index.html')),'404.html']){
  const html=await readFile(join(root,path),'utf8');
- assert.equal((html.match(/data-callback-form/g)||[]).length,1,path+': one callback form');
- const form=html.match(/<form\b[^>]*data-callback-form[\s\S]*?<\/form>/)[0];
+ const main=html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1]||'';
+ assert.equal((main.match(/data-callback-form/g)||[]).length,1,path+': one in-page callback form');
+ const routeSlug=path==='404.html'?null:path.replace(/^en\//,'').replace(/index\.html$/,'');
+ const routeName=routeSlug===null?null:Object.entries(routes).find(([,slug])=>slug===routeSlug)?.[0];
+ const placementMarker=path==='404.html'?'K9 / 404':routeName?.startsWith('article-')?'id="article-1"':placementAfter[routeName];
+ const callbackAt=main.indexOf('id="call-me-back"');
+ assert(callbackAt>=0,path+': callback stays inside main content');
+ assert(placementMarker&&main.slice(0,callbackAt).includes(placementMarker),path+': callback follows the selected content blocks below the hero');
+ const form=main.match(/<form\b[^>]*data-callback-form[\s\S]*?<\/form>/)[0];
  assert(form.includes('action="https://www.nextgen.run/demo/k9/api/enquiry.php"'));
  const shown=form.replace(/<div hidden[\s\S]*?<\/div>/g,'');
  const inputs=[...shown.matchAll(/<input\b[^>]*>/g)].map(m=>m[0]).filter(tag=>!tag.includes('type="hidden"'));
  assert.equal(inputs.length,1);assert.match(inputs[0],/type="tel"/);assert.match(inputs[0],/name="phone"/);assert.match(inputs[0],/required/);
  assert(!shown.includes('type="checkbox"'));assert(form.includes('name="kind" value="callback"'));
- assert(html.includes('id="call-me-back"'));assert(html.includes('href="#call-me-back"'));
+ assert(main.includes('id="call-me-back"'));assert(html.includes('href="#call-me-back"'));
+ assert(!html.includes('class="learning-links k9-textured"'),path+': removed Next step block remains');
  assert(html.includes('callback-20261009.js?v=20261010-speed1'));pages++;
 }
 const source=await readFile(join(root,'assets/js/callback-20261009.js'),'utf8');

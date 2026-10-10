@@ -42,5 +42,6 @@ $copy = $lang === 'bg' ? [
         <div class="site-container location-note reveal"><span aria-hidden="true">◎</span><p><?= k9e($copy['no_address']) ?></p></div>
     </section>
     <?php $galleryKey='contact'; require __DIR__ . '/training-gallery.php'; ?>
+    <?php require __DIR__ . '/callback-section.php'; ?>
 </main>
 <?php require __DIR__ . '/footer.php'; ?>

@@ -93,6 +93,7 @@ $gallery = $lang === 'bg' ? [
     <?php require __DIR__ . '/hero.php'; ?>
     <?php require __DIR__ . '/hero-motion.php'; ?>
     <?php require __DIR__ . '/breed-carousel.php'; ?>
+    <?php require __DIR__ . '/callback-section.php'; ?>
 
     <section class="section-shell" id="programmes">
         <div class="site-container">

@@ -13,7 +13,7 @@ require __DIR__ . '/header.php';
 </section>
 <section class="editorial-reading k9-textured"><div class="site-container reading-layout">
  <nav class="reading-index" aria-label="<?= $lang === 'bg' ? 'В тази страница' : 'On this page' ?>"><p class="eyebrow"><?= $lang === 'bg' ? 'СТЪПКА ПО СТЪПКА' : 'STEP BY STEP' ?></p><?php foreach ($guide['sections'] as $i=>$section): ?><a href="#guide-<?= $i ?>"><?= k9e($section['title']) ?></a><?php endforeach; ?></nav>
- <div class="reading-copy"><?php foreach ($guide['sections'] as $i=>$section): ?><section id="guide-<?= $i ?>"><span class="reading-number">0<?= $i+1 ?></span><h2><?= k9e($section['title']) ?></h2><?= k9_editorial_html($section['body']) ?></section><?php endforeach; ?>
+ <div class="reading-copy"><?php foreach ($guide['sections'] as $i=>$section): ?><section id="guide-<?= $i ?>"><span class="reading-number">0<?= $i+1 ?></span><h2><?= k9e($section['title']) ?></h2><?= k9_editorial_html($section['body']) ?></section><?php if ($i === 1) require __DIR__ . '/callback-section.php'; ?><?php endforeach; ?>
  <aside class="editorial-callout"><h2><?= $lang === 'bg' ? 'Нека намерим вашата посока.' : 'Let’s find your direction.' ?></h2><p><?= k9e($guide['cta']) ?></p><a class="button button-acid" href="<?= k9e(k9_url('contact.php',null,'#contact-form')) ?>"><?= $lang === 'bg' ? 'Свържете се с K9 Academy' : 'Contact K9 Academy' ?></a></aside></div>
 </div></section>
 </main>
