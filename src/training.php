@@ -86,6 +86,7 @@ $faqs = $lang === 'bg' ? [
             <div class="dog-stage reveal" data-model="assets/model/german-shepherd.glb" data-dog-stage><canvas aria-label="<?= $lang === 'bg' ? 'Интерактивна анимирана 3D германска овчарка' : 'Interactive animated 3D German Shepherd' ?>"></canvas><div class="dog-stage-grid" aria-hidden="true"></div><div class="model-loading" data-model-loading><span></span><p><?= k9e($copy['viewer_loading']) ?></p></div><a class="model-credit" href="https://retrostylegames.itch.io/german-shepherd-3d-dog-model-free" target="_blank" rel="noopener"><span>3D</span> German Shepherd / RetroStyle Games <?= k9_icon('arrow','k9-icon-up') ?></a></div>
         </div>
     </section>
+    <?php require __DIR__ . '/callback-section.php'; ?>
 
     <section class="faq-section">
         <div class="site-container faq-grid">

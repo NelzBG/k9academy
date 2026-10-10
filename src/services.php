@@ -82,6 +82,7 @@ $extra = $lang === 'bg' ? [
             </div>
         </div>
     </section>
+    <?php require __DIR__ . '/callback-section.php'; ?>
 
     <section class="inline-cta k9-field-background"><?= k9_training_image(25, '', 'k9-field-backdrop') ?><div class="site-container inline-cta-grid reveal"><div><p class="eyebrow eyebrow-dark">K9 / Start</p><h2><?= k9e($copy['cta_title']) ?></h2><p><?= k9e($copy['cta_copy']) ?></p></div><a class="button button-ink" href="<?= k9e(k9_url('contact.php')) ?>"><?= k9e($copy['cta_button']) ?><span aria-hidden="true"><?= k9_icon('arrow','k9-icon-up') ?></span></a></div></section>
     <?php $galleryKey='services'; require __DIR__ . '/training-gallery.php'; ?>

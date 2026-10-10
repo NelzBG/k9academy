@@ -78,6 +78,7 @@ $values = $lang === 'bg' ? [
             </div>
         </div>
     </section>
+    <?php require __DIR__ . '/callback-section.php'; ?>
 
     <section class="trainer-section">
         <div class="site-container trainer-grid">

@@ -4,8 +4,6 @@
 /** @var string $assetVersion */
 /** @var bool $showFooterContact */
 ?>
-<?php require __DIR__ . '/callback-section.php'; ?>
-<?php if (in_array($pageKey, ['home','about','services','training','shop','contact','privacy','terms'], true) && empty($pageNoIndex)): require __DIR__ . '/learning-links.php'; endif; ?>
 <?php if (empty($hideEbooks)): require __DIR__ . '/ebook-section.php'; endif; ?>
 <?php if ($showFooterContact): ?>
 <section class="contact-deck" id="quick-contact" aria-labelledby="quick-contact-title">
