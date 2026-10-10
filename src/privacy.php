@@ -40,6 +40,11 @@ $sections[] = $lang === 'bg'
 $sections[] = $lang === 'bg'
     ? ['Заявка за обратно обаждане', 'Кратката форма изисква само телефонен номер. Номерът, езикът и страницата, от която е изпратена заявката, се препращат по защитена връзка към същия адрес за контакт: mail.k9shop@gmail.com. Използваме номера, за да отговорим на поисканото обаждане. Не е необходим имейл и не се изпраща клиентско потвърждение по имейл.']
     : ['Callback requests', 'The short form requires only a phone number. The number, language and submitting page are sent over an encrypted connection to the same contact address: mail.k9shop@gmail.com. We use the number to respond to the call you requested. No email is required and no customer confirmation email is sent.'];
+$contextualLinks = [
+    0 => ['lead' => ['bg' => 'За да изпратите запитване, използвайте', 'en' => 'To send an enquiry, use'], 'items' => [['contact.php', 'формата за контакт', 'the contact page']]],
+    6 => ['lead' => ['bg' => 'Пример за обучителното видео има на', 'en' => 'A training-video example appears on'], 'items' => [['training.php', 'страницата за обучение', 'the training page']]],
+    7 => ['lead' => ['bg' => 'Вижте', 'en' => 'See'], 'items' => [['ebooks.php', 'дигиталните ръководства', 'digital guides'], ['terms.php', 'общите условия', 'terms and conditions']]],
+];
 $title = $lang === 'bg' ? 'Поверителност' : 'Privacy';
 $intro = $lang === 'bg' ? 'Как обработваме запитванията и предпочитанията ви в сайта.' : 'How we handle your enquiries and website preferences.';
 ?>
@@ -47,7 +52,7 @@ $intro = $lang === 'bg' ? 'Как обработваме запитваният�
     <header class="legal-hero"><div class="site-container"><p class="eyebrow eyebrow-acid">K9 / Privacy</p><h1><?= k9e($title) ?></h1><p><?= k9e($intro) ?></p></div></header>
     <div class="site-container legal-layout">
         <nav class="legal-index" aria-label="<?= k9e($title) ?>"><?php foreach ($sections as $index => [$heading]): ?><a href="#privacy-<?= $index + 1 ?>"><span>0<?= $index + 1 ?></span><?= k9e($heading) ?></a><?php endforeach; ?></nav>
-        <article class="legal-content"><?php foreach ($sections as $index => [$heading, $body]): ?><section id="privacy-<?= $index + 1 ?>"><span>0<?= $index + 1 ?></span><h2><?= k9e($heading) ?></h2><p><?= k9e($body) ?></p></section><?php if ($index === 1) require __DIR__ . '/callback-section.php'; ?><?php endforeach; ?></article>
+        <article class="legal-content"><?php foreach ($sections as $index => [$heading, $body]): ?><section id="privacy-<?= $index + 1 ?>"><span>0<?= $index + 1 ?></span><h2><?= k9e($heading) ?></h2><p><?= k9e($body) ?><?php if (isset($contextualLinks[$index])): $links = $contextualLinks[$index]; ?> <?= k9e($links['lead'][$lang]) ?><?php foreach ($links['items'] as $linkIndex => [$target, $bgLabel, $enLabel]): ?><?= $linkIndex > 0 ? ($lang === 'bg' ? ' и ' : ' and ') : ' ' ?><a href="<?= k9e(k9_url($target)) ?>"><?= k9e($lang === 'bg' ? $bgLabel : $enLabel) ?></a><?php endforeach; ?>.<?php endif; ?></p></section><?php if ($index === 1) require __DIR__ . '/callback-section.php'; ?><?php endforeach; ?></article>
     </div>
 
 </main>
