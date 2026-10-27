@@ -85,7 +85,7 @@
         <div>
             <h2><?= k9e(k9t('footer_contact')) ?></h2>
             <div class="footer-links">
-                <a href="#call-me-back"><?= $lang==='bg'?'Обадете ми се':'Call me back' ?> <?= k9_icon('arrow','k9-icon-up') ?></a>
+                <a href="tel:<?= k9e($production['call']) ?>"><?= $lang==='bg'?'Обадете се сега':'Call now' ?> <?= k9_icon('arrow','k9-icon-up') ?></a>
                 <a href="tel:+359892360550">+359 892 360 550</a>
                 <a href="mailto:mail.k9shop@gmail.com">mail.k9shop@gmail.com</a>
                 <a href="https://m.me/k9academybg" data-messenger-cta target="_blank" rel="noopener"><?= $lang === 'bg' ? 'Пишете в Messenger' : 'Message on Messenger' ?> <?= k9_icon('arrow','k9-icon-up') ?></a>
@@ -148,7 +148,6 @@
 <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
 
 <script src="assets/js/site-20260905.js?v=20261010-speed1" defer></script>
-<script src="assets/js/callback-20261009.js?v=20261010-speed1" defer></script>
 <script src="assets/js/editorial-20261009.js?v=20261010-video2" defer></script>
 <script src="assets/js/floating-20260906.js?v=20260914-drag2" defer></script>
 <script src="assets/js/interface-20260906-glass.js?v=20261010-mark1" defer></script>

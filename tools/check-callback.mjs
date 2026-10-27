@@ -27,22 +27,21 @@ let pages=0;
 for(const path of [...['','en/'].flatMap(prefix=>Object.values(routes).map(slug=>prefix+slug+'index.html')),'404.html']){
  const html=await readFile(join(root,path),'utf8');
  const main=html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/)?.[1]||'';
- assert.equal((main.match(/data-callback-form/g)||[]).length,1,path+': one in-page callback form');
+ assert.equal((main.match(/id="call-me-back"/g)||[]).length,1,path+': one shared call CTA');
  const routeSlug=path==='404.html'?null:path.replace(/^en\//,'').replace(/index\.html$/,'');
  const routeName=routeSlug===null?null:Object.entries(routes).find(([,slug])=>slug===routeSlug)?.[0];
  const placementMarker=path==='404.html'?'K9 / 404':routeName?.startsWith('article-')?'id="article-1"':placementAfter[routeName];
  const callbackAt=main.indexOf('id="call-me-back"');
  assert(callbackAt>=0,path+': callback stays inside main content');
  assert(placementMarker&&main.slice(0,callbackAt).includes(placementMarker),path+': callback follows the selected content blocks below the hero');
- const form=main.match(/<form\b[^>]*data-callback-form[\s\S]*?<\/form>/)[0];
- assert(form.includes('action="https://www.nextgen.run/demo/k9/api/enquiry.php"'));
- const shown=form.replace(/<div hidden[\s\S]*?<\/div>/g,'');
- const inputs=[...shown.matchAll(/<input\b[^>]*>/g)].map(m=>m[0]).filter(tag=>!tag.includes('type="hidden"'));
- assert.equal(inputs.length,1);assert.match(inputs[0],/type="tel"/);assert.match(inputs[0],/name="phone"/);assert.match(inputs[0],/required/);
- assert(!shown.includes('type="checkbox"'));assert(form.includes('name="kind" value="callback"'));
- assert(main.includes('id="call-me-back"'));assert(html.includes('href="#call-me-back"'));
+ const section=main.match(/<section\b[^>]*id="call-me-back"[\s\S]*?<\/section>/)[0];
+ assert(!/<form\b|<input\b/.test(section),path+': direct calling requires no phone collection');
+ assert(section.includes('href="tel:+359892360550"'),path+': call link uses the academy number');
+ assert(section.includes('+359 892 360 550'),path+': readable phone number');
+ assert(section.includes(path.startsWith('en/')?'Call now':'Обадете се сега'),path+': translated call label');
+ assert(!html.includes('data-callback-form'),path+': no callback form');
  assert(!html.includes('class="learning-links k9-textured"'),path+': removed Next step block remains');
- assert(html.includes('callback-20261009.js?v=20261010-speed1'));pages++;
+ assert(!html.includes('<script src="/assets/js/callback-20261009.js'),path+': no unused callback script');pages++;
 }
 const source=await readFile(join(root,'assets/js/callback-20261009.js'),'utf8');
 function client({lang='en',response={ok:true,status:200,json:async()=>({ok:true})},failure=false,pending=false,phoneValue='+359 892 360 550'}={}){
@@ -88,7 +87,7 @@ try{
   if(override.HTTP_ACCEPT)assert.match(r.stdout,/<h1>/,name+': branded native response');
   else assert.match(r.stdout,new RegExp('"ok":'+(expected===200)),name);
  }
- console.log('PASS: '+pages+' callback pages, 8 client scenarios and '+cases.length+' endpoint cases. All mail transports mocked; no email sent.');
+ console.log('PASS: '+pages+' call CTA pages, 8 legacy client scenarios and '+cases.length+' endpoint cases. All mail transports mocked; no email sent.');
 }finally{
  const actual=await realpath(temp);
  assert.equal(dirname(actual),await realpath(tmpdir()));assert(basename(actual).startsWith('k9-callback-tests-'));
